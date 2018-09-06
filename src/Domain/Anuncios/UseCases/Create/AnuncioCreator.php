@@ -15,7 +15,6 @@ class AnuncioCreator
     public function __construct()
     {
 
-
     }
 
 }

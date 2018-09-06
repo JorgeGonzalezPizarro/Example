@@ -12,7 +12,6 @@ namespace App\Domain\Anuncios\UseCases\Create;
 use App\Domain\Anuncios\Domain\Anuncio;
 use App\Domain\Anuncios\Domain\Component\Components\Component;
 use App\Domain\Anuncios\Domain\Component\Components\ComponenteValidator;
-use Doctrine\ORM\Id\UuidGenerator;
 use http\Env\Request;
 
 class CreateAnuncioHandler
