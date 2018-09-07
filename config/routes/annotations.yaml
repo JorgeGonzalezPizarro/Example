@@ -1,3 +1,5 @@
-controllers:
-    resource: ../../src/Controller/
-    type: annotation
+#anuncio:
+#    path:
+#        es: /anuncio
+#        en: /about-us
+#    controller: src\controllers\AnuncioController::__construct

@@ -5,18 +5,29 @@
  * Date: 06/09/2018
  * Time: 19:32
  */
+    namespace api\controller;
+
 use http\Env\Request as Request;
+use App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler;
+use App\Domain\Anuncios\UseCases\Create\AuncioCreateCommand;
+
+
 class AnuncioController
 {
+    
+    
 
     public function __construct(Request $request)
     {
         $this->request=$request;
+        $this->postAnuncio($request);
     }
 
-    public function postAnuncio(){
-
-
+    public function __invoke($request){
+        echo "aa";
+        $anuncioHandler = new CreateAnuncioHandler();
+        
+        $anuncioHandler->invoke(new AuncioCreateCommand($request));
 
 
     }
