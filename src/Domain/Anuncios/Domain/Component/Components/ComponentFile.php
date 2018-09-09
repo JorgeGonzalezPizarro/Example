@@ -9,12 +9,32 @@
 namespace App\Domain\Anuncios\Domain\Component\Components;
 
 
-class ComponentFile
+use App\Domain\Anuncios\Domain\Component\Component;
+use App\Domain\Anuncios\Domain\Component\Components\FileComponentVO\TextFile;
+
+class ComponentFile extends Component
 {
 
-    public function __construct(TextFile $textFile)
+    public function __construct($textFile)
     {
-        $this->textFile=$textFile;
+        $textFile = new TextFile($textFile);
+        $this->textFile = $textFile->getText();
     }
 
+
+    public static function createComponent($componentType, $componentObject)
+    {
+        return new self ($componentObject['text']);
+    }
+
+    protected static function constructComponent($componentObject)
+    {
+        return new self ($componentObject['text']);
+
+    }
+
+    public function getComponent()
+    {
+        return $this;
+    }
 }

@@ -5,8 +5,8 @@
  * Date: 06/09/2018
  * Time: 20:22
  */
-    namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
+namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
 
 class AnuncioId
@@ -14,15 +14,10 @@ class AnuncioId
 
     public function __construct(UuIdAnuncio $uuIdAnuncio)
     {
-        $this->UuidAnuncio=$uuIdAnuncio;
-        $this->idAnuncio=$this->generateIdAnuncio();
+        $this->UuidAnuncio = $uuIdAnuncio;
 
 
     }
-    private function generateIdAnuncio(){
-
-        $this->UuidAnuncio->generateUuid();
 
 
-    }
 }

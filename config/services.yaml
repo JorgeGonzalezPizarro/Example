@@ -18,33 +18,28 @@ services:
                             # fetching services directly from the container via $container->get() won't work.
                             # The best practice is to be explicit about your dependencies anyway.
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
-   # App\:
-   #     resource: '../src/*'
-   #     exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
-    # controllers are imported separately to make sure services can be injected
-#    # as action arguments even if you don't extend any base controller class
-#    api\controllers\:
-#        resource: '../src/Controller/AnuncioController'
-#        tags: ['anuncio.controller.post']
-
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-#    api.controller.anuncio:
-#         class: AnuncioController
-#         arguments:
-
-    service_controller:
+    anuncio.controller:
         class: App\Controller\AnuncioController
-        arguments: ['@request_stack','@service_container']
+        public: true
+        tags: ['controller.service_arguments']
+    sunmedia.controller:
+        class: App\IO\Api\SunmediaController
+        arguments: ['@tactician.commandbus','@request_stack']
+
+
 
     App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler:
         class: App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler
         arguments: ['@anuncio_creator']
+        tags:
+        - { name: tactician.handler, command: App\Domain\Anuncios\UseCases\Create\AnuncioCommand , typehints: true}
+
+    anuncio_repository:
+        class : App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioRepository
     anuncio_repository_doctrine:
         class: App\Domain\Anuncios\Persistance\AnuncioPersistance
-        arguments: ['@Doctrine\ORM\EntityManagerInterface']
+        arguments: ['@Doctrine\Common\Persistence\ObjectManager']
     anuncio_creator:
         class: App\Domain\Anuncios\UseCases\Create\AnuncioCreator
+        arguments: ['@anuncio_repository_doctrine']

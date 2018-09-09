@@ -8,6 +8,7 @@
     namespace api\controller;
 namespace App\Controller;
 use App\Domain\Anuncios\UseCases\Create\AnuncioCommand;
+use App\IO\Api\SunmediaController;
 use http\Env\Request as Request;
 use App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler;
 use App\Domain\Anuncios\UseCases\Create\AuncioCreateCommand;
@@ -16,28 +17,17 @@ use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Route;
 
-class AnuncioController extends Controller
+class AnuncioController extends SunmediaController
 {
-    
 
-    public function __construct(RequestStack $request)
-    {
-        $this->request=$request->pop();
-        $this->__invoke($request);
+
+    public function __invoke(\Symfony\Component\HttpFoundation\Request $request){
+
+
+        $command = new AnuncioCommand($request);
+        $this->handle($command);
     }
 
-    public function __invoke($request){
-        echo "aa";
-        $command = new AnuncioCommand($this->request);
-        $anuncioHandler = new CreateAnuncioHandler();
-    
-        $anuncioHandler->invoke($command);
-    
-    
-        // $anuncioHandler->invoke(new AuncioCreateCommand($request));
-
-
-    }
 
 
 }

@@ -9,18 +9,22 @@
 namespace App\Domain\Anuncios\Domain\Component;
 
 
+use App\Domain\Anuncios\Domain\Component\Components\ComponentFile;
+
 abstract class Component
 {
 
-    protected abstract function constructComponent(Componente $componente);
+    protected abstract static function constructComponent($componente);
 
 
-    public static function createComponent($componente){
+    public static function createComponent($componentType, $componentObject)
+    {
+        $component = __NAMESPACE__ . '\Components\\' . $componentType;
+        return $component::constructComponent($componentObject);
 
-        return new $componente;
     }
 
-
+    public abstract function getComponent();
 
 
 }

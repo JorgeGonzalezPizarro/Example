@@ -5,12 +5,11 @@
  * Date: 06/09/2018
  * Time: 20:25
  */
-    
-    namespace App\Domain\Anuncios\Domain\AnuncioDomain;
+
+namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
 
-interface UuidAnuncio
-{
-
-    public function generateUuid();
-}
+    interface UuidAnuncio
+    {
+        public function generateUuid();
+    }
