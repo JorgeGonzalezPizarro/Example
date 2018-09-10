@@ -19,12 +19,7 @@ class ComponenteValidator
 
 
     }
-
-    public function __invoke()
-    {
-
-        /**TODO exception */
-    }
+    
 
     public static function typeComponent($component)
     {

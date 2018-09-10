@@ -9,7 +9,7 @@
 namespace App\Controller;
 use App\Domain\Anuncios\UseCases\Create\AnuncioCommand;
 use App\IO\Api\SunmediaController;
-use http\Env\Request as Request;
+
 use App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler;
 use App\Domain\Anuncios\UseCases\Create\AuncioCreateCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

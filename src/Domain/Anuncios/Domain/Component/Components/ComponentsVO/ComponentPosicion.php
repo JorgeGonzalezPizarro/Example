@@ -5,11 +5,11 @@
  * Date: 06/09/2018
  * Time: 20:22
  */
+    
+    namespace App\Domain\Anuncios\Domain\Component\Components\ComponentsVO;
 
-namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
-
-class AnuncioPosicion
+class ComponentPosicion
 {
 
     public function __construct($posicion)

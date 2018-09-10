@@ -6,10 +6,10 @@
  * Time: 20:22
  */
 
-namespace App\Domain\Anuncios\Domain\AnuncioDomain;
+namespace App\Domain\Anuncios\Domain\Component\Components\ComponentsVO;
 
 
-class AnuncioAncho
+class ComponentAncho
 {
 
 

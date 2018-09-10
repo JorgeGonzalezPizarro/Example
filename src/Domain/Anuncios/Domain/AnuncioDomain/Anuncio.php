@@ -11,6 +11,7 @@ namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
 use App\Domain\Anuncios\Domain\Component\Component;
 use App\Domain\Anuncios\Domain\States\IState;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Anuncio
 {
@@ -19,43 +20,25 @@ class Anuncio
 //    private const ANUNCIO_STATUS_STOPPED='Stopped';
 //    private const ANUNCIO_STATUS_PUBLISHING='Publishing';
 
-    private $anuncioNombre;
-    private $anuncioPosicion;
-    private $anuncioAncho;
-    private $anuncioAlto;
-    private $anuncioComponente;
+
+    private $anuncioComponents;
     private $anuncioState;
 
     public function __construct(AnuncioId $id,
-                                AnuncioNombre $anuncioNombre,
-                                AnuncioPosicion $anuncioPosicion,
-                                AnuncioAncho $anuncioAncho,
-                                AnuncioAlto $anuncioAlto,
                                 IState $anuncioState,
-                                Component $anuncioComponente)
+                                ArrayCollection $anuncioComponents)
     {
         $this->id = $id;
-        $this->anuncioNombre = $anuncioNombre;
-        $this->anuncioPosicion = $anuncioPosicion;
-        $this->anuncioAncho = $anuncioAncho;
-        $this->anuncioAlto = $anuncioAlto;
-        $this->anuncioComponente = $anuncioComponente;
+        $this->anuncioComponents = $anuncioComponents;
         $this->anuncioState = $anuncioState;
     }
 
     public static function createAnuncio(AnuncioId $id,
-                                         AnuncioNombre $anuncioNombre,
-                                         AnuncioPosicion $anuncioPosicion,
-                                         AnuncioAncho $anuncioAncho,
-                                         AnuncioAlto $anuncioAlto,
                                          IState $anuncioState,
-                                         Component $anuncioComponente)
+                                         ArrayCollection $anuncioComponente)
     {
-        return new self($id,
-            $anuncioNombre,
-            $anuncioPosicion,
-            $anuncioAncho,
-            $anuncioAlto,
+        return new self(
+            $id,
             $anuncioState,
             $anuncioComponente);
     }

@@ -10,7 +10,6 @@ namespace App\IO\Api;
 
 
 use FOS\RestBundle\FOSRestBundle;
-use http\Env\Request;
 use League\Tactician\CommandBus;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\RequestStack;

@@ -14,31 +14,23 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 
 class AnuncioCommand
 {
-    private $anuncioNombre;
-    private $anuncioPosicion;
-    private $anuncioAncho;
-    private $anuncioAlto;
-    private $anuncioComponente;
+    private $anuncioComponents;
     private $anuncioState;
 
 
     public function __construct(\Symfony\Component\HttpFoundation\Request $request)
     {
         $this->request = $request;
-        $this->anuncioNombre = $request->get('nombre');
-        $this->anuncioPosicion = $request->get('posicion');
-        $this->anuncioAncho = $request->get('ancho');
-        $this->anuncioAlto = $request->get('alto');
-        $this->anuncioComponente = $request->get('componente');
+        $this->anuncioComponents = $request->get('components');
         $this->anuncioState = $request->get('state');
     }
 
     /**
      * @return mixed
      */
-    public function getAnuncioComponente()
+    public function getAnuncioComponents()
     {
-        return $this->anuncioComponente;
+        return $this->anuncioComponents;
     }
 
     /**
@@ -49,38 +41,7 @@ class AnuncioCommand
         return $this->anuncioState;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAnuncioAlto()
-    {
-        return $this->anuncioAlto;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getAnuncioAncho()
-    {
-        return $this->anuncioAncho;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getAnuncioNombre()
-    {
-        return $this->anuncioNombre;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAnuncioPosicion()
-    {
-        return $this->anuncioPosicion;
-    }
 
     /**
      * @return mixed

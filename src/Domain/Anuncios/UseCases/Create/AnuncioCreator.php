@@ -11,17 +11,18 @@ namespace App\Domain\Anuncios\UseCases\Create;
 
 
 use App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio;
-use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioAlto;
-use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioAncho;
+use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentAlto;
+use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentAncho;
 use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioId;
-use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioNombre;
-use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioPosicion;
+use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentNombre;
+use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentPosicion;
 use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioRepository;
 use App\Domain\Anuncios\Domain\AnuncioDomain\UuidAnuncio;
 use App\Domain\Anuncios\Domain\Component\Component;
 use App\Domain\Anuncios\Domain\Component\ComponenteValidator;
 use App\Domain\Anuncios\Domain\IState;
 use App\Domain\Anuncios\Domain\States\StateValidator;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class AnuncioCreator
 {
@@ -34,21 +35,14 @@ class AnuncioCreator
 
     public function __invoke(
         AnuncioId $id,
-        AnuncioNombre $anuncioNombre,
-        AnuncioPosicion $anuncioPosicion,
-        AnuncioAlto $anuncioAlto,
-        AnuncioAncho $anuncioAncho,
         \App\Domain\Anuncios\Domain\States\IState $anuncioState,
-        Component $anuncioComponente)
+        ArrayCollection $components)
     {
         Anuncio::createAnuncio(
             $id,
-            $anuncioNombre,
-            $anuncioPosicion,
-            $anuncioAncho,
-            $anuncioAlto,
+           
             $anuncioState,
-            $anuncioComponente
+            $components
         );
 
 
