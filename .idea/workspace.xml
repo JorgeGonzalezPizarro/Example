@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="753c134c-685a-49c9-9e9d-8b298ffde728" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ArrayComponents.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/anuncio.dcm.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/anuncio.orm.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MyBundle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AnuncioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnuncioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioAlto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentsVO/ComponentAlto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioAncho.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentsVO/ComponentAncho.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioNombre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentsVO/ComponentNombre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioPosicion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentsVO/ComponentPosicion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Component.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Component.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/ComponenteValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/ComponenteValidator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/AnuncioCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/AnuncioCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/AnuncioCreator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/AnuncioCreator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/CreateAnuncioHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/CreateAnuncioHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IO/Api/SunmediaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO/Api/SunmediaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublish.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublish.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,14 +71,14 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6625981">
+    <splitter split-orientation="horizontal" split-proportion="0.5042511">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="console" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/bin/console">
+          <file leaf-file-name="doctrine.yaml" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="70">
-                  <caret line="9" selection-start-line="9" selection-end-line="9" />
+                <state relative-caret-position="238">
+                  <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -98,8 +92,60 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="annotations.yaml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
+          <file leaf-file-name="services.yaml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/config/services.yaml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="364">
+                  <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="anuncio.orm.yaml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Entity/anuncio.orm.yaml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="182">
+                  <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="bundles.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/config/bundles.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="154">
+                  <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MyBundle.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/MyBundle.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="42">
+                  <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Kernel.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Kernel.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-37" />
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="anuncio.dcm.yml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/anuncio.dcm.yml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="126">
+                  <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="doctrine_migrations.yaml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/config/packages/doctrine_migrations.yaml">
               <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
@@ -112,44 +158,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="services.yaml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/config/services.yaml">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file leaf-file-name="bundles.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/config/bundles.php">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file leaf-file-name="VideoWeight.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/VideoComponentVO/VideoWeight.php">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file leaf-file-name="VideoFormat.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/VideoComponentVO/VideoFormat.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="doctrine.yaml" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="602">
-                  <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="doctrine_migrations.yaml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/config/packages/doctrine_migrations.yaml">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -157,7 +165,7 @@
           <file leaf-file-name="AnuncioController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Controller/AnuncioController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="294">
+                <state relative-caret-position="182">
                   <caret line="26" selection-start-line="26" selection-end-line="26" />
                   <folding>
                     <element signature="e#146#201#0#PHP" expanded="true" />
@@ -169,7 +177,7 @@
           <file leaf-file-name="AnuncioCommand.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/AnuncioCommand.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
+                <state relative-caret-position="476">
                   <caret line="40" selection-start-line="40" selection-end-line="40" />
                 </state>
               </provider>
@@ -178,7 +186,7 @@
           <file leaf-file-name="DebugClassLoader.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/vendor/symfony/debug/DebugClassLoader.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
+                <state relative-caret-position="2072">
                   <caret line="155" selection-start-line="155" selection-end-line="155" />
                 </state>
               </provider>
@@ -187,17 +195,26 @@
           <file leaf-file-name="StateValidator.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StateValidator.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="299">
+                <state relative-caret-position="406">
                   <caret line="34" selection-start-line="34" selection-end-line="34" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="StatePublish.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="StatePublish.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublish.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="182">
-                  <caret line="18" selection-start-line="18" selection-end-line="18" />
+                <state relative-caret-position="420">
+                  <caret line="35" selection-start-line="35" selection-end-line="35" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Anuncio.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="140">
+                  <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
                 </state>
               </provider>
             </entry>
@@ -205,7 +222,7 @@
           <file leaf-file-name="SunmediaController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/IO/Api/SunmediaController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
+                <state relative-caret-position="196">
                   <caret line="22" selection-start-line="22" selection-end-line="22" />
                   <folding>
                     <element signature="e#115#148#0#PHP" expanded="true" />
@@ -214,19 +231,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Container.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vendor/symfony/dependency-injection/Container.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="383">
-                  <caret line="248" selection-start-line="248" selection-end-line="248" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="ControllerResolver.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/vendor/symfony/framework-bundle/Controller/ControllerResolver.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="327">
+                <state relative-caret-position="770">
                   <caret line="65" selection-start-line="65" selection-end-line="65" />
                 </state>
               </provider>
@@ -235,7 +243,7 @@
           <file leaf-file-name="HttpKernel.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/HttpKernel.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="439">
+                <state relative-caret-position="1540">
                   <caret line="135" selection-start-line="135" selection-end-line="135" />
                 </state>
               </provider>
@@ -244,7 +252,7 @@
           <file leaf-file-name="ControllerResolver.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/Controller/ControllerResolver.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="292">
+                <state relative-caret-position="1148">
                   <caret line="90" selection-start-line="90" selection-end-line="90" />
                 </state>
               </provider>
@@ -262,6 +270,7 @@
       <find>Istate</find>
       <find>anuncialto</find>
       <find>db_</find>
+      <find>user</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -270,22 +279,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/States/StatePublishInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/States/StateInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/States/StateStop.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/States/StatePublishing.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/States/StatePublish.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/States/IState.php" />
-        <option value="$PROJECT_DIR$/api/controllers/AnuncioController.php" />
-        <option value="$PROJECT_DIR$/config/routes/annotations.yaml" />
-        <option value="$PROJECT_DIR$/config/packages/routing.yaml" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/AuncioCreateCommand.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Persistance/AnuncioPersistance.php" />
-        <option value="$PROJECT_DIR$/config/services.yaml" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ImageComponent/ComponentImage.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ImageComponent/ImageFormat.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ImageComponent/ImageUrl.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/VideoComponent/ComponentVideo.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponenteValidator.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/FileComponent/ComponentFile.php" />
@@ -295,7 +288,6 @@
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublishing.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StateStop.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/IState.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublish.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioAlto.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioAncho.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioId.php" />
@@ -316,11 +308,28 @@
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentsVO/ComponentNombre.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentsVO/ComponentAlto.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentFile.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/ComponenteValidator.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/CreateAnuncioHandler.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/anuncio.yaml" />
+        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublish.php" />
+        <option value="$PROJECT_DIR$/config/packages/Anuncio.yml" />
+        <option value="$PROJECT_DIR$/config/packages/Anuncio.orm.yml" />
+        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/MyBundleç.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/MyBundle.php" />
+        <option value="$PROJECT_DIR$/src/MyBundle.php" />
+        <option value="$PROJECT_DIR$/config/bundles.php" />
+        <option value="$PROJECT_DIR$/src/anuncio.orm.yaml" />
+        <option value="$PROJECT_DIR$/src/anuncio.dcm.yaml" />
+        <option value="$PROJECT_DIR$/src/Resources/config/doctrine/anuncio.dcm.yaml" />
+        <option value="$PROJECT_DIR$/src/Repository/MyBundleAnuncioRepository.php" />
+        <option value="$PROJECT_DIR$/src/Entity/MyBundleAnuncio.php" />
+        <option value="$PROJECT_DIR$/src/Resources/config/doctrine/anuncio.orm.yaml" />
+        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/anuncio.orm.yaml" />
+        <option value="$PROJECT_DIR$/src/Entity/anuncio.orm.yaml" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
+        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/anuncio.dcm.yml" />
+        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php" />
       </list>
     </option>
   </component>
@@ -402,13 +411,15 @@
       <path value="$PROJECT_DIR$/vendor/symfony/templating" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
       <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1036" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -468,6 +479,27 @@
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="AnuncioDomain" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Anuncios" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="States" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IO" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -481,22 +513,22 @@
     <property name="last_opened_file_path" value="C:/xampp/htdocs/backend" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Example\src\Controller" />
-      <recent name="C:\xampp\htdocs\Example\src\Domain\Anuncios\States" />
-      <recent name="C:\xampp\htdocs\Example\src\Domain\Anuncios\Domain\AnuncioDomain" />
-      <recent name="C:\xampp\htdocs\Example\src\Domain\Anuncios\Domain\Component\Components" />
-      <recent name="C:\xampp\htdocs\Example\src\Domain\Anuncios\Domain\Component\Components\ImageComponent" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Example\src" />
+      <recent name="C:\wamp64\www\Example\src\Resources\config\doctrine" />
       <recent name="C:\wamp64\www\Example\src\Domain\Anuncios\Domain\AnuncioDomain" />
       <recent name="C:\wamp64\www\Example\src\Domain\Anuncios\Domain\Component\Components\ComponentsVO" />
       <recent name="C:\wamp64\www\Example\src\Domain\Anuncios\Domain\Component\Components" />
-      <recent name="C:\wamp64\www\Example\src\Domain\Anuncios\Domain\Component\Components\FileComponent" />
-      <recent name="C:\wamp64\www\Example\src\Domain\Anuncios\Domain\Component" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Example\src\Resources\config\doctrine" />
+      <recent name="C:\wamp64\www\Example\src\Entity" />
+      <recent name="C:\wamp64\www\Example\src" />
+      <recent name="C:\wamp64\www\Example\src\Domain\Anuncios\Domain\AnuncioDomain" />
+      <recent name="C:\xampp\htdocs\Example\src\Controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -538,11 +570,12 @@
       <workItem from="1536499158652" duration="12283000" />
       <workItem from="1536561770724" duration="3850000" />
       <workItem from="1536565763918" duration="4895000" />
+      <workItem from="1536574382235" duration="15272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60446000" />
+    <option name="totallyTimeSpent" value="75718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -555,17 +588,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.32905984" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.20628998" side_tool="true" visible="true" weight="0.22875817" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50159913" side_tool="true" visible="true" weight="0.04248366" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" weight="0.3297414" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49731544" weight="0.32905984" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18283582" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18496802" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.32763532" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49840087" weight="0.3267974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.79371" weight="0.22875817" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -638,7 +672,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php</url>
-          <line>39</line>
+          <line>63</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -673,7 +707,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php</url>
-          <line>30</line>
+          <line>48</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -728,62 +762,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/ramsey/uuid/src/Uuid.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="594" selection-start-line="594" selection-end-line="594" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/ramsey/uuid/src/Codec/StringCodec.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IO/UuidGenerator/UUid.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Proxy/Autoloader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublishing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StateStop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="182" column="21" selection-start-line="182" selection-start-column="21" selection-end-line="182" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/UuidAnuncio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/FileComponentVO/TextFile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -805,13 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioId.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ArrayComponents.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -825,28 +796,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/dependency-injection/Container.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
+        <state relative-caret-position="3276">
           <caret line="248" selection-start-line="248" selection-end-line="248" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/framework-bundle/Controller/ControllerResolver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
+        <state relative-caret-position="770">
           <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/Controller/ControllerResolver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
+        <state relative-caret-position="1148">
           <caret line="90" selection-start-line="90" selection-end-line="90" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/http-kernel/HttpKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
+        <state relative-caret-position="1540">
           <caret line="135" selection-start-line="135" selection-end-line="135" />
         </state>
       </provider>
@@ -865,9 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/eula.1028.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentsVO/ComponentAlto.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -884,7 +852,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IO/Api/SunmediaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="196">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#115#148#0#PHP" expanded="true" />
@@ -915,7 +883,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AnuncioController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
+        <state relative-caret-position="182">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#146#201#0#PHP" expanded="true" />
@@ -956,21 +924,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/debug/DebugClassLoader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
+        <state relative-caret-position="2072">
           <caret line="155" selection-start-line="155" selection-end-line="155" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/UseCases/Create/AnuncioCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="476">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StateValidator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
+        <state relative-caret-position="406">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
@@ -979,20 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublish.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -1017,12 +971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/VideoComponentVO/VideoUrl.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/VideoComponentVO/VideoWeight.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/VideoComponentVO/VideoFormat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1037,6 +985,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/league_tactician.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/fos_rest.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/States/StatePublish.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/AnuncioId.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="22" column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/Anuncio.orm.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/anuncio.dcm.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="40" selection-start-column="40" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/MyBundleAnuncioRepository.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/MyBundleAnuncio.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Resources/config/doctrine/anuncio.orm.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine_migrations.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/bundles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -1044,8 +1055,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/anuncio.orm.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/anuncio.dcm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.yaml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1055,18 +1084,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/bundles.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine_migrations.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        <state relative-caret-position="238">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Anuncios/Domain/AnuncioDomain/Anuncio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
         </state>
       </provider>
     </entry>

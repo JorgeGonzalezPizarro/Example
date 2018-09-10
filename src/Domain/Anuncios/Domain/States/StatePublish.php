@@ -35,6 +35,7 @@ class StatePublish implements IState
     }
 
     public function getStatus()
+    
     {
         return $this::STATE;
     }

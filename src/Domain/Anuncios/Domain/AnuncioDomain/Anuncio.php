@@ -12,18 +12,36 @@ namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 use App\Domain\Anuncios\Domain\Component\Component;
 use App\Domain\Anuncios\Domain\States\IState;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="product")
+ */
 class Anuncio
 {
 
-//    private const ANUNCIO_STATUS_PUBLISH='Published';
-//    private const ANUNCIO_STATUS_STOPPED='Stopped';
-//    private const ANUNCIO_STATUS_PUBLISHING='Publishing';
 
-
+    
+    /**
+     * @var AnuncioId
+     */
+    private $id;
+    /**
+     * @var string
+     */
     private $anuncioComponents;
+    /**
+     * @var string
+     */
     private $anuncioState;
-
+    
+    /**
+     * Anuncio constructor.
+     * @param AnuncioId $id
+     * @param IState $anuncioState
+     * @param ArrayCollection $anuncioComponents
+     */
     public function __construct(AnuncioId $id,
                                 IState $anuncioState,
                                 ArrayCollection $anuncioComponents)
@@ -32,7 +50,13 @@ class Anuncio
         $this->anuncioComponents = $anuncioComponents;
         $this->anuncioState = $anuncioState;
     }
-
+    
+    /**
+     * @param AnuncioId $id
+     * @param IState $anuncioState
+     * @param ArrayCollection $anuncioComponente
+     * @return Anuncio
+     */
     public static function createAnuncio(AnuncioId $id,
                                          IState $anuncioState,
                                          ArrayCollection $anuncioComponente)
