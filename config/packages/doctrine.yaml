@@ -21,9 +21,9 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            MyBundle:
+            App:
                 is_bundle: true
-                type: annotation
-                dir: '/Entity'
-                prefix: 'MyBundle\Entity'
-                alias: MyBundle
+                type: yml
+                # "dir" in this case must be pointed where are stored your doctrine files (can be anywhere inside the project dir)
+                dir: "%kernel.project_dir%/config/doctrine"
+                prefix: App\Entity
