@@ -1,4 +1,34 @@
 <?php
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Annotations\AnnotationReader;
+
+$paths = array( realpath(__DIR__."/../src/My/Entity") );
+$isDevMode = TRUE;
+
+// the connection configuration
+$dbParams = array(
+    'driver'   => 'pdo_mysql',
+    'user'     => 'root',
+    'password' => '',
+    'dbname'   => 'example',
+);
+
+$cache = new \Doctrine\Common\Cache\ArrayCache();
+
+$reader = new AnnotationReader();
+$driver = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($reader, $paths);
+
+$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+$config->setMetadataCacheImpl( $cache );
+$config->setQueryCacheImpl( $cache );
+$config->setMetadataDriverImpl( $driver );
+
+$entityManager = EntityManager::create($dbParams, $config);
+
+//-- This I had to add to support the Mysql enum type.
+$platform = $entityManager->getConnection()->getDatabasePlatform();
+$platform->registerDoctrineTypeMapping('enum', 'string');
 
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],

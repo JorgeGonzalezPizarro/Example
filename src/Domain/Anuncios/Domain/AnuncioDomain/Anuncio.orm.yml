@@ -1,0 +1,8 @@
+App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio:
+  type: entity
+  table: anuncio
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
