@@ -12,12 +12,26 @@ namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 class AnuncioId
 {
 
-    public function __construct(UuIdAnuncio $uuIdAnuncio)
+    private $anuncioId;
+    public function __construct()
     {
-        $this->UuidAnuncio = $uuIdAnuncio;
-
-
+        $this->anuncioId = $this->generateUuid();
     }
 
-
+    public static function generateUuid(){
+        
+        return \App\IO\UuidGenerator\UUid::generateUuid();
+        
+    }
+    
+    public  function uuidToString(){
+    
+       return $this->anuncioId->toString();
+    }
+    
+    public function __toString()
+    {
+        return $this->anuncioId->toString();
+    }
+    
 }

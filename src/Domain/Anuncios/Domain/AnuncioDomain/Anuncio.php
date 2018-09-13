@@ -10,9 +10,11 @@ namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
 
 use App\Domain\Anuncios\Domain\Component\Component;
-use App\Domain\Anuncios\Domain\States\IState;
+use App\Domain\Anuncios\Domain\Component\Components\ArrayComponents;
+use App\Domain\Anuncios\Domain\States\State;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * @ORM\Entity
@@ -20,104 +22,61 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Anuncio
 {
-    /**
-     * @return AnuncioId
-     */
-    public function getId(): AnuncioId
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param AnuncioId $id
-     */
-    public function setId(AnuncioId $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAnuncioComponents(): string
-    {
-        return $this->anuncioComponents;
-    }
-
-    /**
-     * @param string $anuncioComponents
-     */
-    public function setAnuncioComponents(string $anuncioComponents): void
-    {
-        $this->anuncioComponents = $anuncioComponents;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAnuncioState(): string
-    {
-        return $this->anuncioState;
-    }
-
-    /**
-     * @param string $anuncioState
-     */
-    public function setAnuncioState(string $anuncioState): void
-    {
-        $this->anuncioState = $anuncioState;
-    }
 
 
-    
-    /**
-     * @var AnuncioId
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-    /**
-     * @var string
-     * @ORM\Column(type="string")
-     */
+
+    private $anuncioId;
+
     private $anuncioComponents;
-    /**
-     * @var string
-     * @ORM\Column(type="string")
-     */
+
     private $anuncioState;
     
     /**
      * Anuncio constructor.
      * @param AnuncioId $id
-     * @param IState $anuncioState
+     * @param State $anuncioState
      * @param ArrayCollection $anuncioComponents
      */
     public function __construct(AnuncioId $id,
-                                IState $anuncioState,
+                                State $anuncioState,
                                 ArrayCollection $anuncioComponents)
     {
-        $this->id = $id;
+        $this->anuncioId = $id->uuidToString();
         $this->anuncioComponents = $anuncioComponents;
-        $this->anuncioState = $anuncioState;
+        $this->anuncioState = $anuncioState->getStatus();
+        
+        
+        $eventDispatcher = new EventDispatcher();
+    
     }
     
     /**
      * @param AnuncioId $id
-     * @param IState $anuncioState
+     * @param State $anuncioState
      * @param ArrayCollection $anuncioComponente
      * @return Anuncio
      */
     public static function createAnuncio(AnuncioId $id,
-                                         IState $anuncioState,
-                                         ArrayCollection $anuncioComponente)
+                                         State $anuncioState,
+                                         ArrayComponents $anuncioComponents)
     {
         return new self(
             $id,
             $anuncioState,
-            $anuncioComponente);
+            $anuncioComponents);
     }
-
-
+    
+    public function getAssocietComponents()
+    {
+        if (!empty($this->getComponentsAsArray())) {
+            return $this->getComponentsAsArray();
+        }
+    
+        return new ArrayComponents();
+    }
+    private function getComponentsAsArray(){
+        
+        return $this->anuncioComponents->toArray();
+        
+    }
 }

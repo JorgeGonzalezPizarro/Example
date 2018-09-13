@@ -1,4 +1,7 @@
 {
+    "composer/ca-bundle": {
+        "version": "1.1.2"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -64,6 +67,9 @@
     },
     "doctrine/reflection": {
         "version": "v1.0.0"
+    },
+    "embed/embed": {
+        "version": "v3.3.5"
     },
     "friendsofsymfony/rest-bundle": {
         "version": "2.2",

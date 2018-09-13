@@ -1,7 +1,0 @@
-App\Domain\Anuncios\Domain\AnuncioDomain:
-  type: entity
-    fields:
-      id:
-        type: string
-      nombre:
-        length: 140

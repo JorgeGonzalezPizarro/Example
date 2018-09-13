@@ -1,0 +1,17 @@
+App\Domain\Anuncios\Domain\Component\Components\ComponentVideo :
+  type : entity
+  table: ComponentVideo
+  fields:
+    videoUrl:
+      type: string
+      length: 50
+    videoFormat:
+      type: string
+      length: 50
+    videoWeight:
+      type: string
+      length: 50
+  embedded:
+    position:
+      class: App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentPosition
+

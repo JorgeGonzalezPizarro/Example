@@ -21,13 +21,13 @@ class ComponenteValidator
     }
     
 
-    public static function typeComponent($component)
+    public static function typeComponent($anuncioId,$component)
     {
         $type = $component['type'];
         $path = "Component";
         $class = $path . $type;
         try {
-            return Component::createComponent($class, $component);
+            return Component::createComponent($anuncioId,$class, $component);
         } catch (\Exception $exception) {
         }
     }

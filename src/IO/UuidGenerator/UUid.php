@@ -8,19 +8,13 @@
 
 namespace App\IO\UuidGenerator;
 
-use App\Domain\Anuncios\Domain\Anuncio\UuidAnuncio;
 
-class UUid implements \App\Domain\Anuncios\Domain\AnuncioDomain\UuidAnuncio
+class UUid extends \Ramsey\Uuid\Uuid  implements \App\Domain\Anuncios\Domain\AnuncioDomain\UUid
 {
-    public function __construct()
-    {
-        $this->id = $this->generateUuid();
-    }
-
-    public function generateUuid()
+    
+    public static function   generateUuid()
     {
 
-        $uuid1 = \Ramsey\Uuid\Uuid::uuid1();
-        return $uuid1->toString();
+        return  \Ramsey\Uuid\Uuid::uuid1();
     }
 }

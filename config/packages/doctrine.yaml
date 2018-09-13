@@ -16,6 +16,8 @@ doctrine:
             collate: utf8mb4_unicode_ci
 
         url: '%env(resolve:DATABASE_URL)%'
+        types :
+            TypeAlto : App\Domain\Anuncios\Domain\Component\Components\CustomTypes\TypeAlto
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -27,3 +29,18 @@ doctrine:
                 # "dir" in this case must be pointed where are stored your doctrine files (can be anywhere inside the project dir)
                 dir: "Domain/Anuncios/Domain/AnuncioDomain"
                 prefix: App\Domain\Anuncios\Domain\AnuncioDomain
+            Components:
+                is_bundle: false
+                type: yml
+                dir: "%kernel.project_dir%/src/Domain/Anuncios/Domain/Component/Components"
+                prefix: App\Domain\Anuncios\Domain\Component\Components
+            Component:
+                is_bundle: false
+                type: yml
+                dir: "%kernel.project_dir%/src/Domain/Anuncios/Domain/Component"
+                prefix: App\Domain\Anuncios\Domain\Component
+            Embebed:
+                is_bundle: false
+                type: yml
+                dir: "%kernel.project_dir%/src/Domain/Anuncios/Domain/Component/Components/ComponentsVO"
+                prefix: App\Domain\Anuncios\Domain\Component\Components\ComponentsVO

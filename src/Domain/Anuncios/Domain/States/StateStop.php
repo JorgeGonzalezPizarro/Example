@@ -9,7 +9,7 @@
 namespace App\Domain\Anuncios\Domain\States;
 
 
-class StateStop implements IState
+class StateStop implements State
 {
     private const STATE = 'STOP';
 

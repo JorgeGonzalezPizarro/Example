@@ -1,0 +1,12 @@
+App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentPosition:
+  type: embeddable
+  fields:
+    x:
+     type: string
+     column : x
+    y:
+     type: string
+     column : y
+    z:
+     type: string
+     column : z

@@ -37,9 +37,21 @@ services:
 
     anuncio_repository:
         class : App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioRepository
+
+    component_repository:
+        class : App\Domain\Anuncios\Domain\Component\ComponentRepository
     anuncio_repository_doctrine:
         class: App\Domain\Anuncios\Persistance\AnuncioPersistance
-        arguments: ['@Doctrine\Common\Persistence\ObjectManager']
+        arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio , '@doctrine.orm.entity_manager']
     anuncio_creator:
         class: App\Domain\Anuncios\UseCases\Create\AnuncioCreator
-        arguments: ['@anuncio_repository_doctrine']
+        arguments: ['@anuncio_repository_doctrine' ,'@components_repository_doctrine']
+    App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId:
+        class: App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId
+        arguments: ['@rampsey_id']
+    anuncio_id:
+        class: App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioId
+        arguments: ['@rampsey_id']
+    components_repository_doctrine:
+        class: App\Domain\Anuncios\Persistance\ComponentsPersistance
+        arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\Component\Component , '@doctrine.orm.entity_manager']

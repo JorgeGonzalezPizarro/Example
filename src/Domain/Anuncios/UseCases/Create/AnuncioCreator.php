@@ -17,9 +17,11 @@ use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioId;
 use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentNombre;
 use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentPosicion;
 use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioRepository;
-use App\Domain\Anuncios\Domain\AnuncioDomain\UuidAnuncio;
+use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentRepository;
+use App\Domain\Anuncios\Domain\AnuncioDomain\Uuid;
 use App\Domain\Anuncios\Domain\Component\Component;
 use App\Domain\Anuncios\Domain\Component\ComponenteValidator;
+use App\Domain\Anuncios\Domain\Component\Components\ArrayComponents;
 use App\Domain\Anuncios\Domain\IState;
 use App\Domain\Anuncios\Domain\States\StateValidator;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -27,25 +29,30 @@ use Doctrine\Common\Collections\ArrayCollection;
 class AnuncioCreator
 {
 
-    public function __construct(AnuncioRepository $anuncioRepository)
+    public function __construct(AnuncioRepository $anuncioRepository , \App\Domain\Anuncios\Domain\Component\ComponentRepository $componentsRepository)
     {
         $this->anuncioRepository = $anuncioRepository;
+        $this->componentsRepository = $componentsRepository;
 
     }
 
     public function __invoke(
         AnuncioId $id,
-        \App\Domain\Anuncios\Domain\States\IState $anuncioState,
+        \App\Domain\Anuncios\Domain\States\State $anuncioState,
         ArrayCollection $components)
     {
-        Anuncio::createAnuncio(
+        $anuncio = Anuncio::createAnuncio(
             $id,
-           
             $anuncioState,
             $components
         );
-
-
+        $this->anuncioRepository->store($anuncio);
+        $components = $anuncio->getAssocietComponents();
+        foreach ($components as $component) {
+            $this->componentsRepository->store($component);
+        }
+        
+        $this->componentsRepository->finishStoreAnuncio();
     }
 
 }

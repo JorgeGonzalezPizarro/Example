@@ -9,25 +9,22 @@
 namespace App\Domain\Anuncios\UseCases\Create;
 
 
-use App\Domain\Anuncios\Domain\Anuncio\_;
 use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentAlto;
 use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentAncho;
 use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioId;
 use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentNombre;
 use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentPosicion;
-use App\Domain\Anuncios\Domain\AnuncioDomain\UuidAnuncio;
+use App\Domain\Anuncios\Domain\AnuncioDomain\Uuid;
 use App\Domain\Anuncios\Domain\Component\ComponenteValidator;
 use App\Domain\Anuncios\Domain\Component\Components\ArrayComponents;
-use App\IO\UuidGenerator\UUid;
 use App\Domain\Anuncios\Domain\States\StateValidator;
 use Doctrine\Common\Collections\ArrayCollection;
-use http\Env\Request;
-use App\Domain\Anuncios\Domain\Anuncio\AnuncioState;
 
 class CreateAnuncioHandler
 {
 
     private $anuncioCreator;
+    private $uuidGenerator;
 
     public function __construct(AnuncioCreator $anuncioCreator)
 
@@ -39,14 +36,15 @@ class CreateAnuncioHandler
     {
         
         $componentsList = new ArrayComponents();
+        $anuncioId= new AnuncioId();
         foreach($anuncioCommand->getAnuncioComponents() as $component){
-            $componentsList->add(ComponenteValidator::typeComponent($component));
+            $componentsList->add(ComponenteValidator::typeComponent($anuncioId,$component));
         }
         
         
         $state = StateValidator::fromRequest($anuncioCommand->getAnuncioState());
         $this->anuncioCreator->__invoke(
-            new AnuncioId(new UUid()),
+            $anuncioId,
             $state,
             $componentsList);
 

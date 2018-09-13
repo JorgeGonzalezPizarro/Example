@@ -9,7 +9,6 @@
 
 namespace App\Domain\Anuncios\UseCases\Create;
 
-use http\Env\Request;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 class AnuncioCommand
@@ -33,9 +32,6 @@ class AnuncioCommand
         return $this->anuncioComponents;
     }
 
-    /**
-     * @return mixed
-     */
     public function getAnuncioState()
     {
         return $this->anuncioState;
@@ -43,17 +39,11 @@ class AnuncioCommand
 
 
 
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return Request
-     */
     public function getRequest(): Request
     {
         return $this->request;

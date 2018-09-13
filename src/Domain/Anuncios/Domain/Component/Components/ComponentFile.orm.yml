@@ -1,0 +1,10 @@
+App\Domain\Anuncios\Domain\Component\Components\ComponentFile :
+  type : entity
+  table: ComponentFile
+  fields:
+    textFile:
+      type: string
+      length: 50
+  embedded:
+    position:
+      class: App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentPosition

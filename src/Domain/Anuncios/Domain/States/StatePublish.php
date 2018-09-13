@@ -9,7 +9,7 @@
 namespace App\Domain\Anuncios\Domain\States;
 
 
-class StatePublish implements IState
+class StatePublish extends State
 {
     private const STATE = 'PUBLISH';
 

@@ -71,6 +71,10 @@ class ComposerStaticInit61dbbd448a6732768ae4678171600503
         array (
             'FOS\\RestBundle\\' => 15,
         ),
+        'E' => 
+        array (
+            'Embed\\' => 6,
+        ),
         'D' => 
         array (
             'Doctrine\\ORM\\' => 13,
@@ -84,6 +88,10 @@ class ComposerStaticInit61dbbd448a6732768ae4678171600503
             'Doctrine\\Bundle\\MigrationsBundle\\' => 33,
             'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 36,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
+        ),
+        'C' => 
+        array (
+            'Composer\\CaBundle\\' => 18,
         ),
         'A' => 
         array (
@@ -249,6 +257,10 @@ class ComposerStaticInit61dbbd448a6732768ae4678171600503
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
         ),
+        'Embed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/embed/embed/src',
+        ),
         'Doctrine\\ORM\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM',
@@ -295,6 +307,10 @@ class ComposerStaticInit61dbbd448a6732768ae4678171600503
         'Doctrine\\Bundle\\DoctrineBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
+        ),
+        'Composer\\CaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
         ),
         'App\\Tests\\' => 
         array (

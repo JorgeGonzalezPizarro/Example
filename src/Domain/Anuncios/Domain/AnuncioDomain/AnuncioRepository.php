@@ -13,7 +13,8 @@ namespace App\Domain\Anuncios\Domain\AnuncioDomain;
     {
         public function exists($id);
 
-        public function store($video);
-
+        public function store($anuncio);
+        
+        public function storeAnuncioWithComponents($anuncio,$components);
 
     }
