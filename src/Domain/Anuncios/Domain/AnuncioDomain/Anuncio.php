@@ -10,6 +10,7 @@ namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
 
 use App\Domain\Anuncios\Domain\Component\Component;
+use App\Domain\Anuncios\Domain\Component\ComponenteValidator;
 use App\Domain\Anuncios\Domain\Component\Components\ArrayComponents;
 use App\Domain\Anuncios\Domain\States\State;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -42,10 +43,10 @@ class Anuncio
                                 ArrayCollection $anuncioComponents)
     {
         $this->anuncioId = $id->uuidToString();
-        $this->anuncioComponents = $anuncioComponents;
         $this->anuncioState = $anuncioState->getStatus();
-        
-        
+    
+        $this->anuncioComponents=$this->agreggateComponents($anuncioComponents);
+    
         $eventDispatcher = new EventDispatcher();
     
     }
@@ -60,10 +61,37 @@ class Anuncio
                                          State $anuncioState,
                                          ArrayComponents $anuncioComponents)
     {
+        
         return new self(
             $id,
             $anuncioState,
             $anuncioComponents);
+        
+    }
+    
+    
+    private function agreggateComponents(ArrayComponents $anuncioComponents)
+    {
+    
+    
+        if (!$this->guardExistsComponents($anuncioComponents)) {
+            return $anuncioComponents;
+        }
+        $componentsCreated = new ArrayComponents();
+        foreach ($anuncioComponents->toArray() as $component) {
+            $componentsCreated->addComponentIfExist(ComponenteValidator::typeComponent($this->anuncioId, $component));
+        }
+    
+        return  $componentsCreated;
+        }
+    
+    private function guardExistsComponents(ArrayComponents $anuncioComponents){
+        
+        if(empty($anuncioComponents->toArray())){
+            return false;
+        }
+        return true;
+        
     }
     
     public function getAssocietComponents()
@@ -79,4 +107,7 @@ class Anuncio
         return $this->anuncioComponents->toArray();
         
     }
+    
+    
+    
 }

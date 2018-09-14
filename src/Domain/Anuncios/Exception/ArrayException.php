@@ -6,7 +6,7 @@
      * Time: 19:23
      */
     
-    namespace App\Domain\Anuncios\Domain\Component\Components;
+    namespace App\Domain\Anuncios\Exception;
     
     
     use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentAlto;
@@ -15,9 +15,10 @@
     use App\Domain\Anuncios\Domain\AnuncioDomain\ComponentPosicion;
     use App\Domain\Anuncios\Domain\Component\Component;
     use App\Domain\Anuncios\Domain\Component\Components\FileComponentVO\TextFile;
+    use App\Domain\Anuncios\Exception\DomainException;
     use Doctrine\Common\Collections\ArrayCollection;
 
-    class ArrayComponents extends ArrayCollection
+    class ArrayException extends ArrayCollection
     {
         
      
@@ -26,13 +27,19 @@
          parent::__construct($elements);
      }
      
-    public function addComponentIfExist($component){
+    public static function addException($exception , callable $exceptionCallable){
          
-         if($component instanceof Component){
-         return  $this->add($component);
+         if($exceptionCallable instanceof DomainException){
+         return  parent::add($exceptionCallable);
          }
          return;
          
+         
+    }
+    
+    public static function getExceptions(){
+         
+         return parent::toArray();
          
     }
     

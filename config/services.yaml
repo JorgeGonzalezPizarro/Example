@@ -55,3 +55,9 @@ services:
     components_repository_doctrine:
         class: App\Domain\Anuncios\Persistance\ComponentsPersistance
         arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\Component\Component , '@doctrine.orm.entity_manager']
+
+
+    event_domain_exception.listener:
+        class: App\Domain\Anuncios\Exception\ExceptionDomainListener
+        tags :
+        - { name: tactician.handler, event: kernel.exception , method: onDomainException}

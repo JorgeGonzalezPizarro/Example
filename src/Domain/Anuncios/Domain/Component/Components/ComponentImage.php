@@ -10,7 +10,12 @@ namespace App\Domain\Anuncios\Domain\Component\Components;
 
 
 use App\Domain\Anuncios\Domain\Component\Component;
+use App\Domain\Anuncios\Exception\ImplementDomainException;
 use Doctrine\ORM\Mapping as ORM;
+use DomainException;
+use Exception;
+use App\Domain\Anuncios\Exception\ArrayException;
+use function json_encode;
 
 /**
  * @ORM\Entity
@@ -41,14 +46,22 @@ class ComponentImage extends Component
     
     protected static function constructComponent($anuncioId,$componentObject)
     {
-        return new self ($anuncioId,
-            $componentObject['imageUrl'],
-            $componentObject['imageFormat'],
-            $componentObject['imageWeight'],
-            $componentObject['ancho'],
-            $componentObject['alto'],
-            $componentObject['position'],
-            $componentObject['name']);;
+        try {
+            return new self ($anuncioId,
+                $componentObject['imageUrl'],
+                $componentObject['imageFormat'],
+                $componentObject['imageWeight'],
+                $componentObject['ancho'],
+                $componentObject['alto'],
+                $componentObject['position'],
+                $componentObject['name']);;
+        } catch (ImplementDomainException $domainException) {
+        
+            ArrayException::addException($domainException,  new ImplementDomainException($domainException));
+//            throw new ImplementDomainException($domainException->getMessage() .self::class . " \n ".
+//                json_encode($componentObject,true) , 500 , null,false);
+//    }
+        }
     }
     
     public function getComponentId()

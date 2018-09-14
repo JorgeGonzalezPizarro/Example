@@ -269,6 +269,9 @@
       <argument>App\Domain\Anuncios\Domain\Component\Component</argument>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
+    <service id="event_domain_exception.listener" class="App\Domain\Anuncios\Exception\ExceptionDomainListener" public="false" autowire="true" autoconfigure="true">
+      <tag name="tactician.handler" event="kernel.exception" method="onDomainException"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>

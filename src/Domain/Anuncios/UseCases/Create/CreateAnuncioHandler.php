@@ -24,7 +24,6 @@ class CreateAnuncioHandler
 {
 
     private $anuncioCreator;
-    private $uuidGenerator;
 
     public function __construct(AnuncioCreator $anuncioCreator)
 
@@ -38,8 +37,9 @@ class CreateAnuncioHandler
         $componentsList = new ArrayComponents();
         $anuncioId= new AnuncioId();
         foreach($anuncioCommand->getAnuncioComponents() as $component){
-            $componentsList->add(ComponenteValidator::typeComponent($anuncioId,$component));
+            $componentsList->add($component);
         }
+        
         
         
         $state = StateValidator::fromRequest($anuncioCommand->getAnuncioState());

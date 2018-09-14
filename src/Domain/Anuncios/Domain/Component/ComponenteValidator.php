@@ -9,7 +9,12 @@
 
 namespace App\Domain\Anuncios\Domain\Component;
 
+use App\Domain\Anuncios\Exception\ExceptionDomain;
+use App\Domain\Anuncios\Exception\ExceptionDomainPublisher;
+use App\Domain\Anuncios\Exception\ImplementDomainException;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Finder\Finder;
+use Throwable;
 
 class ComponenteValidator
 {
@@ -26,10 +31,11 @@ class ComponenteValidator
         $type = $component['type'];
         $path = "Component";
         $class = $path . $type;
-        try {
             return Component::createComponent($anuncioId,$class, $component);
-        } catch (\Exception $exception) {
-        }
+        
+            
+            
+      
     }
 
 }
