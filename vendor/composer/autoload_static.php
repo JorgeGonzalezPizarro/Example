@@ -54,7 +54,12 @@ class ComposerStaticInit61dbbd448a6732768ae4678171600503
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
+            'PhpAmqpLib\\' => 11,
             'PackageVersions\\' => 16,
+        ),
+        'O' => 
+        array (
+            'OldSound\\RabbitMqBundle\\' => 24,
         ),
         'N' => 
         array (
@@ -229,9 +234,17 @@ class ComposerStaticInit61dbbd448a6732768ae4678171600503
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'PhpAmqpLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-amqplib/php-amqplib/PhpAmqpLib',
+        ),
         'PackageVersions\\' => 
         array (
             0 => __DIR__ . '/..' . '/ocramius/package-versions/src/PackageVersions',
+        ),
+        'OldSound\\RabbitMqBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-amqplib/rabbitmq-bundle',
         ),
         'Negotiation\\' => 
         array (
@@ -329,12 +342,35 @@ class ComposerStaticInit61dbbd448a6732768ae4678171600503
             array (
                 0 => __DIR__ . '/..' . '/ocramius/proxy-manager/src',
             ),
+            'PhpOption\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
+            ),
+            'PhpCollection' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpcollection/phpcollection/src',
+            ),
+        ),
+        'M' => 
+        array (
+            'Metadata\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/metadata/src',
+            ),
         ),
         'J' => 
         array (
             'JsonpCallbackValidator' => 
             array (
                 0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
+            ),
+            'JMS\\Serializer' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/serializer/src',
+            ),
+            'JMS\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/parser-lib/src',
             ),
         ),
         'D' => 

@@ -27,10 +27,10 @@
          parent::__construct($elements);
      }
      
-    public static function addException($exception , callable $exceptionCallable){
+    public static function addException($exception ){
          
-         if($exceptionCallable instanceof DomainException){
-         return  parent::add($exceptionCallable);
+         if($exception instanceof DomainException){
+         return  parent::add($exception);
          }
          return;
          

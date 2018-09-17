@@ -5,7 +5,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 
 parameters:
-
+  rabbitmq_host: 'localhost:15672'
+  rabbitmq_user: 'guest'
+  rabbitmq_password: 'guest'
+  rabbitmq_statuslayer_vhost: 'example'
 services:
 
 #    app.hello_controller:
@@ -45,7 +48,7 @@ services:
         arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio , '@doctrine.orm.entity_manager']
     anuncio_creator:
         class: App\Domain\Anuncios\UseCases\Create\AnuncioCreator
-        arguments: ['@anuncio_repository_doctrine' ,'@components_repository_doctrine']
+        arguments: ['@anuncio_repository_doctrine' ,'@components_repository_doctrine','@event_domain.publisher']
     App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId:
         class: App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId
         arguments: ['@rampsey_id']
@@ -61,3 +64,5 @@ services:
         class: App\Domain\Anuncios\Exception\ExceptionDomainListener
         tags :
         - { name: tactician.handler, event: kernel.exception , method: onDomainException}
+    event_domain.publisher:
+        class: App\IO\Events\DomainEventPublisherRabbitMq

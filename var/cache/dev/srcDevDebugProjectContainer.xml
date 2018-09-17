@@ -67,6 +67,10 @@
     <parameter key="container.autowiring.strict_mode">true</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="env(DATABASE_URL)">DATABASE_URL=mysql://root:@127.0.0.1:3306/example</parameter>
+    <parameter key="rabbitmq_host">localhost:15672</parameter>
+    <parameter key="rabbitmq_user">guest</parameter>
+    <parameter key="rabbitmq_password">guest</parameter>
+    <parameter key="rabbitmq_statuslayer_vhost">example</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
@@ -256,6 +260,7 @@
     <service id="anuncio_creator" class="App\Domain\Anuncios\UseCases\Create\AnuncioCreator" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="anuncio_repository_doctrine"/>
       <argument type="service" id="components_repository_doctrine"/>
+      <argument type="service" id="event_domain.publisher"/>
     </service>
     <service id="App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId" class="App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="rampsey_id"/>
@@ -272,6 +277,7 @@
     <service id="event_domain_exception.listener" class="App\Domain\Anuncios\Exception\ExceptionDomainListener" public="false" autowire="true" autoconfigure="true">
       <tag name="tactician.handler" event="kernel.exception" method="onDomainException"/>
     </service>
+    <service id="event_domain.publisher" class="App\IO\Events\DomainEventPublisherRabbitMq" public="false" autowire="true" autoconfigure="true"/>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>

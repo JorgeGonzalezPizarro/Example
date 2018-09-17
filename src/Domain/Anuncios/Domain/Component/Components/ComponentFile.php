@@ -36,7 +36,13 @@ class ComponentFile extends Component
     protected $componentId;
     protected $anuncioId;
     private $textFile;
-    public function __construct($componentId,$anuncioId,$textFile,$ancho,$alto,$position,$nombre)
+    public function __construct($componentId,
+                                $anuncioId,
+                                $textFile,
+                                $ancho =null,
+                                $alto=null,
+                                $position=null,
+                                $nombre=null)
     {
         
         $this->componentId=$componentId->uuidToString();

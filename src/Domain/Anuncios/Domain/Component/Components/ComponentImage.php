@@ -55,12 +55,12 @@ class ComponentImage extends Component
                 $componentObject['alto'],
                 $componentObject['position'],
                 $componentObject['name']);;
-        } catch (ImplementDomainException $domainException) {
-        
-            ArrayException::addException($domainException,  new ImplementDomainException($domainException));
-//            throw new ImplementDomainException($domainException->getMessage() .self::class . " \n ".
-//                json_encode($componentObject,true) , 500 , null,false);
-//    }
+        }
+        catch (Exception $domainException) {
+
+            ArrayException::addException($domainException);
+            throw new ImplementDomainException(self::class);
+
         }
     }
     

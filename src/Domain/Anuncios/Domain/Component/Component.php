@@ -9,6 +9,7 @@
 namespace App\Domain\Anuncios\Domain\Component;
 
 
+use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioWasCreatedEvent;
 use App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId;
 use App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\TypeId;
 
@@ -30,7 +31,7 @@ abstract class Component
         $component = __NAMESPACE__ . '\Components\\' . $componentType;
         $componentId=new ComponentId();
         $componentObject['id']=$componentId;
-        return $component::constructComponent($anuncioId,$componentObject);
+        //  return $component::constructComponent($anuncioId,$componentObject);
     }
     public abstract function getAnuncioId();
     public abstract function setAnuncioId($anuncioId);

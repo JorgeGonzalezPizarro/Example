@@ -9,6 +9,7 @@
 namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
 
+use App\Domain\Anuncios\Domain\AgregateRoot;
 use App\Domain\Anuncios\Domain\Component\Component;
 use App\Domain\Anuncios\Domain\Component\ComponenteValidator;
 use App\Domain\Anuncios\Domain\Component\Components\ArrayComponents;
@@ -21,7 +22,7 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
  * @ORM\Entity
  * @ORM\Table(name="Anuncio")
  */
-class Anuncio
+class Anuncio extends AgregateRoot
 {
 
 
@@ -44,9 +45,11 @@ class Anuncio
     {
         $this->anuncioId = $id->uuidToString();
         $this->anuncioState = $anuncioState->getStatus();
-    
-        $this->anuncioComponents=$this->agreggateComponents($anuncioComponents);
-    
+      //  $this->anuncioComponents=$this->agreggateComponents($anuncioComponents);
+
+        $this->saveDomainEvent(new AnuncioWasCreatedEvent($this->anuncioId,
+                                array('state' => $this->anuncioState , "components" => $anuncioComponents->toArray())));
+
         $eventDispatcher = new EventDispatcher();
     
     }
