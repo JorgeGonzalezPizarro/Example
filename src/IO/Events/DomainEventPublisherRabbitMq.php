@@ -33,7 +33,12 @@ class DomainEventPublisherRabbitMq  implements EventPublisher
     public function publish(array $domainEvent)
     {
         foreach ($domainEvent as $event) {
-            $this->channel->exchange_declare('exchange'.$event->getService(),'topic',false,false,false);
+          $exchange=  $this->channel->exchange_declare(
+                'exchange'.$event->getService(),
+                'direct',
+                false,
+                false,
+                false);
             //$this->channel->queue_declare('EXAMPLE.' . $event->getService() . '.' . '1.' . $event->getTypeEvent() . '.' . $event->getAggregateName() . '.' . $event->getEventName(), false, false, false, false);
 
             $queueName = null;
@@ -41,15 +46,16 @@ class DomainEventPublisherRabbitMq  implements EventPublisher
             $queueMessage = new AMQPMessage($jsonFormatter->serialize($event, 'json'));
 
             /* Only push certain types of parcels to certain queues */
-            switch (true) {
                 /* Provided cases for matching queueName */
-                case $event instanceof AnuncioWasCreatedEvent:
                     $routingKey = 'EXAMPLE.' . $event->getService() . '.' . '1.' . $event->getTypeEvent() . '.' . $event->getAggregateName() . '.' . $event->getEventName();
                     //list($queue_name, ,) = $this->channel->queue_declare($queueName, false, false, true, false);
+            list($queue_name, ,) = $this->channel->queue_declare($routingKey);
 
-            }
                 try {
-                    $this->channel->basic_publish($queueMessage, 'exchange'.$event->getService(),$routingKey);
+                    $this->channel->basic_publish(
+                        $queueMessage, $exchange,
+                        $queue_name);
+
                 } catch (Exception $e) {
                 print_r($e);
                 }
