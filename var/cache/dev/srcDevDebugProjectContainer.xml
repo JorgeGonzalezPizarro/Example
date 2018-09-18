@@ -6,7 +6,7 @@
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">src</parameter>
-    <parameter key="kernel.cache_dir">C:/wamp64/www/Example/var/cache/dev</parameter>
+    <parameter key="kernel.cache_dir">C:\wamp64\www\Example\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\wamp64\www\Example\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -85,11 +85,11 @@
       <parameter key="cookie_httponly">true</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:/wamp64/www/Example/var/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">C:\wamp64\www\Example\var\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="data_collector.templates" type="collection"/>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:/wamp64/www/Example/var/cache/dev/srcDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\wamp64\www\Example\var\cache\dev/srcDevDebugProjectContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
@@ -97,7 +97,7 @@
     <parameter key="router.cache_class_prefix">srcDevDebugProjectContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">C:/wamp64/www/Example/var/cache/dev/serialization.php</parameter>
+    <parameter key="serializer.mapping.cache.file">C:\wamp64\www\Example\var\cache\dev/serialization.php</parameter>
     <parameter key="serializer.mapping.cache.prefix"></parameter>
     <parameter key="doctrine_cache.apc.class">Doctrine\Common\Cache\ApcCache</parameter>
     <parameter key="doctrine_cache.apcu.class">Doctrine\Common\Cache\ApcuCache</parameter>
@@ -211,7 +211,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:/wamp64/www/Example/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\wamp64\www\Example\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine_migrations.dir_name">C:\wamp64\www\Example/src/Migrations</parameter>
     <parameter key="doctrine_migrations.namespace">DoctrineMigrations</parameter>
@@ -236,6 +236,13 @@
   </parameters>
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" public="true" synthetic="true"/>
+    <service id="App\Command\ExampleCommand" class="App\Command\ExampleCommand" public="false" autowire="true" autoconfigure="true">
+      <tag name="console.command" command="app:example"/>
+      <tag name="console.command"/>
+      <call method="setName">
+        <argument>app:example</argument>
+      </call>
+    </service>
     <service id="anuncio.controller" class="App\Controller\AnuncioController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <argument type="service" id="tactician.commandbus.default"/>
@@ -245,7 +252,7 @@
       <argument type="service" id="tactician.commandbus.default"/>
       <argument type="service" id="request_stack"/>
     </service>
-    <service id="App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler" class="App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler" public="false" autowire="true" autoconfigure="true">
+    <service id="App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler" class="App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler" public="false" autowire="true" autoconfigure="true">
       <tag name="tactician.handler" command="App\Domain\Anuncios\UseCases\Create\AnuncioCommand" typehints="1"/>
       <argument type="service" id="anuncio_creator"/>
     </service>
@@ -257,7 +264,7 @@
       <argument>App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio</argument>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
-    <service id="anuncio_creator" class="App\Domain\Anuncios\UseCases\Create\AnuncioCreator" public="false" autowire="true" autoconfigure="true">
+    <service id="anuncio_creator" class="App\Domain\Anuncios\UseCases\CreateAnuncio\AnuncioCreator" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="anuncio_repository_doctrine"/>
       <argument type="service" id="components_repository_doctrine"/>
       <argument type="service" id="event_domain.publisher"/>
@@ -677,6 +684,25 @@
         <argument>debug:event-dispatcher</argument>
       </call>
     </service>
+    <service id="console.command.messenger_consume_messages" class="Symfony\Component\Messenger\Command\ConsumeMessagesCommand" public="false">
+      <tag name="console.command" command="messenger:consume-messages"/>
+      <argument type="service" id="debug.traced.messenger.bus.default"/>
+      <argument type="service" id="messenger.receiver_locator"/>
+      <argument type="service" id="logger" on-invalid="null"/>
+      <argument type="collection"/>
+      <call method="setName">
+        <argument>messenger:consume-messages</argument>
+      </call>
+    </service>
+    <service id="console.command.messenger_debug" class="Symfony\Component\Messenger\Command\DebugCommand" public="false">
+      <tag name="console.command" command="debug:messenger"/>
+      <argument type="collection">
+        <argument key="messenger.bus.default" type="collection"/>
+      </argument>
+      <call method="setName">
+        <argument>debug:messenger</argument>
+      </call>
+    </service>
     <service id="console.command.router_debug" class="Symfony\Bundle\FrameworkBundle\Command\RouterDebugCommand" public="false">
       <tag name="console.command" command="debug:router"/>
       <argument type="service" id="router.default"/>
@@ -701,7 +727,7 @@
       <tag name="cache.pool"/>
       <argument>1tPTSzCA1c</argument>
       <argument>0</argument>
-      <argument>C:/wamp64/www/Example/var/cache/dev/pools</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/pools</argument>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
       </call>
@@ -714,7 +740,7 @@
       <argument>RRQzbooj8t</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/Example/var/cache/dev/pools</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -723,7 +749,7 @@
       <argument>tC8M2OAhLB</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/Example/var/cache/dev/pools</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -732,7 +758,7 @@
       <argument>ujUIfC7L2V</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/Example/var/cache/dev/pools</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -741,7 +767,7 @@
       <argument>A9qliXqgPR</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/Example/var/cache/dev/pools</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -751,7 +777,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/wamp64/www/Example/var/cache/dev/pools</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/pools</argument>
       <argument type="service" id="logger" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -780,7 +806,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:/wamp64/www/Example/var/cache/dev/pools</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/pools</argument>
       <call method="setLogger">
         <argument type="service" id="logger" on-invalid="ignore"/>
       </call>
@@ -853,7 +879,7 @@
       </argument>
     </service>
     <service id=".1_NativeFileSessionHandler~pdOqsN4" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
-      <argument>C:/wamp64/www/Example/var/cache/dev/sessions</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/sessions</argument>
     </service>
     <service id="session" class="Symfony\Component\HttpFoundation\Session\Session" public="true">
       <argument type="service" id="session.storage.native"/>
@@ -876,7 +902,7 @@
     <service id="session.flash_bag" class="Symfony\Component\HttpFoundation\Session\Flash\FlashBag" public="false"/>
     <service id="session.attribute_bag" class="Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag" public="false"/>
     <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
-      <argument>C:/wamp64/www/Example/var/cache/dev/sessions</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -997,7 +1023,7 @@
       <argument type="service" id=".service_locator.oNnsU_h.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp64/www/Example/var/cache/dev</argument>
+        <argument key="cache_dir">C:\wamp64\www\Example\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -1066,7 +1092,7 @@
       <argument type="service" id="routing.loader.annotation"/>
     </service>
     <service id=".2_PhpArrayAdapter~Pk0aq9k" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>C:/wamp64/www/Example/var/cache/dev/annotations.php</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1095,7 +1121,7 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>C:/wamp64/www/Example/var/cache/dev/annotations.php</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!AbstractController$|Controller$))#</argument>
       <argument>true</argument>
@@ -1163,11 +1189,11 @@
           </service>
         </argument>
       </argument>
-      <argument>C:/wamp64/www/Example/var/cache/dev/serialization.php</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>C:/wamp64/www/Example/var/cache/dev/serialization.php</argument>
+      <argument>C:\wamp64\www\Example\var\cache\dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1187,6 +1213,54 @@
     <service id="property_info.serializer_extractor" class="Symfony\Component\PropertyInfo\Extractor\SerializerExtractor" public="false">
       <tag name="property_info.list_extractor" priority="-999"/>
       <argument type="service" id="serializer.mapping.class_metadata_factory"/>
+    </service>
+    <service id="messenger.asynchronous.routing.sender_locator" class="Symfony\Component\Messenger\Asynchronous\Routing\SenderLocator" public="false">
+      <argument type="service" id="messenger.sender_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id="messenger.middleware.route_messages" class="Symfony\Component\Messenger\Asynchronous\Middleware\SendMessageMiddleware" public="false">
+      <argument type="service" id="messenger.asynchronous.routing.sender_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id="messenger.transport.serializer" class="Symfony\Component\Messenger\Transport\Serialization\Serializer" public="false">
+      <argument type="service" id="serializer"/>
+      <argument>json</argument>
+      <argument type="collection"/>
+    </service>
+    <service id="messenger.middleware.allow_no_handler" class="Symfony\Component\Messenger\Middleware\AllowNoHandlerMiddleware" public="false" abstract="true"/>
+    <service id="messenger.middleware.call_message_handler" class="Symfony\Component\Messenger\Middleware\HandleMessageMiddleware" public="false" abstract="true">
+      <argument></argument>
+    </service>
+    <service id="messenger.middleware.validation" class="Symfony\Component\Messenger\Middleware\ValidationMiddleware" public="false" abstract="true">
+      <argument type="service" id="validator"/>
+    </service>
+    <service id="messenger.middleware.logging" class="Symfony\Component\Messenger\Middleware\LoggingMiddleware" public="false" abstract="true">
+      <tag name="monolog.logger" channel="messenger"/>
+      <argument type="service" id="logger"/>
+    </service>
+    <service id="messenger.data_collector" class="Symfony\Component\Messenger\DataCollector\MessengerDataCollector" public="false">
+      <tag name="data_collector" template="@WebProfiler/Collector/messenger.html.twig" id="messenger" priority="100"/>
+      <call method="registerBus">
+        <argument>messenger.bus.default</argument>
+        <argument type="service" id="debug.traced.messenger.bus.default"/>
+      </call>
+    </service>
+    <service id="messenger.receiver_locator" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id="messenger.sender_locator" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id="messenger.transport_factory" class="Symfony\Component\Messenger\Transport\TransportFactory" public="false">
+      <argument type="tagged" tag="messenger.transport_factory"/>
+    </service>
+    <service id="messenger.transport.amqp.factory" class="Symfony\Component\Messenger\Transport\AmqpExt\AmqpTransportFactory" public="false">
+      <tag name="messenger.transport_factory"/>
+      <argument type="service" id="messenger.transport.serializer"/>
+      <argument type="service" id="messenger.transport.serializer"/>
+      <argument>true</argument>
     </service>
     <service id="doctrine_cache.abstract.apc" class="Doctrine\Common\Cache\ApcCache" abstract="true"/>
     <service id="doctrine_cache.abstract.apcu" class="Doctrine\Common\Cache\ApcuCache" abstract="true"/>
@@ -1482,7 +1556,7 @@
         <argument type="service" id="doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:/wamp64/www/Example/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>C:\wamp64\www\Example\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -1678,7 +1752,7 @@
       <tag name="console.command"/>
       <argument type="collection">
         <argument key="default" type="collection">
-          <argument key="App\Domain\Anuncios\UseCases\Create\AnuncioCommand">App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler</argument>
+          <argument key="App\Domain\Anuncios\UseCases\CreateAnuncio\AnuncioCommand">App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler</argument>
         </argument>
       </argument>
     </service>
@@ -1909,6 +1983,8 @@
       <tag name="maker.command"/>
       <argument>C:\wamp64\www\Example</argument>
     </service>
+    <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\ExampleCommand" class="App\Command\ExampleCommand" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Command\ExampleCommand" class="App\Command\ExampleCommand" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.anuncio_repository_doctrine" class="App\Domain\Anuncios\Persistance\AnuncioPersistance" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.anuncio_repository_doctrine" class="App\Domain\Anuncios\Persistance\AnuncioPersistance" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.components_repository_doctrine" class="App\Domain\Anuncios\Persistance\ComponentsPersistance" public="false" autowire="true" abstract="true"/>
@@ -2084,6 +2160,23 @@
         <argument key="inline" type="service" id="fragment.renderer.inline"/>
       </argument>
     </service>
+    <service id="messenger.bus.default.middleware.logging" class="Symfony\Component\Messenger\Middleware\LoggingMiddleware" public="false">
+      <argument type="service" id="logger"/>
+    </service>
+    <service id="messenger.bus.default.middleware.call_message_handler" class="Symfony\Component\Messenger\Middleware\HandleMessageMiddleware" public="false">
+      <argument type="service" id="messenger.bus.default.messenger.handler_resolver"/>
+    </service>
+    <service id="debug.traced.messenger.bus.default" class="Symfony\Component\Messenger\TraceableMessageBus">
+      <tag name="messenger.bus"/>
+      <argument type="service" id="debug.traced.messenger.bus.default.inner"/>
+    </service>
+    <service id="messenger.bus.default.messenger.handler_resolver" class="Symfony\Component\Messenger\Handler\Locator\ContainerHandlerLocator">
+      <argument type="service" id=".service_locator.9_yeNH1"/>
+    </service>
+    <service id=".service_locator.9_yeNH1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
     <service id=".service_locator.T76XN_V" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -2094,13 +2187,13 @@
     <service id="tactician.commandbus.default.handler.service_locator" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler" type="service" id="App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler"/>
+        <argument key="App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler" type="service" id="App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler"/>
       </argument>
     </service>
     <service id="tactician.commandbus.default.handler.locator" class="League\Tactician\Container\ContainerLocator">
       <argument type="service" id="tactician.commandbus.default.handler.service_locator"/>
       <argument type="collection">
-        <argument key="App\Domain\Anuncios\UseCases\Create\AnuncioCommand">App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler</argument>
+        <argument key="App\Domain\Anuncios\UseCases\CreateAnuncio\AnuncioCommand">App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler</argument>
       </argument>
     </service>
     <service id="tactician.commandbus.default.middleware.command_handler" class="League\Tactician\Handler\CommandHandlerMiddleware">
@@ -2114,6 +2207,13 @@
       </argument>
     </service>
     <service id="logger" class="Symfony\Component\HttpKernel\Log\Logger" public="false"/>
+    <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus" public="false">
+      <argument type="collection">
+        <argument type="service" id="messenger.bus.default.middleware.logging"/>
+        <argument type="service" id="messenger.middleware.route_messages"/>
+        <argument type="service" id="messenger.bus.default.middleware.call_message_handler"/>
+      </argument>
+    </service>
     <service id=".service_locator.oNnsU_h" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -2139,8 +2239,9 @@
     <service id=".errored..service_locator..7uNotq.Symfony\Component\DependencyInjection\ContainerBuilder" class="Symfony\Component\DependencyInjection\ContainerBuilder"/>
     <service id=".errored..service_locator.bxfMTph.Symfony\Component\Console\Application" class="Symfony\Component\Console\Application"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.cVeLfM2"/>
+      <argument type="service" id=".service_locator.fTUX3fc"/>
       <argument type="collection">
+        <argument key="app:example">App\Command\ExampleCommand</argument>
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
         <argument key="cache:clear">console.command.cache_clear</argument>
@@ -2153,6 +2254,8 @@
         <argument key="debug:container">console.command.container_debug</argument>
         <argument key="debug:autowiring">console.command.debug_autowiring</argument>
         <argument key="debug:event-dispatcher">console.command.event_dispatcher_debug</argument>
+        <argument key="messenger:consume-messages">console.command.messenger_consume_messages</argument>
+        <argument key="debug:messenger">console.command.messenger_debug</argument>
         <argument key="debug:router">console.command.router_debug</argument>
         <argument key="router:match">console.command.router_match</argument>
         <argument key="lint:yaml">console.command.yaml_lint</argument>
@@ -2198,9 +2301,10 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.cVeLfM2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.fTUX3fc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Command\ExampleCommand" type="service" id="App\Command\ExampleCommand"/>
         <argument key="console.command.about" type="service" id="console.command.about"/>
         <argument key="console.command.assets_install" type="service" id="console.command.assets_install"/>
         <argument key="console.command.cache_clear" type="service" id="console.command.cache_clear"/>
@@ -2213,6 +2317,8 @@
         <argument key="console.command.container_debug" type="service" id="console.command.container_debug"/>
         <argument key="console.command.debug_autowiring" type="service" id="console.command.debug_autowiring"/>
         <argument key="console.command.event_dispatcher_debug" type="service" id="console.command.event_dispatcher_debug"/>
+        <argument key="console.command.messenger_consume_messages" type="service" id="console.command.messenger_consume_messages"/>
+        <argument key="console.command.messenger_debug" type="service" id="console.command.messenger_debug"/>
         <argument key="console.command.router_debug" type="service" id="console.command.router_debug"/>
         <argument key="console.command.router_match" type="service" id="console.command.router_match"/>
         <argument key="console.command.yaml_lint" type="service" id="console.command.yaml_lint"/>
@@ -2297,6 +2403,10 @@
     <service id="Symfony\Component\Serializer\Mapping\ClassDiscriminatorResolverInterface" alias="serializer.mapping.class_discriminator_resolver" public="false"/>
     <service id="Symfony\Component\Serializer\Normalizer\ObjectNormalizer" alias="serializer.normalizer.object" public="false"/>
     <service id="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface" alias="serializer.mapping.class_metadata_factory" public="false"/>
+    <service id="messenger.transport.encoder" alias="messenger.transport.serializer"/>
+    <service id="messenger.transport.decoder" alias="messenger.transport.serializer"/>
+    <service id="message_bus" alias="debug.traced.messenger.bus.default" public="true"/>
+    <service id="Symfony\Component\Messenger\MessageBusInterface" alias="debug.traced.messenger.bus.default"/>
     <service id="Doctrine\DBAL\Driver\Connection" alias="doctrine.dbal.default_connection" public="false"/>
     <service id="Doctrine\DBAL\Connection" alias="doctrine.dbal.default_connection" public="false"/>
     <service id="Doctrine\Common\Persistence\ManagerRegistry" alias="doctrine" public="false"/>
@@ -2324,7 +2434,9 @@
     <service id="fos_rest.serializer" alias="fos_rest.serializer.symfony"/>
     <service id="Psr\Log\LoggerInterface" alias="logger" public="false"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~pdOqsN4" public="false"/>
-    <service id=".service_locator.d2zZViE" alias="tactician.commandbus.default.handler.service_locator" public="false"/>
+    <service id=".service_locator.YUq96kP" alias="messenger.sender_locator" public="false"/>
+    <service id=".service_locator.pJNLORz" alias="tactician.commandbus.default.handler.service_locator" public="false"/>
+    <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
     <service id="console.command.public_alias.doctrine_cache.contains_command" alias="doctrine_cache.contains_command" public="true"/>
     <service id="console.command.public_alias.doctrine_cache.delete_command" alias="doctrine_cache.delete_command" public="true"/>
     <service id="console.command.public_alias.doctrine_cache.flush_command" alias="doctrine_cache.flush_command" public="true"/>

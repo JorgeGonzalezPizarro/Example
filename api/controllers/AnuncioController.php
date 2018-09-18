@@ -8,8 +8,8 @@
     namespace api\controller;
 
 use http\Env\Request as Request;
-use App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler;
-use App\Domain\Anuncios\UseCases\Create\AuncioCreateCommand;
+use App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler;
+use App\Domain\Anuncios\UseCases\CreateAnuncio\AuncioCreateCommand;
 
 
 class AnuncioController

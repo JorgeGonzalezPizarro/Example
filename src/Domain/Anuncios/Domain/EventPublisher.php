@@ -9,7 +9,6 @@
 namespace App\Domain\Anuncios\Domain;
 
 
-use App\IO\Events\DomainEvent;
 
 interface EventPublisher
 {

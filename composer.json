@@ -25,6 +25,7 @@
         "symfony/framework-bundle": "*",
         "symfony/http-foundation": "*",
         "symfony/maker-bundle": "^1.7",
+        "symfony/messenger": "*",
         "symfony/orm-pack": "^1.0",
         "symfony/serializer": "*",
         "symfony/web-server-bundle": "*",

@@ -1,5 +1,7 @@
 <?php
-/**
+    
+    
+    /**
  * Created by PhpStorm.
  * User: JorgePc
  * Date: 17/09/2018
@@ -8,14 +10,10 @@
 
 namespace App\IO\Events;
 
-use App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio;
-use App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioWasCreatedEvent;
-use JMS\Serializer\Serializer;
+use App\Domain\Anuncios\Domain\EventPublisher;
 use JMS\Serializer\SerializerBuilder;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
-use App\Domain\Anuncios\Domain\EventPublisher;
 use PhpAmqpLib\Message\AMQPMessage;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class DomainEventPublisherRabbitMq  implements EventPublisher
 {
@@ -33,28 +31,23 @@ class DomainEventPublisherRabbitMq  implements EventPublisher
     public function publish(array $domainEvent)
     {
         foreach ($domainEvent as $event) {
-          $exchange=  $this->channel->exchange_declare(
-                'exchange'.$event->getService(),
-                'direct',
-                false,
-                false,
-                false);
+            /**@var $event DomainEvent */
+            $this->channel->exchange_declare('exchangeCreateAnuncio', 'direct', false, true, false);
+
             //$this->channel->queue_declare('EXAMPLE.' . $event->getService() . '.' . '1.' . $event->getTypeEvent() . '.' . $event->getAggregateName() . '.' . $event->getEventName(), false, false, false, false);
 
             $queueName = null;
             $jsonFormatter = SerializerBuilder::create()->build();
             $queueMessage = new AMQPMessage($jsonFormatter->serialize($event, 'json'));
-
-            /* Only push certain types of parcels to certain queues */
-                /* Provided cases for matching queueName */
-                    $routingKey = 'EXAMPLE.' . $event->getService() . '.' . '1.' . $event->getTypeEvent() . '.' . $event->getAggregateName() . '.' . $event->getEventName();
-                    //list($queue_name, ,) = $this->channel->queue_declare($queueName, false, false, true, false);
-            list($queue_name, ,) = $this->channel->queue_declare($routingKey);
-
+          
+            
+            //list($queue_name, ,) = $this->channel->queue_declare($routingKey);
+            //$routingKey = 'EXAMPLE.' . $event->getService() . '.' . '1.' . $event->getTypeEvent() . '.' . $event->getAggregateName() . '.' . $event->getEventName();
+            $routingKey = 'example.anuncios.1.event.anuncio.AnuncioWasCreated';
                 try {
                     $this->channel->basic_publish(
-                        $queueMessage, $exchange,
-                        $queue_name);
+                        $queueMessage, 'exchange'.$event->getService(),
+                        $routingKey);
 
                 } catch (Exception $e) {
                 print_r($e);

@@ -7,11 +7,11 @@
  */
     namespace api\controller;
 namespace App\Controller;
-use App\Domain\Anuncios\UseCases\Create\AnuncioCommand;
+use App\Domain\Anuncios\UseCases\CreateAnuncio\AnuncioCommand;
 use App\IO\Api\SunmediaController;
 
-use App\Domain\Anuncios\UseCases\Create\CreateAnuncioHandler;
-use App\Domain\Anuncios\UseCases\Create\AuncioCreateCommand;
+use App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler;
+use App\Domain\Anuncios\UseCases\CreateAnuncio\AuncioCreateCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\RequestStack;

@@ -9,8 +9,13 @@
 namespace App\Domain\Anuncios\Domain;
 
 
-class EventSubscriber
+interface EventSubscriber
 {
 
+    public static function connect();
+    
+    public function getEvents();
+    
+    public function handleEvents();
 
 }

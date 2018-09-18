@@ -66,6 +66,7 @@ final class Versions
   'symfony/http-foundation' => 'v4.1.4@3a5c91e133b220bb882b3cd773ba91bf39989345',
   'symfony/http-kernel' => 'v4.1.4@33de0a1ff2e1720096189e3ced682d7a4e8f5e35',
   'symfony/maker-bundle' => 'v1.7.0@22a9bf33868f0fed6cab013fe5231e8485d15e20',
+  'symfony/messenger' => 'v4.1.4@e7a8d981bfb74904b93d1f172cf38af2ff485ae8',
   'symfony/orm-pack' => 'v1.0.5@1b58f752cd917a08c9c8df020781d9c46a2275b1',
   'symfony/polyfill-mbstring' => 'v1.9.0@d0cd638f4634c16d8df4508e847f14e9e43168b8',
   'symfony/process' => 'v4.1.4@86cdb930a6a855b0ab35fb60c1504cb36184f843',
@@ -80,13 +81,13 @@ final class Versions
   'zendframework/zend-code' => '3.3.1@c21db169075c6ec4b342149f446e7b7b724f95eb',
   'zendframework/zend-eventmanager' => '3.2.1@a5e2583a211f73604691586b8406ff7296a946dd',
   'symfony/dotenv' => 'v4.1.4@22ca63c46e252b8a8f37b8f9e6da66bff5b3d3e7',
-  'paragonie/random_compat' => '*@5788b8f1a13676448ae810855dd18a5ab5385a01',
-  'symfony/polyfill-ctype' => '*@5788b8f1a13676448ae810855dd18a5ab5385a01',
-  'symfony/polyfill-iconv' => '*@5788b8f1a13676448ae810855dd18a5ab5385a01',
-  'symfony/polyfill-php71' => '*@5788b8f1a13676448ae810855dd18a5ab5385a01',
-  'symfony/polyfill-php70' => '*@5788b8f1a13676448ae810855dd18a5ab5385a01',
-  'symfony/polyfill-php56' => '*@5788b8f1a13676448ae810855dd18a5ab5385a01',
-  '__root__' => 'dev-master@5788b8f1a13676448ae810855dd18a5ab5385a01',
+  'paragonie/random_compat' => '*@e9e06674480573c97cb7d37047e2f65a34627392',
+  'symfony/polyfill-ctype' => '*@e9e06674480573c97cb7d37047e2f65a34627392',
+  'symfony/polyfill-iconv' => '*@e9e06674480573c97cb7d37047e2f65a34627392',
+  'symfony/polyfill-php71' => '*@e9e06674480573c97cb7d37047e2f65a34627392',
+  'symfony/polyfill-php70' => '*@e9e06674480573c97cb7d37047e2f65a34627392',
+  'symfony/polyfill-php56' => '*@e9e06674480573c97cb7d37047e2f65a34627392',
+  '__root__' => 'dev-master@e9e06674480573c97cb7d37047e2f65a34627392',
 );
 
     private function __construct()
