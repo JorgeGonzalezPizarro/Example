@@ -66,12 +66,12 @@ class srcProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
                 $routes = array(
                     '/' => array(array('_route' => 'blog_list', '_controller' => 'anuncio.controller'), null, array('POST' => 0), null),
                 );
-
+    
                 if (!isset($routes[$pathinfo])) {
                     break;
                 }
                 list($ret, $requiredHost, $requiredMethods, $requiredSchemes) = $routes[$pathinfo];
-
+    
                 $hasRequiredScheme = !$requiredSchemes || isset($requiredSchemes[$context->getScheme()]);
                 if ($requiredMethods && !isset($requiredMethods[$canonicalMethod]) && !isset($requiredMethods[$requestMethod])) {
                     if ($hasRequiredScheme) {
@@ -83,7 +83,7 @@ class srcProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
                     $allowSchemes += $requiredSchemes;
                     break;
                 }
-
+    
                 return $ret;
         }
 
