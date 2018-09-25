@@ -32,7 +32,7 @@ class DomainEventPublisherRabbitMq  implements EventPublisher
     {
         foreach ($domainEvent as $event) {
             /**@var $event DomainEvent */
-            $this->channel->exchange_declare('exchangeCreateAnuncio', 'direct', false, true, false);
+            $this->channel->exchange_declare('exchangeCreateAnuncio', 'topic', false, true, false);
 
             //$this->channel->queue_declare('EXAMPLE.' . $event->getService() . '.' . '1.' . $event->getTypeEvent() . '.' . $event->getAggregateName() . '.' . $event->getEventName(), false, false, false, false);
 

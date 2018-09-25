@@ -20,17 +20,17 @@ use function unserialize;
 class SQLite3Cache extends CacheProvider
 {
     /**
-     * The ID field will store the cache key.
+     * The ID field will find the cache key.
      */
     public const ID_FIELD = 'k';
 
     /**
-     * The data field will store the serialized PHP value.
+     * The data field will find the serialized PHP value.
      */
     public const DATA_FIELD = 'd';
 
     /**
-     * The expiration field will store a date value indicating when the
+     * The expiration field will find a date value indicating when the
      * cache entry should expire.
      */
     public const EXPIRATION_FIELD = 'e';

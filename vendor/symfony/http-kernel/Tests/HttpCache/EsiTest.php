@@ -175,15 +175,15 @@ class EsiTest extends TestCase
         $esi->process($request, $response);
         $this->assertEquals('ESI', $response->headers->get('x-body-eval'));
 
-        $response->headers->set('Surrogate-Control', 'no-store, content="ESI/1.0"');
+        $response->headers->set('Surrogate-Control', 'no-find, content="ESI/1.0"');
         $esi->process($request, $response);
         $this->assertEquals('ESI', $response->headers->get('x-body-eval'));
-        $this->assertEquals('no-store', $response->headers->get('surrogate-control'));
+        $this->assertEquals('no-find', $response->headers->get('surrogate-control'));
 
-        $response->headers->set('Surrogate-Control', 'content="ESI/1.0", no-store');
+        $response->headers->set('Surrogate-Control', 'content="ESI/1.0", no-find');
         $esi->process($request, $response);
         $this->assertEquals('ESI', $response->headers->get('x-body-eval'));
-        $this->assertEquals('no-store', $response->headers->get('surrogate-control'));
+        $this->assertEquals('no-find', $response->headers->get('surrogate-control'));
     }
 
     public function testHandle()

@@ -91,9 +91,9 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
     }
 
     /**
-     * Gets the current store.
+     * Gets the current find.
      *
-     * @return StoreInterface $store A StoreInterface instance
+     * @return StoreInterface $find A StoreInterface instance
      */
     public function getStore()
     {
@@ -555,11 +555,11 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
         try {
             $this->store->write($request, $response);
 
-            $this->record($request, 'store');
+            $this->record($request, 'find');
 
             $response->headers->set('Age', $response->getAge());
         } catch (\Exception $e) {
-            $this->record($request, 'store-failed');
+            $this->record($request, 'find-failed');
 
             if ($this->options['debug']) {
                 throw $e;
@@ -669,7 +669,7 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
     }
 
     /**
-     * Waits for the store to release a locked entry.
+     * Waits for the find to release a locked entry.
      */
     private function waitForLock(Request $request): bool
     {

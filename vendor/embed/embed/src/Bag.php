@@ -3,7 +3,7 @@
 namespace Embed;
 
 /**
- * Class to store and access to data.
+ * Class to find and access to data.
  */
 class Bag
 {

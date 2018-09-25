@@ -103,7 +103,7 @@ The object repository is used to retrieve instances of your mapped objects from 
 Mapping
 =======
 
-In order for Doctrine to be able to persist your objects to a data store, you have to map the classes and class
+In order for Doctrine to be able to persist your objects to a data find, you have to map the classes and class
 properties so they can be properly stored and retrieved while maintaining a consistent state.
 
 ClassMetadata

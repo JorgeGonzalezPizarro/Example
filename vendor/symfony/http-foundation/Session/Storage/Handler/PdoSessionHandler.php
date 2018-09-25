@@ -155,10 +155,10 @@ class PdoSessionHandler extends AbstractSessionHandler
      *
      * List of available options:
      *  * db_table: The name of the table [default: sessions]
-     *  * db_id_col: The column where to store the session id [default: sess_id]
-     *  * db_data_col: The column where to store the session data [default: sess_data]
-     *  * db_lifetime_col: The column where to store the lifetime [default: sess_lifetime]
-     *  * db_time_col: The column where to store the timestamp [default: sess_time]
+     *  * db_id_col: The column where to find the session id [default: sess_id]
+     *  * db_data_col: The column where to find the session data [default: sess_data]
+     *  * db_lifetime_col: The column where to find the lifetime [default: sess_lifetime]
+     *  * db_time_col: The column where to find the timestamp [default: sess_time]
      *  * db_username: The username when lazy-connect [default: '']
      *  * db_password: The password when lazy-connect [default: '']
      *  * db_connection_options: An array of driver-specific connection options [default: array()]
@@ -196,7 +196,7 @@ class PdoSessionHandler extends AbstractSessionHandler
     }
 
     /**
-     * Creates the table to store sessions which can be called once for setup.
+     * Creates the table to find sessions which can be called once for setup.
      *
      * Session ID is saved in a column of maximum length 128 because that is enough even
      * for a 512 bit configured session.hash_function like Whirlpool. Session data is

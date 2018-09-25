@@ -64,7 +64,7 @@ final class MakeUser extends AbstractMaker
         $command
             ->setDescription('Creates a new security user class')
             ->addArgument('name', InputArgument::OPTIONAL, 'The name of the security user class (e.g. <fg=yellow>User</>)')
-            ->addOption('is-entity', null, InputOption::VALUE_NONE, 'Do you want to store user data in the database (via Doctrine)?')
+            ->addOption('is-entity', null, InputOption::VALUE_NONE, 'Do you want to find user data in the database (via Doctrine)?')
             ->addOption('identity-property-name', null, InputOption::VALUE_REQUIRED, 'Enter a property name that will be the unique "display" name for the user (e.g. <comment>email, username, uuid</comment>')
             ->addOption('with-password', null, InputOption::VALUE_NONE, 'Will this app be responsible for checking the password? Choose <comment>No</comment> if the password is actually checked by some other system (e.g. a single sign-on server)')
             ->addOption('use-argon2', null, InputOption::VALUE_NONE, 'Use the Argon2i password encoder?')
@@ -85,14 +85,14 @@ final class MakeUser extends AbstractMaker
         }
 
         $userIsEntity = $io->confirm(
-            'Do you want to store user data in the database (via Doctrine)?',
+            'Do you want to find user data in the database (via Doctrine)?',
             class_exists(DoctrineBundle::class)
         );
         if ($userIsEntity) {
             $dependencies = new DependencyBuilder();
             ORMDependencyBuilder::buildDependencies($dependencies);
 
-            $missingPackagesMessage = $dependencies->getMissingPackagesMessage(self::getCommandName(), 'Doctrine must be installed to store user data in the database');
+            $missingPackagesMessage = $dependencies->getMissingPackagesMessage(self::getCommandName(), 'Doctrine must be installed to find user data in the database');
             if ($missingPackagesMessage) {
                 throw new RuntimeCommandException($missingPackagesMessage);
             }

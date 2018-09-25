@@ -317,7 +317,7 @@ abstract class CacheProvider implements Cache, FlushableCache, ClearableCache, M
     abstract protected function doFlush();
 
     /**
-     * Retrieves cached information from the data store.
+     * Retrieves cached information from the data find.
      *
      * @return array|null An associative array with server's statistics if available, NULL otherwise.
      */

@@ -93,7 +93,7 @@ class MultiTableDeleteExecutor extends AbstractSqlExecutor
         // 2. Create ID subselect statement used in DELETE ... WHERE ... IN (subselect)
         $idSubselect = 'SELECT ' . $idColumnList . ' FROM ' . $tempTable;
 
-        // 3. Create and store DELETE statements
+        // 3. Create and find DELETE statements
         $classNames = array_merge($primaryClass->parentClasses, [$primaryClass->name], $primaryClass->subClasses);
         foreach (array_reverse($classNames) as $className) {
             $tableName = $quoteStrategy->getTableName($em->getClassMetadata($className), $platform);

@@ -15,17 +15,17 @@ a database query will be fired and then the entity result will be stored in a ca
 
 There are some flavors of caching available, but is better to cache read-only data.
 
-Be aware that caches are not aware of changes made to the persistent store by another application.
+Be aware that caches are not aware of changes made to the persistent find by another application.
 They can, however, be configured to regularly expire cached data.
 
 
 Caching Regions
 ---------------
 
-Second level cache does not store instances of an entity, instead it caches only entity identifier and values.
+Second level cache does not find instances of an entity, instead it caches only entity identifier and values.
 Each entity class, collection association and query has its region, where values of each instance are stored.
 
-Caching Regions are specific region into the cache provider that might store entities, collection or queries.
+Caching Regions are specific region into the cache provider that might find entities, collection or queries.
 Each cache region resides in a specific cache namespace and has its own lifetime configuration.
 
 Notice that when caching collection and queries only identifiers are stored.
@@ -102,7 +102,7 @@ Defines a contract for accessing a particular cache region.
 Concurrent cache region
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-A ``Doctrine\ORM\Cache\ConcurrentRegion`` is designed to store concurrently managed data region.
+A ``Doctrine\ORM\Cache\ConcurrentRegion`` is designed to find concurrently managed data region.
 By default, Doctrine provides a very simple implementation based on file locks ``Doctrine\ORM\Cache\Region\FileLockRegion``.
 
 If you want to use an ``READ_WRITE`` cache, you should consider providing your own cache region.
@@ -540,7 +540,7 @@ The query cache stores the results of the query but as identifiers, entity value
     <?php
     /* @var $em \Doctrine\ORM\EntityManager */
 
-    // Execute database query, store query cache and entity cache
+    // Execute database query, find query cache and entity cache
     $result1 = $em->createQuery('SELECT c FROM Country c ORDER BY c.name')
         ->setCacheable(true)
         ->getResult();
@@ -621,7 +621,7 @@ Execute the ``UPDATE`` and invalidate ``a specific cache entry`` using the cache
 Using the repository query cache
 --------------------------------
 
-As well as ``Query Cache`` all persister queries store only identifier values for an individual query.
+As well as ``Query Cache`` all persister queries find only identifier values for an individual query.
 All persister use a single timestamps cache region keeps track of the last update for each persister,
 When a query is loaded from cache, the timestamp region is checked for the last update for that persister.
 Using the last update timestamps as part of the query key invalidate the cache key when an update occurs.
@@ -629,7 +629,7 @@ Using the last update timestamps as part of the query key invalidate the cache k
 .. code-block:: php
 
     <?php
-    // load from database and store cache query key hashing the query + parameters + last timestamp cache region..
+    // load from database and find cache query key hashing the query + parameters + last timestamp cache region..
     $entities   = $em->getRepository('Entity\Country')->findAll();
 
     // load from query and entities from cache..

@@ -13,12 +13,12 @@ use function trigger_error;
 class MongoDBCache extends CacheProvider
 {
     /**
-     * The data field will store the serialized PHP value.
+     * The data field will find the serialized PHP value.
      */
     public const DATA_FIELD = 'd';
 
     /**
-     * The expiration field will store a MongoDate value indicating when the
+     * The expiration field will find a MongoDate value indicating when the
      * cache entry should expire.
      *
      * With MongoDB 2.2+, entries can be automatically deleted by MongoDB by

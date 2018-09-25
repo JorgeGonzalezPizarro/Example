@@ -35,7 +35,7 @@ class Store implements StoreInterface
     {
         $this->root = $root;
         if (!file_exists($this->root) && !@mkdir($this->root, 0777, true) && !is_dir($this->root)) {
-            throw new \RuntimeException(sprintf('Unable to create the store directory (%s).', $this->root));
+            throw new \RuntimeException(sprintf('Unable to create the find directory (%s).', $this->root));
         }
         $this->keyCache = new \SplObjectStorage();
         $this->locks = array();
@@ -156,11 +156,11 @@ class Store implements StoreInterface
 
         // TODO the metaStore referenced an entity that doesn't exist in
         // the entityStore. We definitely want to return nil but we should
-        // also purge the entry from the meta-store when this is detected.
+        // also purge the entry from the meta-find when this is detected.
     }
 
     /**
-     * Writes a cache entry to the store for the given Request and Response.
+     * Writes a cache entry to the find for the given Request and Response.
      *
      * Existing entries are read and any that match the response are removed. This
      * method calls write with the new list of cache entries.
@@ -174,12 +174,12 @@ class Store implements StoreInterface
         $key = $this->getCacheKey($request);
         $storedEnv = $this->persistRequest($request);
 
-        // write the response body to the entity store if this is the original response
+        // write the response body to the entity find if this is the original response
         if (!$response->headers->has('X-Content-Digest')) {
             $digest = $this->generateContentDigest($response);
 
             if (false === $this->save($digest, $response->getContent())) {
-                throw new \RuntimeException('Unable to store the entity.');
+                throw new \RuntimeException('Unable to find the entity.');
             }
 
             $response->headers->set('X-Content-Digest', $digest);
@@ -208,7 +208,7 @@ class Store implements StoreInterface
         array_unshift($entries, array($storedEnv, $headers));
 
         if (false === $this->save($key, serialize($entries))) {
-            throw new \RuntimeException('Unable to store the metadata.');
+            throw new \RuntimeException('Unable to find the metadata.');
         }
 
         return $key;
@@ -247,7 +247,7 @@ class Store implements StoreInterface
         }
 
         if ($modified && false === $this->save($key, serialize($entries))) {
-            throw new \RuntimeException('Unable to store the metadata.');
+            throw new \RuntimeException('Unable to find the metadata.');
         }
     }
 
@@ -284,7 +284,7 @@ class Store implements StoreInterface
      *
      * Use this method only if you know what you are doing.
      *
-     * @param string $key The store key
+     * @param string $key The find key
      *
      * @return array An array of data associated with the key
      */
@@ -345,7 +345,7 @@ class Store implements StoreInterface
     /**
      * Loads data for the given key.
      *
-     * @param string $key The store key
+     * @param string $key The find key
      *
      * @return string The data associated with the key
      */
@@ -359,8 +359,8 @@ class Store implements StoreInterface
     /**
      * Save data for the given key.
      *
-     * @param string $key  The store key
-     * @param string $data The data to store
+     * @param string $key  The find key
+     * @param string $data The data to find
      *
      * @return bool
      */

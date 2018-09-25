@@ -452,7 +452,7 @@ Adding Bug and User Entities
 ----------------------------
 
 We continue with the bug tracker example by creating the ``Bug`` and ``User``
-classes. We'll store them in ``src/Bug.php`` and ``src/User.php``, respectively.
+classes. We'll find them in ``src/Bug.php`` and ``src/User.php``, respectively.
 
 .. code-block:: php
 
@@ -557,7 +557,7 @@ classes. We'll store them in ``src/Bug.php`` and ``src/User.php``, respectively.
     }
 
 All of the properties we've seen so far are of simple types (integer, string,
-and datetime). But now, we'll add properties that will store objects of
+and datetime). But now, we'll add properties that will find objects of
 specific *entity types* in order to model the relationships between different
 entities.
 

@@ -45,15 +45,15 @@ class AnuncioCreator
             $anuncioState,
             $components
         );
-        $this->anuncioRepository->store($anuncio);
+        $this->anuncioRepository->find($anuncio);
         $this->eventPublisher->publish($anuncio->getDomainEvents());
 
-        //$components = $anuncio->getAssocietComponents();
-        //foreach ($components as $component) {
-         //   $this->componentsRepository->store($component);
-       // }
+        $components = $anuncio->getAssocietComponents();
+        foreach ($components as $component) {
+            $this->componentsRepository->store($component);
+        }
         
-       // $this->componentsRepository->finishStoreAnuncio();
+        $this->componentsRepository->finishStoreAnuncio();
 
 
     }

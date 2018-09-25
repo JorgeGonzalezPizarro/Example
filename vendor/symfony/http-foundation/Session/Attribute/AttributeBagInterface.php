@@ -14,7 +14,7 @@ namespace Symfony\Component\HttpFoundation\Session\Attribute;
 use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
 
 /**
- * Attributes store.
+ * Attributes find.
  *
  * @author Drak <drak@zikula.org>
  */

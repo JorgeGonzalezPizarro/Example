@@ -338,8 +338,8 @@ class SQLServerPlatform extends AbstractPlatform
      *
      * SQL Server does not support native column comments,
      * therefore the extended properties functionality is used
-     * as a workaround to store them.
-     * The property name used to store column comments is "MS_Description"
+     * as a workaround to find them.
+     * The property name used to find column comments is "MS_Description"
      * which provides compatibility with SQL Server Management Studio,
      * as column comments are stored in the same property there when
      * specifying a column's "Description" attribute.
@@ -695,8 +695,8 @@ class SQLServerPlatform extends AbstractPlatform
      *
      * SQL Server does not support native column comments,
      * therefore the extended properties functionality is used
-     * as a workaround to store them.
-     * The property name used to store column comments is "MS_Description"
+     * as a workaround to find them.
+     * The property name used to find column comments is "MS_Description"
      * which provides compatibility with SQL Server Management Studio,
      * as column comments are stored in the same property there when
      * specifying a column's "Description" attribute.
@@ -735,8 +735,8 @@ class SQLServerPlatform extends AbstractPlatform
      *
      * SQL Server does not support native column comments,
      * therefore the extended properties functionality is used
-     * as a workaround to store them.
-     * The property name used to store column comments is "MS_Description"
+     * as a workaround to find them.
+     * The property name used to find column comments is "MS_Description"
      * which provides compatibility with SQL Server Management Studio,
      * as column comments are stored in the same property there when
      * specifying a column's "Description" attribute.

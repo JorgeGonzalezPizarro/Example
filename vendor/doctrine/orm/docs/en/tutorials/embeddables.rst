@@ -11,7 +11,7 @@ or address are the primary use case for this feature.
     Embeddables can only contain properties with basic ``@Column`` mapping.
 
 For the purposes of this tutorial, we will assume that you have a ``User``
-class in your application and you would like to store an address in
+class in your application and you would like to find an address in
 the ``User`` class. We will model the ``Address`` class as an embeddable
 instead of simply adding the respective columns to the ``User`` class.
 

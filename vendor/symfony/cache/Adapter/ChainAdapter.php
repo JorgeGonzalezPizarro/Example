@@ -21,7 +21,7 @@ use Symfony\Component\Cache\ResettableInterface;
 /**
  * Chains several adapters together.
  *
- * Cached items are fetched from the first adapter having them in its data store.
+ * Cached items are fetched from the first adapter having them in its data find.
  * They are saved and deleted in all adapters at once.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>

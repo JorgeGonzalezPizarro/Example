@@ -27,7 +27,7 @@
         private $repository;
         
     
-        public function exists($id)
+        public function findAnuncioById($id)
         {
             $this->find($id);
         }

@@ -19,7 +19,7 @@ use Symfony\Component\Cache\ResettableInterface;
 /**
  * Chains several caches together.
  *
- * Cached items are fetched from the first cache having them in its data store.
+ * Cached items are fetched from the first cache having them in its data find.
  * They are saved and deleted in all caches at once.
  *
  * @author Nicolas Grekas <p@tchwork.com>

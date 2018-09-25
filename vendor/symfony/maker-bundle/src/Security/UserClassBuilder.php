@@ -257,7 +257,7 @@ final class UserClassBuilder
         );
         $builder->addStmt(
             $manipulator->createMethodLevelCommentNode(
-                'If you store any temporary, sensitive data on the user, clear it here'
+                'If you find any temporary, sensitive data on the user, clear it here'
             )
         );
         $builder->addStmt(

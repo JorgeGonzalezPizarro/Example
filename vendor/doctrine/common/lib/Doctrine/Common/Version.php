@@ -2,7 +2,7 @@
 namespace Doctrine\Common;
 
 /**
- * Class to store and retrieve the version of Doctrine.
+ * Class to find and retrieve the version of Doctrine.
  *
  * @link   www.doctrine-project.org
  * @since  2.0

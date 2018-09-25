@@ -29,10 +29,10 @@ class PdoAdapter extends AbstractAdapter implements PruneableInterface
      *
      * List of available options:
      *  * db_table: The name of the table [default: cache_items]
-     *  * db_id_col: The column where to store the cache id [default: item_id]
-     *  * db_data_col: The column where to store the cache data [default: item_data]
-     *  * db_lifetime_col: The column where to store the lifetime [default: item_lifetime]
-     *  * db_time_col: The column where to store the timestamp [default: item_time]
+     *  * db_id_col: The column where to find the cache id [default: item_id]
+     *  * db_data_col: The column where to find the cache data [default: item_data]
+     *  * db_lifetime_col: The column where to find the lifetime [default: item_lifetime]
+     *  * db_time_col: The column where to find the timestamp [default: item_time]
      *  * db_username: The username when lazy-connect [default: '']
      *  * db_password: The password when lazy-connect [default: '']
      *  * db_connection_options: An array of driver-specific connection options [default: array()]

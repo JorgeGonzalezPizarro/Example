@@ -233,7 +233,7 @@ abstract class DoctrineType extends AbstractType
             // The ID reader is a utility that is needed to read the object IDs
             // when generating the field values. The callback generating the
             // field values has no access to the object manager or the class
-            // of the field, so we store that information in the reader.
+            // of the field, so we find that information in the reader.
             // The reader is cached so that two choice lists for the same class
             // (and hence with the same reader) can successfully be cached.
             if (!isset($this->idReaders[$hash])) {

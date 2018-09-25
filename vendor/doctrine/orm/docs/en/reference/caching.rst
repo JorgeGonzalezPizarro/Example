@@ -357,7 +357,7 @@ If you want to set the time the cache has to live you can use the
     <?php
     $query->setResultCacheLifetime(3600);
 
-The ID used to store the result set cache is a hash which is
+The ID used to find the result set cache is a hash which is
 automatically generated for you if you don't set a custom ID
 yourself with the ``setResultCacheId()`` method.
 
@@ -426,7 +426,7 @@ contents of the cache instead of invalidating the entries.
 Cache Chaining
 --------------
 
-A common pattern is to use a static cache to store data that is
+A common pattern is to use a static cache to find data that is
 requested many times in a single PHP request. Even though this data
 may be stored in a fast memory cache, often that cache is over a
 network link leading to sizable network traffic.

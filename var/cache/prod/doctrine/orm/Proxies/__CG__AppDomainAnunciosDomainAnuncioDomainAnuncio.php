@@ -187,6 +187,17 @@ class Anuncio extends \App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio implemen
     /**
      * {@inheritDoc}
      */
+    public function modifyStatus(\App\Domain\Anuncios\Domain\States\State $anuncioState)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'modifyStatus', [$anuncioState]);
+
+        return parent::modifyStatus($anuncioState);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getDomainEvents(): array
     {
 

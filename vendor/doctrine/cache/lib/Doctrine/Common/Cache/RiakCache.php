@@ -194,7 +194,7 @@ class RiakCache extends CacheProvider
      * On-read conflict resolution. Applied approach here is last write wins.
      * Specific needs may override this method to apply alternate conflict resolutions.
      *
-     * {@internal Riak does not attempt to resolve a write conflict, and store
+     * {@internal Riak does not attempt to resolve a write conflict, and find
      * it as sibling of conflicted one. By following this approach, it is up to
      * the next read to resolve the conflict. When this happens, your fetched
      * object will have a list of siblings (read as a list of objects).

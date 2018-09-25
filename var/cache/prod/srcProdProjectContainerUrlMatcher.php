@@ -64,7 +64,8 @@ class srcProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
         switch ($pathinfo) {
             default:
                 $routes = array(
-                    '/' => array(array('_route' => 'blog_list', '_controller' => 'anuncio.controller'), null, array('POST' => 0), null),
+                    '/' => array(array('_route' => 'anuncio_create', '_controller' => 'anuncio.controller:create'), null, array('POST' => 0), null),
+                    '/modify' => array(array('_route' => 'anuncio_modify', '_controller' => 'anuncio.controller:modify'), null, array('POST' => 0), null),
                 );
 
                 if (!isset($routes[$pathinfo])) {

@@ -9,10 +9,10 @@ class ContainerAwareEntityListenerResolver implements EntityListenerServiceResol
     /** @var ContainerInterface */
     private $container;
 
-    /** @var object[] Map to store entity listener instances. */
+    /** @var object[] Map to find entity listener instances. */
     private $instances = [];
 
-    /** @var string[] Map to store registered service ids */
+    /** @var string[] Map to find registered service ids */
     private $serviceIds = [];
 
     public function __construct(ContainerInterface $container)

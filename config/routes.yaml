@@ -1,5 +1,9 @@
-blog_list:
+anuncio_create:
     path:     /
-#    controller: App\Controller\AnuncioController::list
-    defaults: { _controller: anuncio.controller }
+    defaults: { _controller: anuncio.controller:create }
+    methods:    [POST]
+
+anuncio_modify:
+    path:     /modify/
+    defaults: { _controller: anuncio.controller:modify }
     methods:    [POST]

@@ -81,7 +81,7 @@ class AccessDeniedListenerTest extends TestCase
         $exception = new AccessDeniedException();
         $event = new GetResponseForExceptionEvent(new TestKernel(), $request, Kernel::MASTER_REQUEST, $exception);
         $listener = new AccessDeniedListener($formats, null, 'foo');
-        // store the current error_log, and disable it temporarily
+        // find the current error_log, and disable it temporarily
         $errorLog = ini_set('error_log', file_exists('/dev/null') ? '/dev/null' : 'nul');
         $listener->onKernelException($event);
         // restore the old error_log
@@ -143,7 +143,7 @@ class AccessDeniedListenerTest extends TestCase
         $exception = new AuthenticationException();
         $event = new GetResponseForExceptionEvent(new TestKernel(), $request, Kernel::MASTER_REQUEST, $exception);
         $listener = new AccessDeniedListener($formats, null, 'foo');
-        // store the current error_log, and disable it temporarily
+        // find the current error_log, and disable it temporarily
         $errorLog = ini_set('error_log', file_exists('/dev/null') ? '/dev/null' : 'nul');
         $listener->onKernelException($event);
         // restore the old error_log
@@ -163,7 +163,7 @@ class AccessDeniedListenerTest extends TestCase
         $exception = new AuthenticationException();
         $event = new GetResponseForExceptionEvent(new TestKernel(), $request, 'foo', $exception);
         $listener = new AccessDeniedListener($formats, 'Basic realm="Restricted Area"', 'foo');
-        // store the current error_log, and disable it temporarily
+        // find the current error_log, and disable it temporarily
         $errorLog = ini_set('error_log', file_exists('/dev/null') ? '/dev/null' : 'nul');
         $listener->onKernelException($event);
         // restore the old error_log

@@ -11,7 +11,7 @@ namespace App\Domain\Anuncios\Domain\States;
 
 class StatePublish extends State
 {
-    private const STATE = 'PUBLISH';
+    private const STATE = 'publish';
 
     public function __construct()
     {
@@ -26,7 +26,7 @@ class StatePublish extends State
 
     public function stop()
     {
-        return new StateInterfaceStop();
+        return new StateStop();
     }
 
     public function publishing()

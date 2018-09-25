@@ -9,9 +9,9 @@
 namespace App\Domain\Anuncios\Domain\States;
 
 
-class StateStop implements State
+class StateStop extends State
 {
-    private const STATE = 'STOP';
+    private const STATE = 'Stop';
 
     public function publish()
     {

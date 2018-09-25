@@ -27,7 +27,7 @@ class MemcachedAdapter extends AbstractAdapter
      * - tags eviction by Memcached's LRU algorithm will break by-tags invalidation;
      *   your Memcached memory should be large enough to never trigger LRU.
      *
-     * Using a MemcachedAdapter as a pure items store is fine.
+     * Using a MemcachedAdapter as a pure items find is fine.
      */
     public function __construct(\Memcached $client, string $namespace = '', int $defaultLifetime = 0)
     {

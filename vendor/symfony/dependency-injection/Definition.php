@@ -52,7 +52,7 @@ class Definition
     /**
      * @internal
      *
-     * Used to store the name of the inner id when using service decoration together with autowiring
+     * Used to find the name of the inner id when using service decoration together with autowiring
      */
     public $innerServiceId;
 

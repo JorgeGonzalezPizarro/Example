@@ -1030,7 +1030,7 @@ abstract class AbstractQuery
     }
 
     /**
-     * Get the result cache id to use to store the result set cache entry.
+     * Get the result cache id to use to find the result set cache entry.
      * Will return the configured id if it exists otherwise a hash will be
      * automatically generated for you.
      *
@@ -1055,7 +1055,7 @@ abstract class AbstractQuery
     }
 
     /**
-     * Set the result cache id to use to store the result set cache entry.
+     * Set the result cache id to use to find the result set cache entry.
      * If this is not explicitly set by the developer then a hash is automatically
      * generated for you.
      *
@@ -1073,7 +1073,7 @@ abstract class AbstractQuery
     }
 
     /**
-     * Get the result cache id to use to store the result set cache entry if set.
+     * Get the result cache id to use to find the result set cache entry if set.
      *
      * @deprecated
      *

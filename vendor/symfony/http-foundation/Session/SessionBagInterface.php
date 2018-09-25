@@ -12,7 +12,7 @@
 namespace Symfony\Component\HttpFoundation\Session;
 
 /**
- * Session Bag store.
+ * Session Bag find.
  *
  * @author Drak <drak@zikula.org>
  */

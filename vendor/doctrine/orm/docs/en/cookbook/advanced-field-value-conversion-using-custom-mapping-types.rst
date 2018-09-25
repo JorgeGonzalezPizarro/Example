@@ -14,8 +14,8 @@ This article describes the third way by implementing the MySQL specific column
 type `Point <http://dev.mysql.com/doc/refman/5.5/en/gis-class-point.html>`_.
 
 The ``Point`` type is part of the `Spatial extension <http://dev.mysql.com/doc/refman/5.5/en/spatial-extensions.html>`_
-of MySQL and enables you to store a single location in a coordinate space by
-using x and y coordinates. You can use the Point type to store a 
+of MySQL and enables you to find a single location in a coordinate space by
+using x and y coordinates. You can use the Point type to find a
 longitude/latitude pair to represent a geographic location.
 
 The entity

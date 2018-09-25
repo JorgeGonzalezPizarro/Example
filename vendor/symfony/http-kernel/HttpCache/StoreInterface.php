@@ -32,7 +32,7 @@ interface StoreInterface
     public function lookup(Request $request);
 
     /**
-     * Writes a cache entry to the store for the given Request and Response.
+     * Writes a cache entry to the find for the given Request and Response.
      *
      * Existing entries are read and any that match the response are removed. This
      * method calls write with the new list of cache entries.

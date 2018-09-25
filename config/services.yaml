@@ -29,7 +29,7 @@ services:
         public: true
         tags: ['controller.service_arguments']
     sunmedia.controller:
-        class: App\IO\Api\SunmediaController
+        class: App\IO\Api\MainController
         arguments: ['@tactician.commandbus','@request_stack']
 
 
@@ -38,7 +38,14 @@ services:
         class: App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler
         arguments: ['@anuncio_creator']
         tags:
-        - { name: tactician.handler, command: App\Domain\Anuncios\UseCases\Create\AnuncioCommand , typehints: true}
+        - { name: tactician.handler, command: App\Domain\Anuncios\UseCases\CreateAnuncio\AnuncioCommand , typehints: true}
+
+    App\Domain\Anuncios\UseCases\ModifyAnuncio\AnuncioModifyHandler:
+        class: App\Domain\Anuncios\UseCases\ModifyAnuncio\AnuncioModifyHandler
+        arguments: ['@anuncio_modifier']
+        tags:
+        - { name: tactician.handler, command: App\Domain\Anuncios\UseCases\ModifyAnuncio\AnuncioModifyCommand , typehints: true}
+
 
     anuncio_repository:
         class : App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioRepository
@@ -51,12 +58,17 @@ services:
     anuncio_creator:
         class: App\Domain\Anuncios\UseCases\CreateAnuncio\AnuncioCreator
         arguments: ['@anuncio_repository_doctrine' ,'@components_repository_doctrine','@event_domain.publisher']
+    anuncio_modifier:
+        class: App\Domain\Anuncios\UseCases\ModifyAnuncio\AnuncioModifier
+        arguments: ['@anuncio_repository_doctrine' ,'@components_repository_doctrine','@event_domain.publisher']
+
+
     App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId:
         class: App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId
         arguments: ['@rampsey_id']
-    anuncio_id:
-        class: App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioId
-        arguments: ['@rampsey_id']
+#    anuncio_id:
+#        class: App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioId
+#        arguments: ['@rampsey_id']
     components_repository_doctrine:
         class: App\Domain\Anuncios\Persistance\ComponentsPersistance
         arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\Component\Component , '@doctrine.orm.entity_manager']

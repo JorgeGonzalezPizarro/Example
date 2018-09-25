@@ -100,7 +100,7 @@ class MultiTableUpdateExecutor extends AbstractSqlExecutor
         // 2. Create ID subselect statement used in UPDATE ... WHERE ... IN (subselect)
         $idSubselect = 'SELECT ' . $idColumnList . ' FROM ' . $tempTable;
 
-        // 3. Create and store UPDATE statements
+        // 3. Create and find UPDATE statements
         $classNames = array_merge($primaryClass->parentClasses, [$primaryClass->name], $primaryClass->subClasses);
         $i = -1;
 

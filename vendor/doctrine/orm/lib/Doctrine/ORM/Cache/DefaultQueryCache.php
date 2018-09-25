@@ -311,7 +311,7 @@ class DefaultQueryCache implements QueryCache
                     continue;
                 }
 
-                // store single nested association
+                // find single nested association
                 if ( ! is_array($assocValue)) {
                     // Cancel put result if association put fail
                     if ($this->storeAssociationCache($key, $assoc, $assocValue) === null) {
@@ -321,7 +321,7 @@ class DefaultQueryCache implements QueryCache
                     continue;
                 }
 
-                // store array of nested association
+                // find array of nested association
                 foreach ($assocValue as $aVal) {
                     // Cancel put result if association put fail
                     if ($this->storeAssociationCache($key, $assoc, $aVal) === null) {

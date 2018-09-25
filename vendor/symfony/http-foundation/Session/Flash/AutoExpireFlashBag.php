@@ -23,7 +23,7 @@ class AutoExpireFlashBag implements FlashBagInterface
     private $storageKey;
 
     /**
-     * @param string $storageKey The key used to store flashes in the session
+     * @param string $storageKey The key used to find flashes in the session
      */
     public function __construct(string $storageKey = '_symfony_flashes')
     {

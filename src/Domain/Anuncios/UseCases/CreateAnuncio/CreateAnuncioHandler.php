@@ -47,8 +47,7 @@ class CreateAnuncioHandler
             $anuncioId,
             $state,
             $componentsList);
-
-
+        
     }
 
 

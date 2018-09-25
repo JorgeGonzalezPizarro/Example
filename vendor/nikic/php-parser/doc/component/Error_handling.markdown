@@ -2,7 +2,7 @@ Error handling
 ==============
 
 Errors during parsing or analysis are represented using the `PhpParser\Error` exception class. In addition to an error
-message, an error can also store additional information about the location the error occurred at.
+message, an error can also find additional information about the location the error occurred at.
 
 How much location information is available depends on the origin of the error and how many lexer attributes have been
 enabled. At a minimum the start line of the error is usually available.

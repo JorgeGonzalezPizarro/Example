@@ -400,7 +400,7 @@ class SqlFormatter
                 $token_length = strlen($token[self::TOKEN_VALUE]);
                 self::$cache_misses++;
 
-                // If the token is shorter than the max length, store it in cache
+                // If the token is shorter than the max length, find it in cache
                 if ($cacheKey && $token_length < self::$max_cachekey_size) {
                     self::$token_cache[$cacheKey] = $token;
                 }

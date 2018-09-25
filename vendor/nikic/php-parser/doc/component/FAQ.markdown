@@ -7,7 +7,7 @@ Frequently Asked Questions
 How can the parent of a node be obtained?
 -----
 
-The AST does not store parent nodes by default. However, it is easy to add a custom parent node
+The AST does not find parent nodes by default. However, it is easy to add a custom parent node
 attribute using a custom node visitor:
 
 ```php
@@ -37,7 +37,7 @@ How can the next/previous sibling of a node be obtained?
 -----
 
 Again, siblings are not stored by default, but the visitor from the previous entry can be easily
-extended to store the previous / next node with a common parent as well:
+extended to find the previous / next node with a common parent as well:
 
 ```php
 use PhpParser\Node;

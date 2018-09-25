@@ -44,11 +44,11 @@ class Anuncio extends AgregateRoot
                                 ArrayCollection $anuncioComponents)
     {
         $this->anuncioId = $id->uuidToString();
-        $this->anuncioState = $anuncioState->getStatus();
-      //  $this->anuncioComponents=$this->agreggateComponents($anuncioComponents);
+        $this->anuncioState = $anuncioState;
+        $this->anuncioComponents=$this->agreggateComponents($anuncioComponents);
 
-        $this->saveDomainEvent(new AnuncioWasCreatedEvent($this->anuncioId,
-                                array('state' => $this->anuncioState , "components" => $anuncioComponents->toArray())));
+//        $this->saveDomainEvent(new AnuncioWasCreatedEvent($this->anuncioId,
+//                                array('state' => $this->anuncioState , "components" => $anuncioComponents->toArray())));
 
         $eventDispatcher = new EventDispatcher();
     
@@ -109,6 +109,13 @@ class Anuncio extends AgregateRoot
         
         return $this->anuncioComponents->toArray();
         
+    }
+    
+    
+    public  function modifyStatus(State $anuncioState){
+        
+            return $this->anuncioState->$anuncioState();
+    
     }
     
     

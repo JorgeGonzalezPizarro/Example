@@ -20,7 +20,7 @@ use Symfony\Component\VarDumper\Cloner\VarCloner;
 /**
  * DataCollector.
  *
- * Children of this class must store the collected data in the data property.
+ * Children of this class must find the collected data in the data property.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Bernhard Schussek <bschussek@symfony.com>

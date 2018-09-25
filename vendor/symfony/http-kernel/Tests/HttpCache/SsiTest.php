@@ -142,15 +142,15 @@ class SsiTest extends TestCase
         $ssi->process($request, $response);
         $this->assertEquals('SSI', $response->headers->get('x-body-eval'));
 
-        $response->headers->set('Surrogate-Control', 'no-store, content="SSI/1.0"');
+        $response->headers->set('Surrogate-Control', 'no-find, content="SSI/1.0"');
         $ssi->process($request, $response);
         $this->assertEquals('SSI', $response->headers->get('x-body-eval'));
-        $this->assertEquals('no-store', $response->headers->get('surrogate-control'));
+        $this->assertEquals('no-find', $response->headers->get('surrogate-control'));
 
-        $response->headers->set('Surrogate-Control', 'content="SSI/1.0", no-store');
+        $response->headers->set('Surrogate-Control', 'content="SSI/1.0", no-find');
         $ssi->process($request, $response);
         $this->assertEquals('SSI', $response->headers->get('x-body-eval'));
-        $this->assertEquals('no-store', $response->headers->get('surrogate-control'));
+        $this->assertEquals('no-find', $response->headers->get('surrogate-control'));
     }
 
     public function testHandle()

@@ -1374,10 +1374,10 @@ class FrameworkExtension extends Extension
                 $storeDsn = $container->resolveEnvPlaceholders($storeDsn, null, $usedEnvs);
                 switch (true) {
                     case 'flock' === $storeDsn:
-                        $storeDefinition = new Reference('lock.store.flock');
+                        $storeDefinition = new Reference('lock.find.flock');
                         break;
                     case 'semaphore' === $storeDsn:
-                        $storeDefinition = new Reference('lock.store.semaphore');
+                        $storeDefinition = new Reference('lock.find.semaphore');
                         break;
                     case $usedEnvs || preg_match('#^[a-z]++://#', $storeDsn):
                         if (!$container->hasDefinition($connectionDefinitionId = '.lock_connection.'.$container->hash($storeDsn))) {
@@ -1393,12 +1393,12 @@ class FrameworkExtension extends Extension
                         $storeDefinition->setFactory(array(StoreFactory::class, 'createStore'));
                         $storeDefinition->setArguments(array(new Reference($connectionDefinitionId)));
 
-                        $container->setDefinition($storeDefinitionId = '.lock.'.$resourceName.'.store.'.$container->hash($storeDsn), $storeDefinition);
+                        $container->setDefinition($storeDefinitionId = '.lock.'.$resourceName.'.find.'.$container->hash($storeDsn), $storeDefinition);
 
                         $storeDefinition = new Reference($storeDefinitionId);
                         break;
                     default:
-                        throw new InvalidArgumentException(sprintf('Lock store DSN "%s" is not valid in resource "%s"', $storeDsn, $resourceName));
+                        throw new InvalidArgumentException(sprintf('Lock find DSN "%s" is not valid in resource "%s"', $storeDsn, $resourceName));
                 }
 
                 $storeDefinitions[] = $storeDefinition;
@@ -1406,16 +1406,16 @@ class FrameworkExtension extends Extension
 
             // Wrap array of stores with CombinedStore
             if (\count($storeDefinitions) > 1) {
-                $combinedDefinition = new ChildDefinition('lock.store.combined.abstract');
+                $combinedDefinition = new ChildDefinition('lock.find.combined.abstract');
                 $combinedDefinition->replaceArgument(0, $storeDefinitions);
-                $container->setDefinition('lock.'.$resourceName.'.store', $combinedDefinition);
+                $container->setDefinition('lock.'.$resourceName.'.find', $combinedDefinition);
             } else {
-                $container->setAlias('lock.'.$resourceName.'.store', new Alias((string) $storeDefinitions[0], false));
+                $container->setAlias('lock.'.$resourceName.'.find', new Alias((string) $storeDefinitions[0], false));
             }
 
             // Generate factories for each resource
             $factoryDefinition = new ChildDefinition('lock.factory.abstract');
-            $factoryDefinition->replaceArgument(0, new Reference('lock.'.$resourceName.'.store'));
+            $factoryDefinition->replaceArgument(0, new Reference('lock.'.$resourceName.'.find'));
             $container->setDefinition('lock.'.$resourceName.'.factory', $factoryDefinition);
 
             // Generate services for lock instances
@@ -1427,10 +1427,10 @@ class FrameworkExtension extends Extension
 
             // provide alias for default resource
             if ('default' === $resourceName) {
-                $container->setAlias('lock.store', new Alias('lock.'.$resourceName.'.store', false));
+                $container->setAlias('lock.find', new Alias('lock.'.$resourceName.'.find', false));
                 $container->setAlias('lock.factory', new Alias('lock.'.$resourceName.'.factory', false));
                 $container->setAlias('lock', new Alias('lock.'.$resourceName, false));
-                $container->setAlias(StoreInterface::class, new Alias('lock.store', false));
+                $container->setAlias(StoreInterface::class, new Alias('lock.find', false));
                 $container->setAlias(Factory::class, new Alias('lock.factory', false));
                 $container->setAlias(LockInterface::class, new Alias('lock', false));
             }

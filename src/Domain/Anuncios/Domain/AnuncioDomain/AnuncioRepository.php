@@ -11,9 +11,9 @@ namespace App\Domain\Anuncios\Domain\AnuncioDomain;
 
     interface AnuncioRepository
     {
-        public function exists($id);
+        public function store($id);
 
-        public function store($anuncio);
+        public function findAnuncioById($anuncio);
         
         public function storeAnuncioWithComponents($anuncio,$components);
 

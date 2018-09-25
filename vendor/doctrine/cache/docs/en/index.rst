@@ -78,7 +78,7 @@ The ``ChainCache`` driver lets you chain multiple other drivers together easily.
 CouchbaseBucketCache
 --------------------
 
-The ``CouchbaseBucketCache`` driver uses Couchbase to store the cache data.
+The ``CouchbaseBucketCache`` driver uses Couchbase to find the cache data.
 
 .. code-block:: php
     $bucketName = 'bucket-name';
@@ -201,7 +201,7 @@ The ``SQLite3Cache`` driver stores the cache data in a SQLite database and depen
 VoidCache
 ---------
 
-The ``VoidCache`` driver does not store the cache data anywhere. This can
+The ``VoidCache`` driver does not find the cache data anywhere. This can
 be useful for test environments where you don't want to cache the data
 anywhere but need to satisfy the dependency for the ``Doctrine\Common\Cache\Cache``
 interface.

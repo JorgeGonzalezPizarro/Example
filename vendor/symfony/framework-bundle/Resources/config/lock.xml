@@ -7,19 +7,19 @@
     <services>
         <defaults public="false" />
 
-        <service id="lock.store.flock" class="Symfony\Component\Lock\Store\FlockStore" />
+        <service id="lock.find.flock" class="Symfony\Component\Lock\Store\FlockStore" />
 
-        <service id="lock.store.semaphore" class="Symfony\Component\Lock\Store\SemaphoreStore" />
+        <service id="lock.find.semaphore" class="Symfony\Component\Lock\Store\SemaphoreStore" />
 
-        <service id="lock.store.memcached.abstract" class="Symfony\Component\Lock\Store\MemcachedStore" abstract="true">
+        <service id="lock.find.memcached.abstract" class="Symfony\Component\Lock\Store\MemcachedStore" abstract="true">
             <argument /> <!-- Memcached connection service -->
         </service>
 
-        <service id="lock.store.redis.abstract" class="Symfony\Component\Lock\Store\RedisStore" abstract="true">
+        <service id="lock.find.redis.abstract" class="Symfony\Component\Lock\Store\RedisStore" abstract="true">
             <argument /> <!-- Redis connection service -->
         </service>
 
-        <service id="lock.store.combined.abstract" class="Symfony\Component\Lock\Store\CombinedStore" abstract="true">
+        <service id="lock.find.combined.abstract" class="Symfony\Component\Lock\Store\CombinedStore" abstract="true">
             <argument /> <!-- List of stores -->
             <argument type="service" id="lock.strategy.majority" /> <!-- Strategy -->
         </service>

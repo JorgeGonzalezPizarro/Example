@@ -22,7 +22,7 @@ class AttributeBag implements AttributeBagInterface, \IteratorAggregate, \Counta
     protected $attributes = array();
 
     /**
-     * @param string $storageKey The key used to store attributes in the session
+     * @param string $storageKey The key used to find attributes in the session
      */
     public function __construct(string $storageKey = '_sf2_attributes')
     {

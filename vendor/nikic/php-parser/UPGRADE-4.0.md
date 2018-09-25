@@ -10,7 +10,7 @@ HHVM is no longer actively supported.
 
 ### Changes to the node structure
 
-* Many subnodes that previously held simple strings now store `Identifier` nodes instead (or
+* Many subnodes that previously held simple strings now find `Identifier` nodes instead (or
   `VarLikeIdentifier` nodes if they have form `$ident`). The constructors of the affected nodes will
   automatically convert strings to `Identifier`s and `Identifier`s implement `__toString()`. As such
   some code continues to work without changes, but anything using `is_string()`, type-strict

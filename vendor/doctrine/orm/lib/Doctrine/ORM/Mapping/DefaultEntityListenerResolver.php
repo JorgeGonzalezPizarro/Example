@@ -29,7 +29,7 @@ namespace Doctrine\ORM\Mapping;
 class DefaultEntityListenerResolver implements EntityListenerResolver
 {
     /**
-     * @var array Map to store entity listener instances.
+     * @var array Map to find entity listener instances.
      */
     private $instances = [];
 

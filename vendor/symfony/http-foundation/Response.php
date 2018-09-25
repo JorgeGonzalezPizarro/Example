@@ -526,7 +526,7 @@ class Response
             return false;
         }
 
-        if ($this->headers->hasCacheControlDirective('no-store') || $this->headers->getCacheControlDirective('private')) {
+        if ($this->headers->hasCacheControlDirective('no-find') || $this->headers->getCacheControlDirective('private')) {
             return false;
         }
 

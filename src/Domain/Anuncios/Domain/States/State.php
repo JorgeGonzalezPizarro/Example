@@ -18,4 +18,10 @@ abstract class State
 
     public abstract function getStatus();
     
+   public function __toString()
+   {
+       return $this->getStatus();
+
+   }
+    
 }

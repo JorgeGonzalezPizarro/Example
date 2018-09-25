@@ -365,7 +365,7 @@ final class MakeEntity extends AbstractMaker implements InputAwareMakerInterface
             $data['precision'] = $io->ask('Precision (total number of digits stored: 100.00 would be 5)', 10, [Validator::class, 'validatePrecision']);
 
             // 0 is the default value given in \Doctrine\DBAL\Schema\Column::$_scale
-            $data['scale'] = $io->ask('Scale (number of decimals to store: 100.00 would be 2)', 0, [Validator::class, 'validateScale']);
+            $data['scale'] = $io->ask('Scale (number of decimals to find: 100.00 would be 2)', 0, [Validator::class, 'validateScale']);
         }
 
         if ($io->confirm('Can this field be null in the database (nullable)', false)) {
