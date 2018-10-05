@@ -1,3 +1,3 @@
 framework:
-    php_errors:
-        throw: false
+  php_errors:
+    throw: false

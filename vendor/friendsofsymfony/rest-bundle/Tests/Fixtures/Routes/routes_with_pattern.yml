@@ -1,4 +1,4 @@
 get_users:
-    pattern: /users
-    defaults:
-        _controller: FOSRestBundle:UsersController:getUsers
+  pattern: /users
+  defaults:
+    _controller: FOSRestBundle:UsersController:getUsers

@@ -1,7 +1,7 @@
 imports:
-    - { resource: ../config/default.yml }
+- { resource: ../config/default.yml }
 
 framework:
-    profiler:
-        enabled: true
-        collect: false
+  profiler:
+    enabled: true
+    collect: false

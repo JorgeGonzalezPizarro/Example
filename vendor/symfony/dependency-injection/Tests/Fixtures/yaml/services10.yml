@@ -1,10 +1,10 @@
 parameters:
-    project.parameter.foo: BAR
+  project.parameter.foo: BAR
 
 services:
-    project.service.foo:
-        class: BAR
-        public: true
+  project.service.foo:
+    class: BAR
+    public: true
 
 project:
-    test: '%project.parameter.foo%'
+  test: '%project.parameter.foo%'

@@ -6,18 +6,18 @@ services:
       context: ./
     container_name: apache_container
     ports:
-    - 8000:80
+    - 8001:80
     volumes:
-#    - .docker/config/vhosts:/etc/apache2/sites-enabled
+    #    - .docker/config/vhosts:/etc/apache2/sites-enabled
     - .:/app
-#    depends_on:
-#    - php_service
+  #    depends_on:
+  #    - php_service
 
-  mysql_service:
-    image: mysql
+  mysql_s:
+    image: mysql:5.7
     container_name: mysql_container
-#    volumes:
-#    - .docker/data/db:/var/lib/mysql
+    #    volumes:
+    #    - .docker/data/db:/var/lib/mysql
     environment:
     - MYSQL_DATABASE
     - MYSQL_USER

@@ -1,4 +1,4 @@
 preset: symfony
 disabled:
-  - braces
-  - property_separation
+- braces
+- property_separation

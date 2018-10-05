@@ -7,10 +7,10 @@
 
     <doctrine-cache>
         <provider name="my_redis_cache">
-            <redis host="127.0.0.1" port="6379" />
+            <redis host="127.0.0.1" port="6379"/>
         </provider>
         <provider name="my_persistent_redis_cache">
-            <redis host="127.0.0.1" port="6379" persistent="true" />
+            <redis host="127.0.0.1" port="6379" persistent="true"/>
         </provider>
     </doctrine-cache>
 </srv:container>

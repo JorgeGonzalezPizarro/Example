@@ -1,19 +1,19 @@
 imports:
-    - { resource: ../config/default.yml }
+- { resource: ../config/default.yml }
 
 framework:
-    serializer:
-        enabled: true
-    templating:
-        engines: ['twig']
+  serializer:
+    enabled: true
+  templating:
+    engines: ['twig']
 
 fos_rest:
-    exception: ~
-    format_listener:
-        rules:
-            - { path: '^/', fallback_format: json }
-    zone:
-        - { path: ^/api/* }
+  exception: ~
+  format_listener:
+    rules:
+    - { path: '^/', fallback_format: json }
+  zone:
+  - { path: ^/api/* }
 
 twig:
-    strict_variables: '%kernel.debug%'
+  strict_variables: '%kernel.debug%'

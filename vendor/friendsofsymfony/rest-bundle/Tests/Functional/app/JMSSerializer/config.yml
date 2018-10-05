@@ -1,7 +1,7 @@
 imports:
-    - { resource: ../config/default.yml }
-    - { resource: ../config/exception_listener.yml }
+- { resource: ../config/default.yml }
+- { resource: ../config/exception_listener.yml }
 
 fos_rest:
-    view:
-        view_response_listener: 'force'
+  view:
+    view_response_listener: 'force'

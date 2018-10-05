@@ -6,5 +6,5 @@ App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio:
       type: string
   fields:
     anuncioState:
-          type: string
-          length: 50
+      type: string
+      length: 50

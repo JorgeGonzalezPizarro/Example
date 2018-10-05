@@ -1,6 +1,6 @@
 parameters:
-    env(REDIS_URL): redis://paas.com
+  env(REDIS_URL): redis://paas.com
 
 framework:
-    cache:
-        default_redis_provider: "%env(REDIS_URL)%"
+  cache:
+    default_redis_provider: "%env(REDIS_URL)%"

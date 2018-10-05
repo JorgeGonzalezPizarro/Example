@@ -1,7 +1,7 @@
 framework:
-    messenger:
-        buses:
-            command_bus:
-                middleware:
-                    - foo: ['qux']
-                      bar: ['baz']
+  messenger:
+    buses:
+      command_bus:
+        middleware:
+        - foo: ['qux']
+          bar: ['baz']

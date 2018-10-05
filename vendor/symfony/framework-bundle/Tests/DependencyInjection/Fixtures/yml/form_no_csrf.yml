@@ -1,4 +1,4 @@
 framework:
-    form:
-        csrf_protection:
-            enabled: false
+  form:
+    csrf_protection:
+      enabled: false

@@ -1,3 +1,3 @@
 framework:
-    templating:
-        engines: [php, twig]
+  templating:
+    engines: [php, twig]

@@ -1,4 +1,4 @@
 framework:
-    serializer:
-        enabled: true
-        cache: foo
+  serializer:
+    enabled: true
+    cache: foo

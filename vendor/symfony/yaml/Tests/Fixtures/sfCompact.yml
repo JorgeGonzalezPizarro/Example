@@ -1,7 +1,7 @@
 --- %YAML:1.0
 test: Compact notation
 brief: |
-    Compact notation for sets of mappings with single element
+  Compact notation for sets of mappings with single element
 yaml: |
   ---
   # products purchased
@@ -32,7 +32,7 @@ php: |
 ---
 test: Compact notation combined with inline notation
 brief: |
-    Combinations of compact and inline notation are allowed
+  Combinations of compact and inline notation are allowed
 yaml: |
   ---
   items:
@@ -54,7 +54,7 @@ php: |
 --- %YAML:1.0
 test: Compact notation
 brief: |
-    Compact notation for sets of mappings with single element
+  Compact notation for sets of mappings with single element
 yaml: |
   ---
   # products purchased
@@ -85,7 +85,7 @@ php: |
 ---
 test: Compact notation combined with inline notation
 brief: |
-    Combinations of compact and inline notation are allowed
+  Combinations of compact and inline notation are allowed
 yaml: |
   ---
   items:
@@ -107,7 +107,7 @@ php: |
 --- %YAML:1.0
 test: Compact notation
 brief: |
-    Compact notation for sets of mappings with single element
+  Compact notation for sets of mappings with single element
 yaml: |
   ---
   # products purchased
@@ -138,7 +138,7 @@ php: |
 ---
 test: Compact notation combined with inline notation
 brief: |
-    Combinations of compact and inline notation are allowed
+  Combinations of compact and inline notation are allowed
 yaml: |
   ---
   items:

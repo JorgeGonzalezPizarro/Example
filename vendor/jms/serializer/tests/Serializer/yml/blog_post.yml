@@ -5,23 +5,19 @@ is_published: false
 is_reviewed: false
 etag: 1edf9bf60a32d89afbb85b2be849e3ceed5f5b10
 comments:
-    -
-        author:
-            full_name: 'Foo Bar'
-        text: foo
-comments2:
-    -
-        author:
-            full_name: 'Foo Bar'
-        text: foo
-metadata:
-    foo: bar
-author:
+- author:
     full_name: 'Foo Bar'
+  text: foo
+comments2:
+- author:
+    full_name: 'Foo Bar'
+  text: foo
+metadata:
+  foo: bar
+author:
+  full_name: 'Foo Bar'
 publisher:
-    pub_name: 'Bar Foo'
+  pub_name: 'Bar Foo'
 tag:
-    -
-        name: tag1
-    -
-        name: tag2
+- name: tag1
+- name: tag2

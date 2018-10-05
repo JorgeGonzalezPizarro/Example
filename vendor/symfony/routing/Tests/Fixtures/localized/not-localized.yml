@@ -1,4 +1,4 @@
 ---
 not_localized:
-    controller: string
-    path: /here
+  controller: string
+  path: /here

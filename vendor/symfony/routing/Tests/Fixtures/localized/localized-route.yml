@@ -1,9 +1,9 @@
 ---
 home:
-    path:
-        nl: /nl
-        en: /en
+  path:
+    nl: /nl
+    en: /en
 
 not_localized:
-    controller: HomeController::otherAction
-    path: /here
+  controller: HomeController::otherAction
+  path: /here

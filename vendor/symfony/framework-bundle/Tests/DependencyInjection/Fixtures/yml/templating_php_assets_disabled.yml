@@ -1,4 +1,4 @@
 framework:
-    assets: false
-    templating:
-        engines: [php]
+  assets: false
+  templating:
+    engines: [php]

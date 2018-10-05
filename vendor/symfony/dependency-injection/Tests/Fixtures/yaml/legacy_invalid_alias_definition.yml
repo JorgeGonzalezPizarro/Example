@@ -1,5 +1,5 @@
 services:
-    foo:
-        alias: bar
-        factory: foo
-        parent: quz
+  foo:
+    alias: bar
+    factory: foo
+    parent: quz

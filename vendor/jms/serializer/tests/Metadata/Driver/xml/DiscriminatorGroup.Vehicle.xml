@@ -5,6 +5,6 @@
         <discriminator-groups>
             <group>foo</group>
         </discriminator-groups>
-        <property name="km" type="integer" />
+        <property name="km" type="integer"/>
     </class>
 </serializer>

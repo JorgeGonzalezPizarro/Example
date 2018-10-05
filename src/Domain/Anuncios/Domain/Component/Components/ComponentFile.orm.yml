@@ -1,5 +1,5 @@
-App\Domain\Anuncios\Domain\Component\Components\ComponentFile :
-  type : entity
+App\Domain\Anuncios\Domain\Component\Components\ComponentFile:
+  type: entity
   table: ComponentFile
   fields:
     textFile:

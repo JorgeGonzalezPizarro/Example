@@ -1,6 +1,6 @@
 imports:
-    - { resource: ../config/default.yml }
+- { resource: ../config/default.yml }
 
 framework:
-    serializer: true
-    templating: false
+  serializer: true
+  templating: false

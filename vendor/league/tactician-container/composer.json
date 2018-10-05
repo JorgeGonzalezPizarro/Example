@@ -1,8 +1,15 @@
 {
-    "name":        "league/tactician-container",
+    "name": "league/tactician-container",
     "description": "Tactician integration for any container implementing PSR-11",
-    "keywords":    ["tactician", "di", "container", "league", "container-interop", "interoperable"],
-    "license":     "MIT",
+    "keywords": [
+        "tactician",
+        "di",
+        "container",
+        "league",
+        "container-interop",
+        "interoperable"
+    ],
+    "license": "MIT",
     "authors": [
         {
             "name": "Nigel Greenway",

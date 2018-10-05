@@ -7,10 +7,10 @@
 
     <doctrine-cache>
         <provider name="my_mongodb_cache">
-             <mongodb server="localhost:27017" >
-                 <database-name>my_database</database-name>
-                 <collection-name>my_collection</collection-name>
-             </mongodb>
-         </provider>
+            <mongodb server="localhost:27017">
+                <database-name>my_database</database-name>
+                <collection-name>my_collection</collection-name>
+            </mongodb>
+        </provider>
     </doctrine-cache>
 </srv:container>

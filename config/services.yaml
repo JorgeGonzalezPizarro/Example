@@ -11,60 +11,60 @@ parameters:
   rabbitmq_statuslayer_vhost: 'example'
 services:
 
-#    app.hello_controller:
-#        class: api\controllers\AnuncioController
-    # default configuration for services in *this* file
-    _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        public: false       # Allows optimizing the container by removing unused services; this also means
-                            # fetching services directly from the container via $container->get() won't work.
-                            # The best practice is to be explicit about your dependencies anyway.
-    App\Command\ExampleCommand:
-        tags:
-            - { name: 'console.command', command: 'app:example' }
+  #    app.hello_controller:
+  #        class: api\controllers\AnuncioController
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    public: false       # Allows optimizing the container by removing unused services; this also means
+      # fetching services directly from the container via $container->get() won't work.
+    # The best practice is to be explicit about your dependencies anyway.
+  App\Command\ExampleCommand:
+    tags:
+    - { name: 'console.command', command: 'app:example' }
 
-    anuncio.controller:
-        class: App\Controller\AnuncioController
-        public: true
-        tags: ['controller.service_arguments']
-    sunmedia.controller:
-        class: App\IO\Api\SunmediaController
-        arguments: ['@tactician.commandbus','@request_stack']
-
-
-
-    App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler:
-        class: App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler
-        arguments: ['@anuncio_creator']
-        tags:
-        - { name: tactician.handler, command: App\Domain\Anuncios\UseCases\Create\AnuncioCommand , typehints: true}
-
-    anuncio_repository:
-        class : App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioRepository
-
-    component_repository:
-        class : App\Domain\Anuncios\Domain\Component\ComponentRepository
-    anuncio_repository_doctrine:
-        class: App\Domain\Anuncios\Persistance\AnuncioPersistance
-        arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio , '@doctrine.orm.entity_manager']
-    anuncio_creator:
-        class: App\Domain\Anuncios\UseCases\CreateAnuncio\AnuncioCreator
-        arguments: ['@anuncio_repository_doctrine' ,'@components_repository_doctrine','@event_domain.publisher']
-    App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId:
-        class: App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId
-        arguments: ['@rampsey_id']
-    anuncio_id:
-        class: App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioId
-        arguments: ['@rampsey_id']
-    components_repository_doctrine:
-        class: App\Domain\Anuncios\Persistance\ComponentsPersistance
-        arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\Component\Component , '@doctrine.orm.entity_manager']
+  anuncio.controller:
+    class: App\Controller\AnuncioController
+    public: true
+    tags: ['controller.service_arguments']
+  sunmedia.controller:
+    class: App\IO\Api\SunmediaController
+    arguments: ['@tactician.commandbus','@request_stack']
 
 
-    event_domain_exception.listener:
-        class: App\Domain\Anuncios\Exception\ExceptionDomainListener
-        tags :
-        - { name: tactician.handler, event: kernel.exception , method: onDomainException}
-    event_domain.publisher:
-        class: App\IO\Events\DomainEventPublisherRabbitMq
+
+  App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler:
+    class: App\Domain\Anuncios\UseCases\CreateAnuncio\CreateAnuncioHandler
+    arguments: ['@anuncio_creator']
+    tags:
+    - { name: tactician.handler, command: App\Domain\Anuncios\UseCases\Create\AnuncioCommand , typehints: true}
+
+  anuncio_repository:
+    class: App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioRepository
+
+  component_repository:
+    class: App\Domain\Anuncios\Domain\Component\ComponentRepository
+  anuncio_repository_doctrine:
+    class: App\Domain\Anuncios\Persistance\AnuncioPersistance
+    arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\AnuncioDomain\Anuncio , '@doctrine.orm.entity_manager']
+  anuncio_creator:
+    class: App\Domain\Anuncios\UseCases\CreateAnuncio\AnuncioCreator
+    arguments: ['@anuncio_repository_doctrine' ,'@components_repository_doctrine','@event_domain.publisher']
+  App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId:
+    class: App\Domain\Anuncios\Domain\Component\Components\ComponentsVO\ComponentId
+    arguments: ['@rampsey_id']
+  anuncio_id:
+    class: App\Domain\Anuncios\Domain\AnuncioDomain\AnuncioId
+    arguments: ['@rampsey_id']
+  components_repository_doctrine:
+    class: App\Domain\Anuncios\Persistance\ComponentsPersistance
+    arguments: ['@Doctrine\Common\Persistence\ManagerRegistry',App\Domain\Anuncios\Domain\Component\Component , '@doctrine.orm.entity_manager']
+
+
+  event_domain_exception.listener:
+    class: App\Domain\Anuncios\Exception\ExceptionDomainListener
+    tags:
+    - { name: tactician.handler, event: kernel.exception , method: onDomainException}
+  event_domain.publisher:
+    class: App\IO\Events\DomainEventPublisherRabbitMq

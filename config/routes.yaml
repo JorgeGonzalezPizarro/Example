@@ -1,5 +1,5 @@
 blog_list:
-    path:     /
-#    controller: App\Controller\AnuncioController::list
-    defaults: { _controller: anuncio.controller }
-    methods:    [POST]
+  path:     /
+  #    controller: App\Controller\AnuncioController::list
+  defaults: { _controller: anuncio.controller }
+  methods:    [POST]

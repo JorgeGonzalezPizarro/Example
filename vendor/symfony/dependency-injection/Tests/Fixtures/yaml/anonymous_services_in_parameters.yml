@@ -1,2 +1,2 @@
 parameters:
-    foo: [ !service { } ]
+  foo: [ !service { } ]

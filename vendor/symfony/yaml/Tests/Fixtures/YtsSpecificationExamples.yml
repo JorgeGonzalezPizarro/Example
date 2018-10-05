@@ -20,79 +20,79 @@ php: |
 test: Mapping of scalars to sequences
 spec: 2.3
 yaml: |
-    american:
-       - Boston Red Sox
-       - Detroit Tigers
-       - New York Yankees
-    national:
-       - New York Mets
-       - Chicago Cubs
-       - Atlanta Braves
+  american:
+     - Boston Red Sox
+     - Detroit Tigers
+     - New York Yankees
+  national:
+     - New York Mets
+     - Chicago Cubs
+     - Atlanta Braves
 php: |
-    array('american' =>
-        array( 'Boston Red Sox', 'Detroit Tigers',
-          'New York Yankees' ),
-      'national' =>
-        array( 'New York Mets', 'Chicago Cubs',
-          'Atlanta Braves' )
-    )
+  array('american' =>
+      array( 'Boston Red Sox', 'Detroit Tigers',
+        'New York Yankees' ),
+    'national' =>
+      array( 'New York Mets', 'Chicago Cubs',
+        'Atlanta Braves' )
+  )
 ---
 test: Sequence of mappings
 spec: 2.4
 yaml: |
-    -
-      name: Mark McGwire
-      hr:   65
-      avg:  0.278
-    -
-      name: Sammy Sosa
-      hr:   63
-      avg:  0.288
+  -
+    name: Mark McGwire
+    hr:   65
+    avg:  0.278
+  -
+    name: Sammy Sosa
+    hr:   63
+    avg:  0.288
 php: |
-    array(
-      array('name' => 'Mark McGwire', 'hr' => 65, 'avg' => 0.278),
-      array('name' => 'Sammy Sosa', 'hr' => 63, 'avg' => 0.288)
-    )
+  array(
+    array('name' => 'Mark McGwire', 'hr' => 65, 'avg' => 0.278),
+    array('name' => 'Sammy Sosa', 'hr' => 63, 'avg' => 0.288)
+  )
 ---
 test: Legacy A5
 todo: true
 spec: legacy_A5
 yaml: |
-    ?
-        - New York Yankees
-        - Atlanta Braves
-    :
-      - 2001-07-02
-      - 2001-08-12
-      - 2001-08-14
-    ?
-        - Detroit Tigers
-        - Chicago Cubs
-    :
-      - 2001-07-23
+  ?
+      - New York Yankees
+      - Atlanta Braves
+  :
+    - 2001-07-02
+    - 2001-08-12
+    - 2001-08-14
+  ?
+      - Detroit Tigers
+      - Chicago Cubs
+  :
+    - 2001-07-23
 perl-busted: >
-    YAML.pm will be able to emulate this behavior soon. In this regard
-    it may be somewhat more correct than Python's native behaviour which
-    can only use tuples as mapping keys. PyYAML will also need to figure
-    out some clever way to roundtrip structured keys.
+  YAML.pm will be able to emulate this behavior soon. In this regard
+  it may be somewhat more correct than Python's native behaviour which
+  can only use tuples as mapping keys. PyYAML will also need to figure
+  out some clever way to roundtrip structured keys.
 python: |
-    [
-    {
-        ('New York Yankees', 'Atlanta Braves'):
-            [yaml.timestamp('2001-07-02'),
-             yaml.timestamp('2001-08-12'),
-             yaml.timestamp('2001-08-14')],
-        ('Detroit Tigers', 'Chicago Cubs'):
-        [yaml.timestamp('2001-07-23')]
-    }
-    ]
+  [
+  {
+      ('New York Yankees', 'Atlanta Braves'):
+          [yaml.timestamp('2001-07-02'),
+           yaml.timestamp('2001-08-12'),
+           yaml.timestamp('2001-08-14')],
+      ('Detroit Tigers', 'Chicago Cubs'):
+      [yaml.timestamp('2001-07-23')]
+  }
+  ]
 ruby: |
-    {
-      [ 'New York Yankees', 'Atlanta Braves' ] =>
-        [ Date.new( 2001, 7, 2 ), Date.new( 2001, 8, 12 ), Date.new( 2001, 8, 14 ) ],
-      [ 'Detroit Tigers', 'Chicago Cubs' ] =>
-        [ Date.new( 2001, 7, 23 ) ]
-    }
+  {
+    [ 'New York Yankees', 'Atlanta Braves' ] =>
+      [ Date.new( 2001, 7, 2 ), Date.new( 2001, 8, 12 ), Date.new( 2001, 8, 14 ) ],
+    [ 'Detroit Tigers', 'Chicago Cubs' ] =>
+      [ Date.new( 2001, 7, 23 ) ]
+  }
 syck: |
   struct test_node seq1[] = {
       { T_STR, 0, "New York Yankees" },
@@ -216,41 +216,41 @@ php: |
 test: Node for Sammy Sosa appears twice in this document
 spec: 2.10
 yaml: |
-   ---
-   hr:
-      - Mark McGwire
-      # Following node labeled SS
-      - &SS Sammy Sosa
-   rbi:
-      - *SS # Subsequent occurrence
-      - Ken Griffey
+  ---
+  hr:
+     - Mark McGwire
+     # Following node labeled SS
+     - &SS Sammy Sosa
+  rbi:
+     - *SS # Subsequent occurrence
+     - Ken Griffey
 php: |
-   array(
-      'hr' =>
-         array('Mark McGwire', 'Sammy Sosa'),
-      'rbi' =>
-         array('Sammy Sosa', 'Ken Griffey')
-   )
+  array(
+     'hr' =>
+        array('Mark McGwire', 'Sammy Sosa'),
+     'rbi' =>
+        array('Sammy Sosa', 'Ken Griffey')
+  )
 ---
 test: Mapping between sequences
 todo: true
 spec: 2.11
 yaml: |
-   ? # PLAY SCHEDULE
-     - Detroit Tigers
-     - Chicago Cubs
-   :
-     - 2001-07-23
+  ? # PLAY SCHEDULE
+    - Detroit Tigers
+    - Chicago Cubs
+  :
+    - 2001-07-23
 
-   ? [ New York Yankees,
-       Atlanta Braves ]
-   : [ 2001-07-02, 2001-08-12,
-       2001-08-14 ]
+  ? [ New York Yankees,
+      Atlanta Braves ]
+  : [ 2001-07-02, 2001-08-12,
+      2001-08-14 ]
 ruby: |
-   {
-      [ 'Detroit Tigers', 'Chicago Cubs' ] => [ Date.new( 2001, 7, 23 ) ],
-      [ 'New York Yankees', 'Atlanta Braves' ] => [ Date.new( 2001, 7, 2 ), Date.new( 2001, 8, 12 ), Date.new( 2001, 8, 14 ) ]
-   }
+  {
+     [ 'Detroit Tigers', 'Chicago Cubs' ] => [ Date.new( 2001, 7, 23 ) ],
+     [ 'New York Yankees', 'Atlanta Braves' ] => [ Date.new( 2001, 7, 2 ), Date.new( 2001, 8, 12 ), Date.new( 2001, 8, 14 ) ]
+  }
 syck: |
   struct test_node seq1[] = {
       { T_STR, 0, "New York Yankees" },
@@ -378,14 +378,14 @@ perl: |
 ruby: |
   "\\//||\\/||\n// ||  ||_\n"
 python: |
-    [
-        flushLeft(
-        """
-        \//||\/||
-        // ||  ||_
-        """
-        )
-    ]
+  [
+      flushLeft(
+      """
+      \//||\/||
+      // ||  ||_
+      """
+      )
+  ]
 syck: |
   struct test_node stream[] = {
       { T_STR, 0, "\\//||\\/||\n// ||  ||_\n" },
@@ -406,7 +406,7 @@ perl: |
 ruby: |
   "Mark McGwire's year was crippled by a knee injury."
 python: |
-    [ "Mark McGwire's year was crippled by a knee injury." ]
+  [ "Mark McGwire's year was crippled by a knee injury." ]
 syck: |
   struct test_node stream[] = {
       { T_STR, 0, "Mark McGwire's year was crippled by a knee injury." },
@@ -431,18 +431,18 @@ perl: |
 ruby: |
   "Sammy Sosa completed another fine season with great stats.\n\n  63 Home Runs\n  0.288 Batting Average\n\nWhat a year!\n"
 python: |
-    [
-        flushLeft(
-        """
-        Sammy Sosa completed another fine season with great stats.
+  [
+      flushLeft(
+      """
+      Sammy Sosa completed another fine season with great stats.
 
-          63 Home Runs
-          0.288 Batting Average
+        63 Home Runs
+        0.288 Batting Average
 
-        What a year!
-        """
-        )
-    ]
+      What a year!
+      """
+      )
+  ]
 syck: |
   struct test_node stream[] = {
       { T_STR, 0, "Sammy Sosa completed another fine season with great stats.\n\n  63 Home Runs\n  0.288 Batting Average\n\nWhat a year!\n" },
@@ -556,17 +556,17 @@ test: legacy Timestamps test
 todo: true
 spec: legacy D4
 yaml: |
-    canonical: 2001-12-15T02:59:43.00Z
-    iso8601:  2001-02-28t21:59:43.00-05:00
-    spaced:  2001-12-14 21:59:43.00 -05:00
-    date:   2002-12-14
+  canonical: 2001-12-15T02:59:43.00Z
+  iso8601:  2001-02-28t21:59:43.00-05:00
+  spaced:  2001-12-14 21:59:43.00 -05:00
+  date:   2002-12-14
 php: |
-   array(
-     'canonical' => Time::utc( 2001, 12, 15, 2, 59, 43, 0 ),
-     'iso8601' => YAML::mktime( 2001, 2, 28, 21, 59, 43, 0, "-05:00" ),
-     'spaced' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0, "-05:00" ),
-     'date' => Date.new( 2002, 12, 14 )
-   )
+  array(
+    'canonical' => Time::utc( 2001, 12, 15, 2, 59, 43, 0 ),
+    'iso8601' => YAML::mktime( 2001, 2, 28, 21, 59, 43, 0, "-05:00" ),
+    'spaced' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0, "-05:00" ),
+    'date' => Date.new( 2002, 12, 14 )
+  )
 ---
 test: Various explicit families
 todo: true
@@ -795,74 +795,74 @@ documents: 3
 ---
 test: Throwaway comments
 yaml: |
-   ### These are four throwaway comment  ###
+  ### These are four throwaway comment  ###
 
-   ### lines (the second line is empty). ###
-   this: |   # Comments may trail lines.
-      contains three lines of text.
-      The third one starts with a
-      # character. This isn't a comment.
+  ### lines (the second line is empty). ###
+  this: |   # Comments may trail lines.
+     contains three lines of text.
+     The third one starts with a
+     # character. This isn't a comment.
 
-   # These are three throwaway comment
-   # lines (the first line is empty).
+  # These are three throwaway comment
+  # lines (the first line is empty).
 php: |
-   array(
-     'this' => "contains three lines of text.\nThe third one starts with a\n# character. This isn't a comment.\n"
-   )
+  array(
+    'this' => "contains three lines of text.\nThe third one starts with a\n# character. This isn't a comment.\n"
+  )
 ---
 test: Document with a single value
 todo: true
 yaml: |
-   --- >
-   This YAML stream contains a single text value.
-   The next stream is a log file - a sequence of
-   log entries. Adding an entry to the log is a
-   simple matter of appending it at the end.
+  --- >
+  This YAML stream contains a single text value.
+  The next stream is a log file - a sequence of
+  log entries. Adding an entry to the log is a
+  simple matter of appending it at the end.
 ruby: |
-   "This YAML stream contains a single text value. The next stream is a log file - a sequence of log entries. Adding an entry to the log is a simple matter of appending it at the end.\n"
+  "This YAML stream contains a single text value. The next stream is a log file - a sequence of log entries. Adding an entry to the log is a simple matter of appending it at the end.\n"
 ---
 test: Document stream
 todo: true
 yaml: |
-   ---
-   at: 2001-08-12 09:25:00.00 Z
-   type: GET
-   HTTP: '1.0'
-   url: '/index.html'
-   ---
-   at: 2001-08-12 09:25:10.00 Z
-   type: GET
-   HTTP: '1.0'
-   url: '/toc.html'
+  ---
+  at: 2001-08-12 09:25:00.00 Z
+  type: GET
+  HTTP: '1.0'
+  url: '/index.html'
+  ---
+  at: 2001-08-12 09:25:10.00 Z
+  type: GET
+  HTTP: '1.0'
+  url: '/toc.html'
 ruby: |
-   y = YAML::Stream.new
-   y.add( {
-      'at' => Time::utc( 2001, 8, 12, 9, 25, 00 ),
-      'type' => 'GET',
-      'HTTP' => '1.0',
-      'url' => '/index.html'
-   } )
-   y.add( {
-      'at' => Time::utc( 2001, 8, 12, 9, 25, 10 ),
-      'type' => 'GET',
-      'HTTP' => '1.0',
-      'url' => '/toc.html'
-   } )
+  y = YAML::Stream.new
+  y.add( {
+     'at' => Time::utc( 2001, 8, 12, 9, 25, 00 ),
+     'type' => 'GET',
+     'HTTP' => '1.0',
+     'url' => '/index.html'
+  } )
+  y.add( {
+     'at' => Time::utc( 2001, 8, 12, 9, 25, 10 ),
+     'type' => 'GET',
+     'HTTP' => '1.0',
+     'url' => '/toc.html'
+  } )
 documents: 2
 
 ---
 test: Top level mapping
 yaml: |
-   # This stream is an example of a top-level mapping.
-   invoice : 34843
-   date    : 2001-01-23
-   total   : 4443.52
+  # This stream is an example of a top-level mapping.
+  invoice : 34843
+  date    : 2001-01-23
+  total   : 4443.52
 php: |
-   array(
-      'invoice' => 34843,
-      'date' => gmmktime(0, 0, 0, 1, 23, 2001),
-      'total' => 4443.52
-   )
+  array(
+     'invoice' => 34843,
+     'date' => gmmktime(0, 0, 0, 1, 23, 2001),
+     'total' => 4443.52
+  )
 ---
 test: Single-line documents
 todo: true
@@ -909,11 +909,11 @@ documents: 2
 ---
 test: Explicit typing
 yaml: |
-   integer: 12
-   no int: ! 12
-   string: !!str 12
+  integer: 12
+  no int: ! 12
+  string: !!str 12
 php: |
-   array( 'integer' => 12, 'no int' => '12', 'string' => '12' )
+  array( 'integer' => 12, 'no int' => '12', 'string' => '12' )
 ---
 test: Private types
 todo: true
@@ -1044,47 +1044,47 @@ ruby: |
 test: Complete mapping test
 todo: true
 yaml: |
- empty: {}
- flow: { one: 1, two: 2 }
- spanning: { one: 1,
-    two: 2 }
- block:
-  first : First entry
-  second:
-   key: Subordinate mapping
-  third:
-   - Subordinate sequence
-   - { }
-   - Previous mapping is empty.
-   - A key: value pair in a sequence.
-     A second: key:value pair.
-   - The previous entry is equal to the following one.
-   -
-     A key: value pair in a sequence.
-     A second: key:value pair.
-  !float 12 : This key is a float.
-  ? >
+  empty: {}
+  flow: { one: 1, two: 2 }
+  spanning: { one: 1,
+     two: 2 }
+  block:
+   first : First entry
+   second:
+    key: Subordinate mapping
+   third:
+    - Subordinate sequence
+    - { }
+    - Previous mapping is empty.
+    - A key: value pair in a sequence.
+      A second: key:value pair.
+    - The previous entry is equal to the following one.
+    -
+      A key: value pair in a sequence.
+      A second: key:value pair.
+   !float 12 : This key is a float.
+   ? >
+    ?
+   : This key had to be protected.
+   "\a" : This key had to be escaped.
+   ? >
+    This is a
+    multi-line
+    folded key
+   : Whose value is
+     also multi-line.
+   ? this also works as a key
+   : with a value at the next line.
    ?
-  : This key had to be protected.
-  "\a" : This key had to be escaped.
-  ? >
-   This is a
-   multi-line
-   folded key
-  : Whose value is
-    also multi-line.
-  ? this also works as a key
-  : with a value at the next line.
-  ?
-   - This key
-   - is a sequence
-  :
-   - With a sequence value.
-  ?
-   This: key
-   is a: mapping
-  :
-   with a: mapping value.
+    - This key
+    - is a sequence
+   :
+    - With a sequence value.
+   ?
+    This: key
+    is a: mapping
+   :
+    with a: mapping value.
 ruby: |
   { 'empty' => {}, 'flow' => { 'one' => 1, 'two' => 2 },
     'spanning' => { 'one' => 1, 'two' => 2 },
@@ -1111,353 +1111,353 @@ ruby: |
 ---
 test: Literal explicit indentation
 yaml: |
-   # Explicit indentation must
-   # be given in all the three
-   # following cases.
-   leading spaces: |2
-         This value starts with four spaces.
+  # Explicit indentation must
+  # be given in all the three
+  # following cases.
+  leading spaces: |2
+        This value starts with four spaces.
 
-   leading line break: |2
+  leading line break: |2
 
-     This value starts with a line break.
+    This value starts with a line break.
 
-   leading comment indicator: |2
-     # first line starts with a
-     # character.
+  leading comment indicator: |2
+    # first line starts with a
+    # character.
 
-   # Explicit indentation may
-   # also be given when it is
-   # not required.
-   redundant: |2
-     This value is indented 2 spaces.
+  # Explicit indentation may
+  # also be given when it is
+  # not required.
+  redundant: |2
+    This value is indented 2 spaces.
 php: |
-   array(
-      'leading spaces' => "    This value starts with four spaces.\n",
-      'leading line break' => "\nThis value starts with a line break.\n",
-      'leading comment indicator' => "# first line starts with a\n# character.\n",
-      'redundant' => "This value is indented 2 spaces.\n"
-   )
+  array(
+     'leading spaces' => "    This value starts with four spaces.\n",
+     'leading line break' => "\nThis value starts with a line break.\n",
+     'leading comment indicator' => "# first line starts with a\n# character.\n",
+     'redundant' => "This value is indented 2 spaces.\n"
+  )
 ---
 test: Chomping and keep modifiers
 yaml: |
-    clipped: |
-        This has one newline.
+  clipped: |
+      This has one newline.
 
-    same as "clipped" above: "This has one newline.\n"
+  same as "clipped" above: "This has one newline.\n"
 
-    stripped: |-
-        This has no newline.
+  stripped: |-
+      This has no newline.
 
-    same as "stripped" above: "This has no newline."
+  same as "stripped" above: "This has no newline."
 
-    kept: |+
-        This has two newlines.
+  kept: |+
+      This has two newlines.
 
-    same as "kept" above: "This has two newlines.\n\n"
+  same as "kept" above: "This has two newlines.\n\n"
 php: |
-    array(
-      'clipped' => "This has one newline.\n",
-      'same as "clipped" above' => "This has one newline.\n",
-      'stripped' => 'This has no newline.',
-      'same as "stripped" above' => 'This has no newline.',
-      'kept' => "This has two newlines.\n\n",
-      'same as "kept" above' => "This has two newlines.\n\n"
-    )
+  array(
+    'clipped' => "This has one newline.\n",
+    'same as "clipped" above' => "This has one newline.\n",
+    'stripped' => 'This has no newline.',
+    'same as "stripped" above' => 'This has no newline.',
+    'kept' => "This has two newlines.\n\n",
+    'same as "kept" above' => "This has two newlines.\n\n"
+  )
 ---
 test: Literal combinations
 todo: true
 yaml: |
-   empty: |
+  empty: |
 
-   literal: |
-    The \ ' " characters may be
-    freely used. Leading white
-       space is significant.
+  literal: |
+   The \ ' " characters may be
+   freely used. Leading white
+      space is significant.
 
-    Line breaks are significant.
-    Thus this value contains one
-    empty line and ends with a
-    single line break, but does
-    not start with one.
+   Line breaks are significant.
+   Thus this value contains one
+   empty line and ends with a
+   single line break, but does
+   not start with one.
 
-   is equal to: "The \\ ' \" characters may \
-    be\nfreely used. Leading white\n   space \
-    is significant.\n\nLine breaks are \
-    significant.\nThus this value contains \
-    one\nempty line and ends with a\nsingle \
-    line break, but does\nnot start with one.\n"
+  is equal to: "The \\ ' \" characters may \
+   be\nfreely used. Leading white\n   space \
+   is significant.\n\nLine breaks are \
+   significant.\nThus this value contains \
+   one\nempty line and ends with a\nsingle \
+   line break, but does\nnot start with one.\n"
 
-   # Comments may follow a block
-   # scalar value. They must be
-   # less indented.
+  # Comments may follow a block
+  # scalar value. They must be
+  # less indented.
 
-   # Modifiers may be combined in any order.
-   indented and chomped: |2-
-       This has no newline.
+  # Modifiers may be combined in any order.
+  indented and chomped: |2-
+      This has no newline.
 
-   also written as: |-2
-       This has no newline.
+  also written as: |-2
+      This has no newline.
 
-   both are equal to: "  This has no newline."
+  both are equal to: "  This has no newline."
 php: |
-   array(
-     'empty' => '',
-     'literal' => "The \\ ' \" characters may be\nfreely used. Leading white\n   space " +
-       "is significant.\n\nLine breaks are significant.\nThus this value contains one\n" +
-       "empty line and ends with a\nsingle line break, but does\nnot start with one.\n",
-     'is equal to' => "The \\ ' \" characters may be\nfreely used. Leading white\n   space " +
-       "is significant.\n\nLine breaks are significant.\nThus this value contains one\n" +
-       "empty line and ends with a\nsingle line break, but does\nnot start with one.\n",
-     'indented and chomped' => '  This has no newline.',
-     'also written as' => '  This has no newline.',
-     'both are equal to' => '  This has no newline.'
-   )
+  array(
+    'empty' => '',
+    'literal' => "The \\ ' \" characters may be\nfreely used. Leading white\n   space " +
+      "is significant.\n\nLine breaks are significant.\nThus this value contains one\n" +
+      "empty line and ends with a\nsingle line break, but does\nnot start with one.\n",
+    'is equal to' => "The \\ ' \" characters may be\nfreely used. Leading white\n   space " +
+      "is significant.\n\nLine breaks are significant.\nThus this value contains one\n" +
+      "empty line and ends with a\nsingle line break, but does\nnot start with one.\n",
+    'indented and chomped' => '  This has no newline.',
+    'also written as' => '  This has no newline.',
+    'both are equal to' => '  This has no newline.'
+  )
 ---
 test: Folded combinations
 todo: true
 yaml: |
-   empty: >
+  empty: >
 
-   one paragraph: >
-    Line feeds are converted
-    to spaces, so this value
-    contains no line breaks
-    except for the final one.
+  one paragraph: >
+   Line feeds are converted
+   to spaces, so this value
+   contains no line breaks
+   except for the final one.
 
-   multiple paragraphs: >2
+  multiple paragraphs: >2
 
-     An empty line, either
-     at the start or in
-     the value:
+    An empty line, either
+    at the start or in
+    the value:
 
-     Is interpreted as a
-     line break. Thus this
-     value contains three
-     line breaks.
+    Is interpreted as a
+    line break. Thus this
+    value contains three
+    line breaks.
 
-   indented text: >
-       This is a folded
-       paragraph followed
-       by a list:
-        * first entry
-        * second entry
-       Followed by another
-       folded paragraph,
-       another list:
+  indented text: >
+      This is a folded
+      paragraph followed
+      by a list:
+       * first entry
+       * second entry
+      Followed by another
+      folded paragraph,
+      another list:
 
-        * first entry
+       * first entry
 
-        * second entry
+       * second entry
 
-       And a final folded
-       paragraph.
+      And a final folded
+      paragraph.
 
-   above is equal to: |
-       This is a folded paragraph followed by a list:
-        * first entry
-        * second entry
-       Followed by another folded paragraph, another list:
+  above is equal to: |
+      This is a folded paragraph followed by a list:
+       * first entry
+       * second entry
+      Followed by another folded paragraph, another list:
 
-        * first entry
+       * first entry
 
-        * second entry
+       * second entry
 
-       And a final folded paragraph.
+      And a final folded paragraph.
 
-   # Explicit comments may follow
-   # but must be less indented.
+  # Explicit comments may follow
+  # but must be less indented.
 php: |
-   array(
-     'empty' => '',
-     'one paragraph' => 'Line feeds are converted to spaces, so this value'.
-       " contains no line breaks except for the final one.\n",
-     'multiple paragraphs' => "\nAn empty line, either at the start or in the value:\n".
-       "Is interpreted as a line break. Thus this value contains three line breaks.\n",
-     'indented text' => "This is a folded paragraph followed by a list:\n".
-       " * first entry\n * second entry\nFollowed by another folded paragraph, ".
-       "another list:\n\n * first entry\n\n * second entry\n\nAnd a final folded paragraph.\n",
-     'above is equal to' => "This is a folded paragraph followed by a list:\n".
-       " * first entry\n * second entry\nFollowed by another folded paragraph, ".
-       "another list:\n\n * first entry\n\n * second entry\n\nAnd a final folded paragraph.\n"
-   )
+  array(
+    'empty' => '',
+    'one paragraph' => 'Line feeds are converted to spaces, so this value'.
+      " contains no line breaks except for the final one.\n",
+    'multiple paragraphs' => "\nAn empty line, either at the start or in the value:\n".
+      "Is interpreted as a line break. Thus this value contains three line breaks.\n",
+    'indented text' => "This is a folded paragraph followed by a list:\n".
+      " * first entry\n * second entry\nFollowed by another folded paragraph, ".
+      "another list:\n\n * first entry\n\n * second entry\n\nAnd a final folded paragraph.\n",
+    'above is equal to' => "This is a folded paragraph followed by a list:\n".
+      " * first entry\n * second entry\nFollowed by another folded paragraph, ".
+      "another list:\n\n * first entry\n\n * second entry\n\nAnd a final folded paragraph.\n"
+  )
 ---
 test: Single quotes
 todo: true
 yaml: |
-   empty: ''
-   second: '! : \ etc. can be used freely.'
-   third: 'a single quote '' must be escaped.'
-   span: 'this contains
-         six spaces
+  empty: ''
+  second: '! : \ etc. can be used freely.'
+  third: 'a single quote '' must be escaped.'
+  span: 'this contains
+        six spaces
 
-         and one
-         line break'
-   is same as: "this contains six spaces\nand one line break"
+        and one
+        line break'
+  is same as: "this contains six spaces\nand one line break"
 php: |
-   array(
-     'empty' => '',
-     'second' => '! : \\ etc. can be used freely.',
-     'third' => "a single quote ' must be escaped.",
-     'span' => "this contains six spaces\nand one line break",
-     'is same as' => "this contains six spaces\nand one line break"
-   )
+  array(
+    'empty' => '',
+    'second' => '! : \\ etc. can be used freely.',
+    'third' => "a single quote ' must be escaped.",
+    'span' => "this contains six spaces\nand one line break",
+    'is same as' => "this contains six spaces\nand one line break"
+  )
 ---
 test: Double quotes
 todo: true
 yaml: |
-   empty: ""
-   second: "! : etc. can be used freely."
-   third: "a \" or a \\ must be escaped."
-   fourth: "this value ends with an LF.\n"
-   span: "this contains
-     four  \
-         spaces"
-   is equal to: "this contains four  spaces"
+  empty: ""
+  second: "! : etc. can be used freely."
+  third: "a \" or a \\ must be escaped."
+  fourth: "this value ends with an LF.\n"
+  span: "this contains
+    four  \
+        spaces"
+  is equal to: "this contains four  spaces"
 php: |
-   array(
-     'empty' => '',
-     'second' => '! : etc. can be used freely.',
-     'third' => 'a " or a \\ must be escaped.',
-     'fourth' => "this value ends with an LF.\n",
-     'span' => "this contains four  spaces",
-     'is equal to' => "this contains four  spaces"
-   )
+  array(
+    'empty' => '',
+    'second' => '! : etc. can be used freely.',
+    'third' => 'a " or a \\ must be escaped.',
+    'fourth' => "this value ends with an LF.\n",
+    'span' => "this contains four  spaces",
+    'is equal to' => "this contains four  spaces"
+  )
 ---
 test: Unquoted strings
 todo: true
 yaml: |
-   first: There is no unquoted empty string.
+  first: There is no unquoted empty string.
 
-   second: 12          ## This is an integer.
+  second: 12          ## This is an integer.
 
-   third: !!str 12      ## This is a string.
+  third: !!str 12      ## This is a string.
 
-   span: this contains
-         six spaces
+  span: this contains
+        six spaces
 
-         and one
-         line break
+        and one
+        line break
 
-   indicators: this has no comments.
-               #:foo and bar# are
-               both text.
+  indicators: this has no comments.
+              #:foo and bar# are
+              both text.
 
-   flow: [ can span
-              lines, # comment
-              like
-              this ]
+  flow: [ can span
+             lines, # comment
+             like
+             this ]
 
-   note: { one-line keys: but multi-line values }
+  note: { one-line keys: but multi-line values }
 
 php: |
-   array(
-     'first' => 'There is no unquoted empty string.',
-     'second' => 12,
-     'third' => '12',
-     'span' => "this contains six spaces\nand one line break",
-     'indicators' => "this has no comments. #:foo and bar# are both text.",
-     'flow' => [ 'can span lines', 'like this' ],
-     'note' => { 'one-line keys' => 'but multi-line values' }
-   )
+  array(
+    'first' => 'There is no unquoted empty string.',
+    'second' => 12,
+    'third' => '12',
+    'span' => "this contains six spaces\nand one line break",
+    'indicators' => "this has no comments. #:foo and bar# are both text.",
+    'flow' => [ 'can span lines', 'like this' ],
+    'note' => { 'one-line keys' => 'but multi-line values' }
+  )
 ---
 test: Spanning sequences
 todo: true
 yaml: |
-   # The following are equal seqs
-   # with different identities.
-   flow: [ one, two ]
-   spanning: [ one,
-        two ]
-   block:
-     - one
-     - two
+  # The following are equal seqs
+  # with different identities.
+  flow: [ one, two ]
+  spanning: [ one,
+       two ]
+  block:
+    - one
+    - two
 php: |
-   array(
-     'flow' => [ 'one', 'two' ],
-     'spanning' => [ 'one', 'two' ],
-     'block' => [ 'one', 'two' ]
-   )
+  array(
+    'flow' => [ 'one', 'two' ],
+    'spanning' => [ 'one', 'two' ],
+    'block' => [ 'one', 'two' ]
+  )
 ---
 test: Flow mappings
 yaml: |
-   # The following are equal maps
-   # with different identities.
-   flow: { one: 1, two: 2 }
-   block:
-       one: 1
-       two: 2
+  # The following are equal maps
+  # with different identities.
+  flow: { one: 1, two: 2 }
+  block:
+      one: 1
+      two: 2
 php: |
-   array(
-     'flow' => array( 'one' => 1, 'two' => 2 ),
-     'block' => array( 'one' => 1, 'two' => 2 )
-   )
+  array(
+    'flow' => array( 'one' => 1, 'two' => 2 ),
+    'block' => array( 'one' => 1, 'two' => 2 )
+  )
 ---
 test: Representations of 12
 todo: true
 yaml: |
-   - 12 # An integer
-   # The following scalars
-   # are loaded to the
-   # string value '1' '2'.
-   - !!str 12
-   - '12'
-   - "12"
-   - "\
-     1\
-     2\
-     "
-   # Strings containing paths and regexps can be unquoted:
-   - /foo/bar
-   - d:/foo/bar
-   - foo/bar
-   - /a.*b/
+  - 12 # An integer
+  # The following scalars
+  # are loaded to the
+  # string value '1' '2'.
+  - !!str 12
+  - '12'
+  - "12"
+  - "\
+    1\
+    2\
+    "
+  # Strings containing paths and regexps can be unquoted:
+  - /foo/bar
+  - d:/foo/bar
+  - foo/bar
+  - /a.*b/
 php: |
-   array( 12, '12', '12', '12', '12', '/foo/bar', 'd:/foo/bar', 'foo/bar', '/a.*b/' )
+  array( 12, '12', '12', '12', '12', '/foo/bar', 'd:/foo/bar', 'foo/bar', '/a.*b/' )
 ---
 test: "Null"
 todo: true
 yaml: |
-   canonical: ~
+  canonical: ~
 
-   english: null
+  english: null
 
-   # This sequence has five
-   # entries, two with values.
-   sparse:
-     - ~
-     - 2nd entry
-     - Null
-     - 4th entry
-     -
+  # This sequence has five
+  # entries, two with values.
+  sparse:
+    - ~
+    - 2nd entry
+    - Null
+    - 4th entry
+    -
 
-   four: This mapping has five keys,
-         only two with values.
+  four: This mapping has five keys,
+        only two with values.
 
 php: |
-   array (
-     'canonical' => null,
-     'english' => null,
-     'sparse' => array( null, '2nd entry', null, '4th entry', null ]),
-     'four' => 'This mapping has five keys, only two with values.'
-   )
+  array (
+    'canonical' => null,
+    'english' => null,
+    'sparse' => array( null, '2nd entry', null, '4th entry', null ]),
+    'four' => 'This mapping has five keys, only two with values.'
+  )
 ---
 test: Omap
 todo: true
 yaml: |
-   # Explicitly typed dictionary.
-   Bestiary: !omap
-     - aardvark: African pig-like ant eater. Ugly.
-     - anteater: South-American ant eater. Two species.
-     - anaconda: South-American constrictor snake. Scary.
-     # Etc.
+  # Explicitly typed dictionary.
+  Bestiary: !omap
+    - aardvark: African pig-like ant eater. Ugly.
+    - anteater: South-American ant eater. Two species.
+    - anaconda: South-American constrictor snake. Scary.
+    # Etc.
 ruby: |
-   {
-     'Bestiary' => YAML::Omap[
-       'aardvark', 'African pig-like ant eater. Ugly.',
-       'anteater', 'South-American ant eater. Two species.',
-       'anaconda', 'South-American constrictor snake. Scary.'
-     ]
-   }
+  {
+    'Bestiary' => YAML::Omap[
+      'aardvark', 'African pig-like ant eater. Ugly.',
+      'anteater', 'South-American ant eater. Two species.',
+      'anaconda', 'South-American constrictor snake. Scary.'
+    ]
+  }
 
 ---
 test: Pairs
@@ -1500,22 +1500,22 @@ ruby: |
 ---
 test: Integer
 yaml: |
-   canonical: 12345
-   octal: 014
-   hexadecimal: 0xC
+  canonical: 12345
+  octal: 014
+  hexadecimal: 0xC
 php: |
-   array(
-     'canonical' => 12345,
-     'octal' => 12,
-     'hexadecimal' => 12
-   )
+  array(
+    'canonical' => 12345,
+    'octal' => 12,
+    'hexadecimal' => 12
+  )
 ---
 test: Float
 yaml: |
-   canonical: 1.23015e+3
-   exponential: 12.3015e+02
-   negative infinity: -.inf
-   not a number: .NaN
+  canonical: 1.23015e+3
+  exponential: 12.3015e+02
+  negative infinity: -.inf
+  not a number: .NaN
 php: |
   array(
     'canonical' => 1230.15,
@@ -1527,42 +1527,42 @@ php: |
 test: Timestamp
 todo: true
 yaml: |
-   canonical:       2001-12-15T02:59:43.1Z
-   valid iso8601:   2001-12-14t21:59:43.10-05:00
-   space separated: 2001-12-14 21:59:43.10 -05:00
-   date (noon UTC): 2002-12-14
+  canonical:       2001-12-15T02:59:43.1Z
+  valid iso8601:   2001-12-14t21:59:43.10-05:00
+  space separated: 2001-12-14 21:59:43.10 -05:00
+  date (noon UTC): 2002-12-14
 ruby: |
-   array(
-     'canonical' => YAML::mktime( 2001, 12, 15, 2, 59, 43, 0.10 ),
-     'valid iso8601' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ),
-     'space separated' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ),
-     'date (noon UTC)' => Date.new( 2002, 12, 14 )
-   )
+  array(
+    'canonical' => YAML::mktime( 2001, 12, 15, 2, 59, 43, 0.10 ),
+    'valid iso8601' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ),
+    'space separated' => YAML::mktime( 2001, 12, 14, 21, 59, 43, 0.10, "-05:00" ),
+    'date (noon UTC)' => Date.new( 2002, 12, 14 )
+  )
 ---
 test: Binary
 todo: true
 yaml: |
-   canonical: !binary "\
-    R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5\
-    OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+\
-    +f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC\
-    AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs="
-   base64: !binary |
-    R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5
-    OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+
-    +f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC
-    AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs=
-   description: >
-    The binary value above is a tiny arrow
-    encoded as a gif image.
+  canonical: !binary "\
+   R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5\
+   OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+\
+   +f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC\
+   AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs="
+  base64: !binary |
+   R0lGODlhDAAMAIQAAP//9/X17unp5WZmZgAAAOfn515eXvPz7Y6OjuDg4J+fn5
+   OTk6enp56enmlpaWNjY6Ojo4SEhP/++f/++f/++f/++f/++f/++f/++f/++f/+
+   +f/++f/++f/++f/++f/++SH+Dk1hZGUgd2l0aCBHSU1QACwAAAAADAAMAAAFLC
+   AgjoEwnuNAFOhpEMTRiggcz4BNJHrv/zCFcLiwMWYNG84BwwEeECcgggoBADs=
+  description: >
+   The binary value above is a tiny arrow
+   encoded as a gif image.
 ruby-setup: |
-   arrow_gif = "GIF89a\f\000\f\000\204\000\000\377\377\367\365\365\356\351\351\345fff\000\000\000\347\347\347^^^\363\363\355\216\216\216\340\340\340\237\237\237\223\223\223\247\247\247\236\236\236iiiccc\243\243\243\204\204\204\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371!\376\016Made with GIMP\000,\000\000\000\000\f\000\f\000\000\005,  \216\2010\236\343@\024\350i\020\304\321\212\010\034\317\200M$z\357\3770\205p\270\2601f\r\e\316\001\303\001\036\020' \202\n\001\000;"
+  arrow_gif = "GIF89a\f\000\f\000\204\000\000\377\377\367\365\365\356\351\351\345fff\000\000\000\347\347\347^^^\363\363\355\216\216\216\340\340\340\237\237\237\223\223\223\247\247\247\236\236\236iiiccc\243\243\243\204\204\204\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371\377\376\371!\376\016Made with GIMP\000,\000\000\000\000\f\000\f\000\000\005,  \216\2010\236\343@\024\350i\020\304\321\212\010\034\317\200M$z\357\3770\205p\270\2601f\r\e\316\001\303\001\036\020' \202\n\001\000;"
 ruby: |
-   {
-     'canonical' => arrow_gif,
-     'base64' => arrow_gif,
-     'description' => "The binary value above is a tiny arrow encoded as a gif image.\n"
-   }
+  {
+    'canonical' => arrow_gif,
+    'base64' => arrow_gif,
+    'description' => "The binary value above is a tiny arrow encoded as a gif image.\n"
+  }
 
 ---
 test: Merge key
@@ -1621,42 +1621,42 @@ ruby: |
 test: Default key
 todo: true
 yaml: |
-   ---     # Old schema
-   link with:
-     - library1.dll
-     - library2.dll
-   ---     # New schema
-   link with:
-     - = : library1.dll
-       version: 1.2
-     - = : library2.dll
-       version: 2.3
+  ---     # Old schema
+  link with:
+    - library1.dll
+    - library2.dll
+  ---     # New schema
+  link with:
+    - = : library1.dll
+      version: 1.2
+    - = : library2.dll
+      version: 2.3
 ruby: |
-   y = YAML::Stream.new
-   y.add( { 'link with' => [ 'library1.dll', 'library2.dll' ] } )
-   obj_h = Hash[ 'version' => 1.2 ]
-   obj_h.default = 'library1.dll'
-   obj_h2 = Hash[ 'version' => 2.3 ]
-   obj_h2.default = 'library2.dll'
-   y.add( { 'link with' => [ obj_h, obj_h2 ] } )
+  y = YAML::Stream.new
+  y.add( { 'link with' => [ 'library1.dll', 'library2.dll' ] } )
+  obj_h = Hash[ 'version' => 1.2 ]
+  obj_h.default = 'library1.dll'
+  obj_h2 = Hash[ 'version' => 2.3 ]
+  obj_h2.default = 'library2.dll'
+  y.add( { 'link with' => [ obj_h, obj_h2 ] } )
 documents: 2
 
 ---
 test: Special keys
 todo: true
 yaml: |
-   "!": These three keys
-   "&": had to be quoted
-   "=": and are normal strings.
-   # NOTE: the following node should NOT be serialized this way.
-   encoded node :
-    !special '!' : '!type'
-    !special|canonical '&' : 12
-    = : value
-   # The proper way to serialize the above node is as follows:
-   node : !!type &12 value
+  "!": These three keys
+  "&": had to be quoted
+  "=": and are normal strings.
+  # NOTE: the following node should NOT be serialized this way.
+  encoded node :
+   !special '!' : '!type'
+   !special|canonical '&' : 12
+   = : value
+  # The proper way to serialize the above node is as follows:
+  node : !!type &12 value
 ruby: |
-   { '!' => 'These three keys', '&' => 'had to be quoted',
-     '=' => 'and are normal strings.',
-     'encoded node' => YAML::PrivateType.new( 'type', 'value' ),
-     'node' => YAML::PrivateType.new( 'type', 'value' ) }
+  { '!' => 'These three keys', '&' => 'had to be quoted',
+    '=' => 'and are normal strings.',
+    'encoded node' => YAML::PrivateType.new( 'type', 'value' ),
+    'node' => YAML::PrivateType.new( 'type', 'value' ) }

@@ -1,5 +1,5 @@
-App\Domain\Anuncios\Domain\Component\Components\ComponentImage :
-  type : entity
+App\Domain\Anuncios\Domain\Component\Components\ComponentImage:
+  type: entity
   table: ComponentImage
   fields:
     imageUrl:

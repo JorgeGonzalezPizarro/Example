@@ -1,4 +1,4 @@
 attributes:
-    type: text
-    name: firstname
-    value: Adrien
+  type: text
+  name: firstname
+  value: Adrien

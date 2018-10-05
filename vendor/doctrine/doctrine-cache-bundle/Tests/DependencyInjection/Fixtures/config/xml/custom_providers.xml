@@ -6,13 +6,16 @@
                         http://doctrine-project.org/schemas/symfony-dic/cache http://doctrine-project.org/schemas/symfony-dic/cache/doctrine_cache-1.0.xsd">
 
     <srv:services>
-        <srv:service id="my_custom_provider_service" class="Doctrine\Bundle\DoctrineCacheBundle\Tests\DependencyInjection\Fixtures\Cache\MyCustomType"/>
+        <srv:service id="my_custom_provider_service"
+                     class="Doctrine\Bundle\DoctrineCacheBundle\Tests\DependencyInjection\Fixtures\Cache\MyCustomType"/>
     </srv:services>
 
     <doctrine-cache>
         <custom-provider type="my_custom_type">
             <prototype>my_custom_provider_service</prototype>
-            <definition-class>Doctrine\Bundle\DoctrineCacheBundle\Tests\DependencyInjection\Fixtures\Definition\MyCustomTypeDefinition</definition-class>
+            <definition-class>
+                Doctrine\Bundle\DoctrineCacheBundle\Tests\DependencyInjection\Fixtures\Definition\MyCustomTypeDefinition
+            </definition-class>
         </custom-provider>
 
         <custom-provider type="my_custom_type2">
@@ -20,17 +23,17 @@
         </custom-provider>
 
         <provider name="my_custom_type_provider">
-             <my_custom_type>
-                 <config-foo>foo</config-foo>
-                 <config-bar>bar</config-bar>
-             </my_custom_type>
-         </provider>
+            <my_custom_type>
+                <config-foo>foo</config-foo>
+                <config-bar>bar</config-bar>
+            </my_custom_type>
+        </provider>
 
-         <provider name="my_custom_type_provider2">
-             <my_custom_type2>
-                 <config-foobar>foobar</config-foobar>
-             </my_custom_type2>
-         </provider>
+        <provider name="my_custom_type_provider2">
+            <my_custom_type2>
+                <config-foobar>foobar</config-foobar>
+            </my_custom_type2>
+        </provider>
     </doctrine-cache>
 
 </srv:container>

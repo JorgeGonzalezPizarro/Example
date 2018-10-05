@@ -1,16 +1,16 @@
 imports:
-    - { resource: ../config/default.yml }
-    - { resource: ../config/exception_listener.yml }
+- { resource: ../config/default.yml }
+- { resource: ../config/exception_listener.yml }
 
 framework:
-    serializer:
-        enabled: true
-    templating:
-        engines: ['twig']
+  serializer:
+    enabled: true
+  templating:
+    engines: ['twig']
 
 fos_rest:
-    view:
-        view_response_listener: 'force'
+  view:
+    view_response_listener: 'force'
 
 twig:
-    strict_variables: '%kernel.debug%'
+  strict_variables: '%kernel.debug%'

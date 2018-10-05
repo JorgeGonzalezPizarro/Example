@@ -1,4 +1,4 @@
 framework:
-    translator: false
-    templating:
-        engines: [php]
+  translator: false
+  templating:
+    engines: [php]

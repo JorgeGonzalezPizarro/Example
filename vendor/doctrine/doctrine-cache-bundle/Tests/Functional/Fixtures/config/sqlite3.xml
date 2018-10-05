@@ -7,9 +7,9 @@
 
     <doctrine-cache>
         <provider name="my_sqlite3_cache">
-             <sqlite3 file-name="cache.db">
-                 <table-name>my_table</table-name>
-             </sqlite3>
-         </provider>
+            <sqlite3 file-name="cache.db">
+                <table-name>my_table</table-name>
+            </sqlite3>
+        </provider>
     </doctrine-cache>
 </srv:container>

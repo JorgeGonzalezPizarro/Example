@@ -3,7 +3,9 @@
     <class name="JMS\Serializer\Tests\Fixtures\Discriminator\ObjectWithXmlNamespaceDiscriminatorParent"
            discriminator-field-name="type"
     >
-        <discriminator-class value="child">JMS\Serializer\Tests\Fixtures\Discriminator\ObjectWithXmlNamespaceDiscriminatorChild</discriminator-class>
-        <xml-discriminator namespace="http://example.com/" />
+        <discriminator-class value="child">
+            JMS\Serializer\Tests\Fixtures\Discriminator\ObjectWithXmlNamespaceDiscriminatorChild
+        </discriminator-class>
+        <xml-discriminator namespace="http://example.com/"/>
     </class>
 </serializer>

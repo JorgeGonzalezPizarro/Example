@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 
 <container xmlns="http://symfony.com/schema/dic/services"
-    xmlns:project="http://www.example.com/schema/project">
+           xmlns:project="http://www.example.com/schema/project">
 
     <parameters>
         <parameter key="project.parameter.foo">BAR</parameter>
@@ -12,7 +12,7 @@
     </services>
 
     <project:bar babar="babar">
-        <another />
+        <another/>
         <another2>%project.parameter.foo%</another2>
     </project:bar>
 

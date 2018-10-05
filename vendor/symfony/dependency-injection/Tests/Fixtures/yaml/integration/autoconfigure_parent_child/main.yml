@@ -1,8 +1,8 @@
 imports:
-    - { resource: _child.yml }
+- { resource: _child.yml }
 
 services:
-    parent_service:
-        class: Symfony\Component\DependencyInjection\Tests\Compiler\IntegrationTestStub
-        autoconfigure: true
-        public: true
+  parent_service:
+    class: Symfony\Component\DependencyInjection\Tests\Compiler\IntegrationTestStub
+    autoconfigure: true
+    public: true

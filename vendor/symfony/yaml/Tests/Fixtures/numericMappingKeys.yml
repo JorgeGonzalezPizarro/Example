@@ -10,14 +10,14 @@ php: |
 ---
 test: Integers as Map Keys
 brief: >
-    An integer can be used as dictionary key.
+  An integer can be used as dictionary key.
 yaml: |
-    1: one
-    2: two
-    3: three
+  1: one
+  2: two
+  3: three
 php: |
-    array(
-        1 => 'one',
-        2 => 'two',
-        3 => 'three'
-    )
+  array(
+      1 => 'one',
+      2 => 'two',
+      3 => 'three'
+  )

@@ -1,6 +1,6 @@
 imports:
-    - { resource: config.yml }
+- { resource: config.yml }
 
 framework:
-    annotations:
-        cache: none
+  annotations:
+    cache: none

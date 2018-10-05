@@ -1,5 +1,5 @@
 framework:
-    serializer:
-        enabled: false
-    messenger:
-        serializer: false
+  serializer:
+    enabled: false
+  messenger:
+    serializer: false

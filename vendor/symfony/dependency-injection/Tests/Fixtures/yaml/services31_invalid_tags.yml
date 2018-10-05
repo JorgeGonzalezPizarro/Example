@@ -1,6 +1,6 @@
 services:
-    _defaults:
-        tags: ['foo']
+  _defaults:
+    tags: ['foo']
 
-    Foo\Bar:
-        tags: invalid
+  Foo\Bar:
+    tags: invalid

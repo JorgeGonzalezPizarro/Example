@@ -1,8 +1,8 @@
 old_sound_rabbit_mq:
 
-    connections:
-        default:
+  connections:
+    default:
 
-    producers:
-        producer:
-            connection: default
+  producers:
+    producer:
+      connection: default

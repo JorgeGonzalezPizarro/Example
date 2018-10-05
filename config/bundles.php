@@ -11,7 +11,9 @@ $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
     'dbname'   => 'example',
+
 );
+
 
 $cache = new \Doctrine\Common\Cache\ArrayCache();
 

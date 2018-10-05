@@ -1,28 +1,28 @@
 App\Domain\Anuncios\Domain\Component\Component:
   type: entity
   inheritanceType: JOINED
-  discriminatorColumn :
-    name : discr
-    type : string
-  discriminatorMap :
-    file : App\Domain\Anuncios\Domain\Component\Components\ComponentFile
-    video : App\Domain\Anuncios\Domain\Component\Components\ComponentImage
-    image : App\Domain\Anuncios\Domain\Component\Components\ComponentVideo
+  discriminatorColumn:
+    name: discr
+    type: string
+  discriminatorMap:
+    file: App\Domain\Anuncios\Domain\Component\Components\ComponentFile
+    video: App\Domain\Anuncios\Domain\Component\Components\ComponentImage
+    image: App\Domain\Anuncios\Domain\Component\Components\ComponentVideo
 
   id:
-     componentId:
-       name: componentId
-       type: string
+    componentId:
+      name: componentId
+      type: string
   fields:
-     ancho:
-       column: ancho
-       type: string
-     alto:
-       column: alto
-       type: string
-     nombre:
-       column: nombre
-       type: string
-     anuncioId:
-       name: anuncioId
-       type: string
+    ancho:
+      column: ancho
+      type: string
+    alto:
+      column: alto
+      type: string
+    nombre:
+      column: nombre
+      type: string
+    anuncioId:
+      name: anuncioId
+      type: string
