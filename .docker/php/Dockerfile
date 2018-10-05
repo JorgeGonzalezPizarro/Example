@@ -20,6 +20,6 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
 
 WORKDIR /home/wwwroot/
-
+COPY ../../php.ini /var/www
 EXPOSE 9000
 CMD ["php-fpm"]
