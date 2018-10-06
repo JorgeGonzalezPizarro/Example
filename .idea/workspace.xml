@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="753c134c-685a-49c9-9e9d-8b298ffde728" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/httpd.conf" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -237,17 +237,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Dockerfile">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                <state relative-caret-position="546">
+                  <caret line="38" column="37" lean-forward="false" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="httpd.conf" pinned="false" current-in-tab="true">
+          <file leaf-file-name="httpd.conf" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/httpd.conf">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="790">
@@ -368,8 +368,8 @@
         <option value="$PROJECT_DIR$/.docker/php/Dockerfile" />
         <option value="$PROJECT_DIR$/.docker/httpd.conf" />
         <option value="$PROJECT_DIR$/Dockerfile_2" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/httpd.conf" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
       </list>
     </option>
   </component>
@@ -630,12 +630,12 @@
       <workItem from="1538749756454" duration="2336000" />
       <workItem from="1538832474094" duration="6283000" />
       <workItem from="1538844008594" duration="410000" />
-      <workItem from="1538844477466" duration="785000" />
+      <workItem from="1538844477466" duration="968000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180682000" />
+    <option name="totallyTimeSpent" value="180865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1121,18 +1121,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/httpd.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="790">
           <caret line="115" column="42" lean-forward="false" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="38" column="37" lean-forward="false" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
           <folding />
         </state>
       </provider>
