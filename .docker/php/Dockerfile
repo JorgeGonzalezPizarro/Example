@@ -1,4 +1,4 @@
-FROM php:7.2.3-fpm
+FROM php:7.2-apache
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
@@ -20,6 +20,5 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
 
 WORKDIR /home/wwwroot/
-COPY ../../php.ini /var/www
 EXPOSE 9000
 CMD ["php-fpm"]

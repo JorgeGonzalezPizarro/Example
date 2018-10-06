@@ -5,8 +5,8 @@ RUN apt-get update \
     build-essential locales acl mailutils wget zip unzip \
     gnupg gnupg1 gnupg2
 
-COPY php.ini /etc/php/7.2.3/php.ini
-COPY php-fpm-pool.conf /etc/php/7.2.3/pool.d/www.conf
+COPY .docker/php/php.ini /etc/php/7.2.3/php.ini
+COPY .docker/php/php-fpm-pool.conf /etc/php/7.2.3/pool.d/www.conf
 
 RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
    mv composer.phar /usr/local/bin/composer
@@ -20,6 +20,7 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
 
 WORKDIR /home/wwwroot/
-
+COPY ./ /var/www
+VOLUME  ./ : /var/www
 EXPOSE 9000
 CMD ["php-fpm"]
