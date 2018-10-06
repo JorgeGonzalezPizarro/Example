@@ -1,11 +1,19 @@
 FROM alpine:3.4
 MAINTAINER Joeri van Dooren <ure@mororless.be>
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
+RUN apk --no-cache add --update tar rsync openssl curl python ca-certificates ssmtp nodejs git mysql-client openssh-client php5 php5-xmlrpc php5-zip php5-xmlreader php5-wddx php5-pdo_dblib php5-xsl php5-zlib php5-xml php5-mssql php5-opcache php5-pspell php5-pdo_mysql php5-sysvsem php5-pdo_odbc php5-pgsql php5-sysvmsg php5-phar php5-pdo_sqlite php5-posix php5-pdo_pgsql php5-curl php5-sqlite3 php5-shmop php5-soap php5-snmp php5-sockets php5-sysvshm php5-gmp php5-pdo php5-imap php5-gd php5-openssl php5-json php5-intl php5-ldap php5-mysql php5-mcrypt php5-gettext php5-iconv php5-pcntl php5-mysqli php5-odbc php5-apache2 php5-ctype php5-dba php5-fpm php5-dom php5-exif php5-phpdbg && rm -f /var/cache/apk/* && \
+    update-ca-certificates && \
+    apk --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --update add php5-redis && \
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+mkdir /app && chmod a+rwx /app && \
+mkdir /run/apache2/ && \
+chmod a+rwx /run/apache2/ && \
+npm install -g bower
+
+
+RUNapk --no-cache add --update tar rsync openssl curl vim  debconf subversion git apt-transport-https apt-utils \
     build-essential locales acl mailutils wget zip unzip \
     gnupg gnupg1 gnupg2
-
 # Apache config
 ADD httpd.conf /etc/apache2/httpd.conf
 
