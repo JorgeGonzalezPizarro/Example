@@ -19,6 +19,7 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
     locale-gen
+ADD httpd.conf /etc/apache2/httpd.conf
 
 WORKDIR /home/wwwroot/
 COPY ./ /var/www
