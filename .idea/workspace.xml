@@ -260,8 +260,8 @@
           <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Dockerfile">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
-                  <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                <state relative-caret-position="210">
+                  <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -630,7 +630,7 @@
       <workItem from="1538749756454" duration="2336000" />
       <workItem from="1538832474094" duration="6283000" />
       <workItem from="1538844008594" duration="410000" />
-      <workItem from="1538844477466" duration="5555000" />
+      <workItem from="1538844477466" duration="5850000" />
     </task>
     <task id="LOCAL-00001" summary="Expose 8080:">
       <created>1538848934476</created>
@@ -643,7 +643,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185452000" />
+    <option name="totallyTimeSpent" value="185747000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1143,8 +1143,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
