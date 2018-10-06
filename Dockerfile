@@ -10,7 +10,6 @@ COPY .docker/php/php-fpm-pool.conf /etc/php/7.2.3/pool.d/www.conf
 
 RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
    mv composer.phar /usr/local/bin/composer
-ENV DISPLAY_ERRORS="On"
 
 RUN rm -rf /var/lib/apt/lists/*
 RUN rm -rf /var/lib/apt/lists/*
