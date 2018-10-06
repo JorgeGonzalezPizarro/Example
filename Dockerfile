@@ -1,4 +1,4 @@
-FROM php:7.2-apache
+FROM php:7.2
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
