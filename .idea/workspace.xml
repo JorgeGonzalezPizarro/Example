@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="753c134c-685a-49c9-9e9d-8b298ffde728" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile_3" afterPath="$PROJECT_DIR$/Dockerfile_3" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -242,7 +242,7 @@
             <entry file="file://$PROJECT_DIR$/Dockerfile_3">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
-                  <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                  <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -261,8 +261,8 @@
           <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Dockerfile">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="294">
-                  <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -320,7 +320,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Domain/Anuncios/Exception/DomainException.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Domain/Component/Components/ComponentImage.php" />
         <option value="$PROJECT_DIR$/src/Domain/Anuncios/Exception/ImplementDomainException.php" />
         <option value="$PROJECT_DIR$/src/IO/Events/EventPublisher.php" />
@@ -370,6 +369,7 @@
         <option value="$PROJECT_DIR$/.docker/httpd.conf" />
         <option value="$PROJECT_DIR$/Dockerfile_2" />
         <option value="$PROJECT_DIR$/httpd.conf" />
+        <option value="$PROJECT_DIR$/Dockerfile_3" />
         <option value="$PROJECT_DIR$/Dockerfile" />
       </list>
     </option>
@@ -631,7 +631,7 @@
       <workItem from="1538749756454" duration="2336000" />
       <workItem from="1538832474094" duration="6283000" />
       <workItem from="1538844008594" duration="410000" />
-      <workItem from="1538844477466" duration="3504000" />
+      <workItem from="1538844477466" duration="4236000" />
     </task>
     <task id="LOCAL-00001" summary="Expose 8080:">
       <created>1538848934476</created>
@@ -644,7 +644,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183401000" />
+    <option name="totallyTimeSpent" value="184133000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1137,15 +1137,15 @@
     <entry file="file://$PROJECT_DIR$/Dockerfile_3">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        <state relative-caret-position="0">
+          <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
           <folding />
         </state>
       </provider>

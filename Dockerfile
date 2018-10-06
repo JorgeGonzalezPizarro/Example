@@ -1,4 +1,4 @@
-FROM php:7.2-apache-stretch
+FROM php:7.2-apache
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
@@ -19,7 +19,10 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen
 ADD httpd.conf /etc/apache2/httpd.conf
 
-WORKDIR /home/wwwroot/
-COPY ./ /var/www
+ADD . /app/index.php
+
+EXPOSE 8080
+
+WORKDIR /app
 EXPOSE 8080
 CMD ["php"]
