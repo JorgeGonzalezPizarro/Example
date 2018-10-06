@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="753c134c-685a-49c9-9e9d-8b298ffde728" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.docker/httpd.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile_2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +78,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Dockerfile" value="452" />
+          <entry key="Dockerfile" value="459" />
           <entry key="PHP Console" value="2" />
           <entry key="conf" value="19" />
           <entry key="env" value="150" />
@@ -94,7 +91,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="150" />
-          <entry key="Dockerfile" value="452" />
+          <entry key="Dockerfile" value="459" />
           <entry key="Ini" value="5" />
           <entry key="PHP" value="7224" />
           <entry key="SmartyConfig" value="19" />
@@ -265,8 +262,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Dockerfile_2">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+                <state relative-caret-position="34">
+                  <caret line="2" selection-start-line="2" selection-end-line="5" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -274,8 +271,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Dockerfile">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+                <state relative-caret-position="102">
+                  <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -474,8 +471,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
+    <option name="x" value="194" />
+    <option name="width" value="1733" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -581,12 +578,12 @@
       <workItem from="1538502122738" duration="639000" />
       <workItem from="1538503081792" duration="204000" />
       <workItem from="1538749756454" duration="2336000" />
-      <workItem from="1538832474094" duration="5278000" />
+      <workItem from="1538832474094" duration="5759000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178482000" />
+    <option name="totallyTimeSpent" value="178963000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -598,10 +595,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="194" y="0" width="1733" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4985119" visible="true" weight="0.392779" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4985119" visible="true" weight="0.21458457" />
       <window_info id="Structure" order="1" sideWeight="0.5014881" side_tool="true" weight="0.20202559" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1083,13 +1080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile_2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.docker/httpd.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="822">
@@ -1097,10 +1087,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile_2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        <state relative-caret-position="102">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>
