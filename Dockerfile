@@ -17,10 +17,13 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
     locale-gen
+EXPOSE 9000
+CMD ["php"]
+FROM httpd:2.4
+
 COPY httpd.conf /etc/apache2/httpd.conf
 
-COPY . /app/
+#COPY . /app/
+COPY ./ /usr/local/apache2/htdocs/Example
 
 EXPOSE 8080
-
-CMD ["php"]
