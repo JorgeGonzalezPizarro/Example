@@ -7,7 +7,6 @@ RUN apt-get update \
 
 COPY .docker/php/php.ini /etc/php/7.2.3/php.ini
 COPY .docker/php/php-fpm-pool.conf /etc/php/7.2.3/pool.d/www.conf
-WORKDIR /app
 
 RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
    mv composer.phar /usr/local/bin/composer
