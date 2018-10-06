@@ -1,4 +1,4 @@
-FROM php:7.2
+FROM php:7.2.10-fpm-stretch
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
@@ -17,9 +17,9 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
     locale-gen
-ADD httpd.conf /etc/apache2/httpd.conf
+COPY httpd.conf /etc/apache2/httpd.conf
 
-ADD . /app/
+COPY . /app/
 
 EXPOSE 8080
 
