@@ -22,6 +22,5 @@ RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
 
 WORKDIR /home/wwwroot/
 COPY ./ /var/www
-VOLUME   /var/www
 EXPOSE 9000
 CMD ["php"]
