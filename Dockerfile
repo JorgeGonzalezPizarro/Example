@@ -11,10 +11,10 @@ FROM php:7.2-apache-stretch
 #npm install -g bower
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends vim curl debconf
-    subversion git apt-transport-https apt-utils \
+    && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
     build-essential locales acl mailutils wget zip unzip \
     gnupg gnupg1 gnupg2
+
 
 COPY .docker/php/php.ini /etc/php/7.2.3/php.ini
 COPY .docker/php/php-fpm-pool.conf /etc/php/7.2.3/pool.d/www.conf
