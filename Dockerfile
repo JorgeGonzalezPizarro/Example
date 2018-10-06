@@ -10,14 +10,11 @@ FROM php:7.2-apache-stretch
 #chmod a+rwx /run/apache2/ && \
 #npm install -g bower
 
-
-RUN apk --no-cache add --update tar rsync openssl curl vim  debconf subversion git apt-transport-https apt-utils \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends vim curl debconf
+    subversion git apt-transport-https apt-utils \
     build-essential locales acl mailutils wget zip unzip \
-    mkdir /app && chmod a+rwx /app && \
-    mkdir /run/apache2/ && \
-    chmod a+rwx /run/apache2/
-    build-essential locales acl mailutils wget zip unzip \
-     gnupg gnupg1 gnupg2
+    gnupg gnupg1 gnupg2
 
 COPY .docker/php/php.ini /etc/php/7.2.3/php.ini
 COPY .docker/php/php-fpm-pool.conf /etc/php/7.2.3/pool.d/www.conf
