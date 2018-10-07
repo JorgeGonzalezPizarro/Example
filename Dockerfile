@@ -1,4 +1,4 @@
-FROM php:7-alpine-fpm
+FROM php:7-fpm-alpine
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
