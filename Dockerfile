@@ -1,4 +1,4 @@
-FROM php:7.2.10-fpm-stretch
+FROM php:7.2.10-apache
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
@@ -16,9 +16,9 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
     locale-gen
-EXPOSE 9000
+#EXPOSE 9000
 CMD ["php"]
-FROM httpd:2.4
+#FROM httpd:2.4
 
 #COPY httpd.conf /etc/apache2/httpd.conf
 
