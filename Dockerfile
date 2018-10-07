@@ -26,4 +26,4 @@ COPY httpd.conf /etc/apache2/httpd.conf
 COPY ./ /var/www/
 
 EXPOSE 8080
-CMD ["php"]
+#CMD ["php"]
