@@ -27,3 +27,4 @@ COPY ./ /var/www/
 
 EXPOSE 8080
 #CMD ["php"]
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
