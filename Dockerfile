@@ -20,7 +20,7 @@ EXPOSE 9000
 CMD ["php"]
 FROM httpd:2.4
 
-COPY httpd.conf /etc/apache2/httpd.conf
+#COPY httpd.conf /etc/apache2/httpd.conf
 
 #COPY . /app/
 #COPY ./ /usr/local/apache2/htdocs/Example
