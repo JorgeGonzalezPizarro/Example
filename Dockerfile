@@ -1,9 +1,9 @@
 FROM php:7-fpm-alpine
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
-    build-essential locales acl mailutils wget zip unzip \
-    gnupg gnupg1 gnupg2
+#RUN apt-get update \
+#    && apt-get install -y --no-install-recommends vim curl debconf subversion git apt-transport-https apt-utils \
+#    build-essential locales acl mailutils wget zip unzip \
+#    gnupg gnupg1 gnupg2
 
 COPY .docker/php/php.ini /etc/php/7.2.10/php.ini
 COPY .docker/php/php-fpm-pool.conf /etc/php/7.2.10/pool.d/www.conf
