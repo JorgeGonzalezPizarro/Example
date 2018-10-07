@@ -27,4 +27,4 @@ COPY ./ /var/www/
 
 EXPOSE 8080
 #CMD ["php"]
-CMD ["httpd-foreground"]
+#CMD ["httpd-foreground"]
