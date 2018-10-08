@@ -20,7 +20,7 @@ RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
 FROM httpd:2.4-alpine
 
 #COPY httpd.conf /etc/apache2/httpd.conf
-COPY httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY httpd.conf /etc/httpd/conf/httpd.conf
 
 #COPY . /app/
 #COPY ./ /usr/local/apache2/htdocs/Example
