@@ -1,3 +1,4 @@
 ###> docker ###
 .docker/data/*
 ###< docker ###
+.idea/workspace.xml
