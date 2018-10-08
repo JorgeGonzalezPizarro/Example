@@ -17,9 +17,10 @@ RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
 #    echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
 #    locale-gen
 #EXPOSE 9000
-FROM httpd:2.4
+FROM httpd:2.4-alpine
 
-COPY httpd.conf /etc/apache2/httpd.conf
+#COPY httpd.conf /etc/apache2/httpd.conf
+COPY httpd.conf /usr/local/apache2/conf/httpd.conf
 
 #COPY . /app/
 #COPY ./ /usr/local/apache2/htdocs/Example
